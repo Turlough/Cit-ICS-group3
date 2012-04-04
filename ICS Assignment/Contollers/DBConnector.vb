@@ -49,7 +49,7 @@ Public Class DBConnector
         TA.Fill(DT)
         sqCon.Close()
         Return DT
-        Return DT
+
     End Function
 
     ''' <summary>
@@ -74,12 +74,25 @@ Public Class DBConnector
         Return ID
     End Function
 
-    Protected Sub quickInsert(SQL)
+    Protected Sub quickInsert(SQL As String)
         Dim ID As Integer
         sqCmd.Connection = sqCon            'create the DB connection
         sqCmd.CommandText = SQL
         sqCon.Open()                        'open the connection
         ID = sqCmd.ExecuteNonQuery()        'execute the SQL command
+        sqCon.Close()                       'close the connection
+    End Sub
+    Protected Sub update(SQL As String)
+        sqCmd.Connection = sqCon            'create the DB connection
+        sqCmd.CommandText = sql
+        sqCon.Open()                        'open the connection
+        sqCmd.ExecuteNonQuery()        'execute the SQL command
+        sqCon.Close()                       'close the connection
+    End Sub
+    Protected Sub update(cmd As SqlClient.SqlCommand)
+        sqCmd.Connection = sqCon            'create the DB connection
+        sqCon.Open()                        'open the connection
+        sqCmd.ExecuteNonQuery()        'execute the SQL command
         sqCon.Close()                       'close the connection
     End Sub
 

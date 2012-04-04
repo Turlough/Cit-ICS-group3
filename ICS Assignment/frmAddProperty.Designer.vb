@@ -46,8 +46,12 @@ Partial Class frmAddProperty
         Me.txtSname = New System.Windows.Forms.TextBox()
         Me.txtFname = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.rbOwner = New System.Windows.Forms.RadioButton()
+        Me.rbLandlord = New System.Windows.Forms.RadioButton()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
         Me.SuspendLayout()
         '
         'txtAdd1
@@ -57,7 +61,7 @@ Partial Class frmAddProperty
         Me.txtAdd1.Location = New System.Drawing.Point(86, 22)
         Me.txtAdd1.Margin = New System.Windows.Forms.Padding(2)
         Me.txtAdd1.Name = "txtAdd1"
-        Me.txtAdd1.Size = New System.Drawing.Size(333, 20)
+        Me.txtAdd1.Size = New System.Drawing.Size(345, 20)
         Me.txtAdd1.TabIndex = 0
         '
         'txtAdd2
@@ -67,7 +71,7 @@ Partial Class frmAddProperty
         Me.txtAdd2.Location = New System.Drawing.Point(86, 51)
         Me.txtAdd2.Margin = New System.Windows.Forms.Padding(2)
         Me.txtAdd2.Name = "txtAdd2"
-        Me.txtAdd2.Size = New System.Drawing.Size(333, 20)
+        Me.txtAdd2.Size = New System.Drawing.Size(345, 20)
         Me.txtAdd2.TabIndex = 1
         '
         'txtTown
@@ -77,7 +81,7 @@ Partial Class frmAddProperty
         Me.txtTown.Location = New System.Drawing.Point(86, 77)
         Me.txtTown.Margin = New System.Windows.Forms.Padding(2)
         Me.txtTown.Name = "txtTown"
-        Me.txtTown.Size = New System.Drawing.Size(333, 20)
+        Me.txtTown.Size = New System.Drawing.Size(345, 20)
         Me.txtTown.TabIndex = 2
         '
         'txtCounty
@@ -87,7 +91,7 @@ Partial Class frmAddProperty
         Me.txtCounty.Location = New System.Drawing.Point(86, 102)
         Me.txtCounty.Margin = New System.Windows.Forms.Padding(2)
         Me.txtCounty.Name = "txtCounty"
-        Me.txtCounty.Size = New System.Drawing.Size(333, 20)
+        Me.txtCounty.Size = New System.Drawing.Size(345, 20)
         Me.txtCounty.TabIndex = 3
         '
         'Label1
@@ -133,7 +137,7 @@ Partial Class frmAddProperty
         'btnSave
         '
         Me.btnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnSave.Location = New System.Drawing.Point(334, 420)
+        Me.btnSave.Location = New System.Drawing.Point(341, 472)
         Me.btnSave.Margin = New System.Windows.Forms.Padding(2)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(104, 45)
@@ -163,15 +167,16 @@ Partial Class frmAddProperty
         Me.GroupBox1.Controls.Add(Me.txtFname)
         Me.GroupBox1.Location = New System.Drawing.Point(13, 13)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(427, 240)
+        Me.GroupBox1.Size = New System.Drawing.Size(434, 240)
         Me.GroupBox1.TabIndex = 18
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Owner"
         '
         'Label10
         '
+        Me.Label10.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(204, 22)
+        Me.Label10.Location = New System.Drawing.Point(206, 22)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(122, 13)
         Me.Label10.TabIndex = 12
@@ -179,7 +184,8 @@ Partial Class frmAddProperty
         '
         'btnSearchCustomers
         '
-        Me.btnSearchCustomers.Location = New System.Drawing.Point(342, 17)
+        Me.btnSearchCustomers.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnSearchCustomers.Location = New System.Drawing.Point(344, 17)
         Me.btnSearchCustomers.Name = "btnSearchCustomers"
         Me.btnSearchCustomers.Size = New System.Drawing.Size(75, 23)
         Me.btnSearchCustomers.TabIndex = 11
@@ -211,7 +217,7 @@ Partial Class frmAddProperty
         Me.txtEmail.Location = New System.Drawing.Point(89, 117)
         Me.txtEmail.Margin = New System.Windows.Forms.Padding(2)
         Me.txtEmail.Name = "txtEmail"
-        Me.txtEmail.Size = New System.Drawing.Size(333, 20)
+        Me.txtEmail.Size = New System.Drawing.Size(340, 20)
         Me.txtEmail.TabIndex = 4
         '
         'txtPhone
@@ -221,7 +227,7 @@ Partial Class frmAddProperty
         Me.txtPhone.Location = New System.Drawing.Point(89, 93)
         Me.txtPhone.Margin = New System.Windows.Forms.Padding(2)
         Me.txtPhone.Name = "txtPhone"
-        Me.txtPhone.Size = New System.Drawing.Size(333, 20)
+        Me.txtPhone.Size = New System.Drawing.Size(340, 20)
         Me.txtPhone.TabIndex = 3
         '
         'Label7
@@ -260,7 +266,7 @@ Partial Class frmAddProperty
         Me.txtAddress.Margin = New System.Windows.Forms.Padding(2)
         Me.txtAddress.Multiline = True
         Me.txtAddress.Name = "txtAddress"
-        Me.txtAddress.Size = New System.Drawing.Size(333, 86)
+        Me.txtAddress.Size = New System.Drawing.Size(340, 86)
         Me.txtAddress.TabIndex = 5
         '
         'txtSname
@@ -270,7 +276,7 @@ Partial Class frmAddProperty
         Me.txtSname.Location = New System.Drawing.Point(89, 69)
         Me.txtSname.Margin = New System.Windows.Forms.Padding(2)
         Me.txtSname.Name = "txtSname"
-        Me.txtSname.Size = New System.Drawing.Size(333, 20)
+        Me.txtSname.Size = New System.Drawing.Size(340, 20)
         Me.txtSname.TabIndex = 2
         '
         'txtFname
@@ -280,7 +286,7 @@ Partial Class frmAddProperty
         Me.txtFname.Location = New System.Drawing.Point(89, 45)
         Me.txtFname.Margin = New System.Windows.Forms.Padding(2)
         Me.txtFname.Name = "txtFname"
-        Me.txtFname.Size = New System.Drawing.Size(333, 20)
+        Me.txtFname.Size = New System.Drawing.Size(340, 20)
         Me.txtFname.TabIndex = 1
         '
         'GroupBox2
@@ -295,18 +301,54 @@ Partial Class frmAddProperty
         Me.GroupBox2.Controls.Add(Me.txtTown)
         Me.GroupBox2.Controls.Add(Me.Label4)
         Me.GroupBox2.Controls.Add(Me.txtCounty)
-        Me.GroupBox2.Location = New System.Drawing.Point(11, 274)
+        Me.GroupBox2.Location = New System.Drawing.Point(11, 322)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(424, 132)
+        Me.GroupBox2.Size = New System.Drawing.Size(436, 132)
         Me.GroupBox2.TabIndex = 19
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Property"
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox3.Controls.Add(Me.rbLandlord)
+        Me.GroupBox3.Controls.Add(Me.rbOwner)
+        Me.GroupBox3.Location = New System.Drawing.Point(11, 263)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(436, 54)
+        Me.GroupBox3.TabIndex = 20
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Relationship"
+        '
+        'rbOwner
+        '
+        Me.rbOwner.AutoSize = True
+        Me.rbOwner.Checked = True
+        Me.rbOwner.Location = New System.Drawing.Point(166, 20)
+        Me.rbOwner.Name = "rbOwner"
+        Me.rbOwner.Size = New System.Drawing.Size(56, 17)
+        Me.rbOwner.TabIndex = 0
+        Me.rbOwner.TabStop = True
+        Me.rbOwner.Text = "Owner"
+        Me.rbOwner.UseVisualStyleBackColor = True
+        '
+        'rbLandlord
+        '
+        Me.rbLandlord.AutoSize = True
+        Me.rbLandlord.Location = New System.Drawing.Point(239, 20)
+        Me.rbLandlord.Name = "rbLandlord"
+        Me.rbLandlord.Size = New System.Drawing.Size(66, 17)
+        Me.rbLandlord.TabIndex = 1
+        Me.rbLandlord.Text = "Landlord"
+        Me.rbLandlord.UseVisualStyleBackColor = True
         '
         'frmAddProperty
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(451, 484)
+        Me.ClientSize = New System.Drawing.Size(458, 536)
+        Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btnSave)
@@ -317,6 +359,8 @@ Partial Class frmAddProperty
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -344,4 +388,7 @@ Partial Class frmAddProperty
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents btnSearchCustomers As System.Windows.Forms.Button
+    Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
+    Friend WithEvents rbLandlord As System.Windows.Forms.RadioButton
+    Friend WithEvents rbOwner As System.Windows.Forms.RadioButton
 End Class

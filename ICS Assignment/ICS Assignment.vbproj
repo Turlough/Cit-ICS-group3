@@ -102,6 +102,12 @@
     <Compile Include="frmAppointments.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmFindProperties.Designer.vb">
+      <DependentUpon>frmFindProperties.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmFindProperties.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmHomeScreen.Designer.vb">
       <DependentUpon>frmHomeScreen.vb</DependentUpon>
     </Compile>
@@ -137,6 +143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAppointments.resx">
       <DependentUpon>frmAppointments.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFindProperties.resx">
+      <DependentUpon>frmFindProperties.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmHomeScreen.resx">
       <DependentUpon>frmHomeScreen.vb</DependentUpon>

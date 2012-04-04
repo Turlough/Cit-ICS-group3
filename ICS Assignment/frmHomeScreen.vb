@@ -66,4 +66,9 @@
     Private Sub SearchToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles SearchToolStripMenuItem.Click
         frmFindCustomer.Show()
     End Sub
+
+    Private Sub btnSearchProperty_Click(sender As System.Object, e As System.EventArgs) Handles btnSearchProperty.Click
+        frmFindProperties.Show()
+
+    End Sub
 End Class
