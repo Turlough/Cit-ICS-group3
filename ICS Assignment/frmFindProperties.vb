@@ -32,7 +32,7 @@ Public Class frmFindProperties
     End Sub
 
 
-    Private Sub dgvProperties_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvProperties.CellContentClick
+    Private Sub dgvProperties_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvProperties.CellClick
         With dgvProperties
             Dim r As Integer = e.RowIndex
             .Rows(r).Selected = True    ' select the entire row
@@ -46,6 +46,7 @@ Public Class frmFindProperties
     End Sub
     Sub fillDetails()
         prop.loadProperty(Properties.propid)
+
         With prop
             txtAdd1.Text = .add1
             txtAdd2.Text = .add2
@@ -54,7 +55,16 @@ Public Class frmFindProperties
             rtbDescription.Text = .description
             txtStatus.Text = .status
             txtPrice.Text = .price
-            pbxPhoto.Image = .photo
+            prop.imageSource = "c:\img\" & Properties.propid & ".jpg"
+            With My.Computer.FileSystem
+
+                If .FileExists(prop.imageSource) Then
+                    pbxPhoto.Load(prop.imageSource)
+
+                Else
+                    pbxPhoto.Image = Nothing
+                End If
+            End With
 
         End With
 
@@ -64,14 +74,12 @@ Public Class frmFindProperties
         Dim d As New OpenFileDialog()
         Dim s As String
         d.InitialDirectory = "E:\ICS\houses"
+
         s = d.ShowDialog()
-        prop.imageSource = d.FileName
-        pbxPhoto.Load(prop.imageSource)
-
-        With My.Computer.FileSystem
-            If .f Then
-        End With
-
+        s = d.FileName
+        prop.imageSource = "c:\img\" & Properties.propid & ".jpg"
+        pbxPhoto.Load(s)
+        FileCopy(s, prop.imageSource)
 
     End Sub
 
