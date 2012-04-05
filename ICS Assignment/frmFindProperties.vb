@@ -65,8 +65,12 @@ Public Class frmFindProperties
         Dim s As String
         d.InitialDirectory = "E:\ICS\houses"
         s = d.ShowDialog()
-        s = d.FileName
-        pbxPhoto.Load(s)
+        prop.imageSource = d.FileName
+        pbxPhoto.Load(prop.imageSource)
+
+        With My.Computer.FileSystem
+            If .f Then
+        End With
 
 
     End Sub
@@ -95,7 +99,7 @@ Public Class frmFindProperties
 
             'update DB
             .updateProperty()
-            .setPhoto(.photo)
+            .setPhoto()
         End With
         'hide show buttons
         btnEdit.Visible = True

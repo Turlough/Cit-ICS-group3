@@ -9,7 +9,7 @@
     Public numBeds As Integer
     Public price As Integer
     Public status As String
-    Public imageSource As String
+    Public imageSource As String = ""
     Public photo As Image
 
     Sub CreateProperty(a1 As String, a2 As String, town As String, county As String)
@@ -116,24 +116,28 @@
 
         update(SQL)
     End Sub
-    Sub setPhoto(img As Image)
+    Sub setPhoto()
+        If imageSource.Length = 0 Then Exit Sub
+
         SQL = "UPDATE property SET photo = @Img WHERE id = " & propid
         Using cmd As New System.Data.SqlClient.SqlCommand(SQL)
             Dim par As New SqlClient.SqlParameter("@Img", SqlDbType.Image)
-            par.Value = img
+            par.Value = IO.File.ReadAllBytes(imageSource)
             cmd.Parameters.Add(par)
             update(cmd)
+            MsgBox(par.Value.getLength(0))
         End Using
     End Sub
     Function getPhoto() As Image
         SQL = "SELECT photo FROM property WHERE id = " & propid
         Dim dt As DataTable = getData(SQL)
-
+        'MsgBox(dt.Rows(0).Item(0))
 
         Dim img As Image = Nothing
         Try
             Dim b As Byte() = CType(dt.Rows(0).Item(0), Byte())
-            Using ms As New IO.MemoryStream(b)
+            MsgBox(b.GetLength(0))
+            Using ms As New IO.MemoryStream(CType(dt.Rows(0).Item(0), Byte()))
                 img = Image.FromStream(ms)
             End Using
             dt = Nothing
