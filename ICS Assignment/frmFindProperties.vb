@@ -75,11 +75,13 @@ Public Class frmFindProperties
         Dim s As String
         d.InitialDirectory = "E:\ICS\houses"
 
-        s = d.ShowDialog()
+        d.ShowDialog()
         s = d.FileName
         prop.imageSource = "c:\img\" & Properties.propid & ".jpg"
         pbxPhoto.Load(s)
         FileCopy(s, prop.imageSource)
+
+
 
     End Sub
 
