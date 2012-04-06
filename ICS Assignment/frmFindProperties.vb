@@ -4,6 +4,7 @@ Public Class frmFindProperties
 
 
     Dim prop As New Properties
+    Dim cust As New Customer
 
     Private Sub Form2_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
@@ -16,6 +17,8 @@ Public Class frmFindProperties
         btnEdit.Visible = False
         btnSave.Visible = False
         btnCancel.Visible = False
+        btnCreateAppointment.Visible = False
+        
     End Sub
 
     Private Sub btnLocateProperty_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnLocateProperty.Click
@@ -27,7 +30,15 @@ Public Class frmFindProperties
             .Columns(0).Visible = False
             .Columns(8).Visible = False
         End With
-
+        'set default appointment type
+        Select Case cmbStatus.Text
+            Case "Valuation Pending"
+                btnCreateAppointment.Text = "Create Valuation Appointment"
+            Case "For Sale"
+                btnCreateAppointment.Text = "Create Viewing Appointment"
+            Case Else
+                btnCreateAppointment.Text = "Create Appointment"
+        End Select
 
     End Sub
 
@@ -39,15 +50,14 @@ Public Class frmFindProperties
             Properties.propid = .Rows(r).Cells(0).Value ' get the property ID (PK)
         End With
         fillDetails()
-        btnDelete.Visible = True
-        btnEdit.Visible = True
-
+        disableEdit()
 
     End Sub
     Sub fillDetails()
         prop.loadProperty(Properties.propid)
-
+        cust = prop.getRelatedCustomer("Owner")
         With prop
+            txtOwner.Text = cust.fullName
             txtAdd1.Text = .add1
             txtAdd2.Text = .add2
             txtTownEdit.Text = .town
@@ -55,12 +65,12 @@ Public Class frmFindProperties
             rtbDescription.Text = .description
             txtStatus.Text = .status
             txtPrice.Text = .price
-            prop.imageSource = "c:\img\" & Properties.propid & ".jpg"
             With My.Computer.FileSystem
 
                 If .FileExists(prop.imageSource) Then
                     pbxPhoto.Load(prop.imageSource)
-
+                ElseIf .FileExists("c:/img/0.jpg") Then
+                    pbxPhoto.Load("c:/img/0.jpg")
                 Else
                     pbxPhoto.Image = Nothing
                 End If
@@ -73,16 +83,18 @@ Public Class frmFindProperties
     Private Sub pbxPhoto_Click(sender As System.Object, e As System.EventArgs) Handles pbxPhoto.Click
         Dim d As New OpenFileDialog()
         Dim s As String
-        d.InitialDirectory = "E:\ICS\houses"
+        d.InitialDirectory = My.Settings.sourceFolder
 
         d.ShowDialog()
         s = d.FileName
-        prop.imageSource = "c:\img\" & Properties.propid & ".jpg"
-        pbxPhoto.Load(s)
-        FileCopy(s, prop.imageSource)
 
-
-
+        'handle user cancels
+        If s.Length > 0 Then
+            pbxPhoto.Load(s)
+            FileCopy(s, prop.imageSource)
+            'remember last source location
+            My.Settings.sourceFolder = My.Computer.FileSystem.GetParentPath(s)
+        End If
     End Sub
 
     Private Sub btnEdit_Click(sender As System.Object, e As System.EventArgs) Handles btnEdit.Click
@@ -93,7 +105,15 @@ Public Class frmFindProperties
         btnEdit.Visible = False
         btnDelete.Visible = False
         btnSave.Visible = True
-        btnCancel.visible = True
+        btnCancel.Visible = True
+        btnCreateAppointment.Visible = True
+    End Sub
+    Sub disableEdit()
+        btnEdit.Visible = True
+        btnDelete.Visible = True
+        btnSave.Visible = False
+        btnCancel.Visible = False
+        btnCreateAppointment.Visible = True
     End Sub
 
     Private Sub btnSave_Click(sender As System.Object, e As System.EventArgs) Handles btnSave.Click
@@ -103,21 +123,54 @@ Public Class frmFindProperties
             .town = txtTownEdit.Text
             .county = txtCountyEdit.Text
             .description = rtbDescription.Text
-            .status = txtStatus.Text
+            .status = nextStatus()
             .price = CInt(txtPrice.Text)
             .photo = pbxPhoto.Image
 
             'update DB
             .updateProperty()
-            .setPhoto()
+
         End With
         'hide show buttons
-        btnEdit.Visible = True
-        btnDelete.Visible = True
-        btnSave.Visible = False
-        btnCancel.Visible = False
+        disableEdit()
         'refresh table
         refreshPropertyList()
 
+    End Sub
+    Function nextStatus() As String
+        Dim s As String, p As Integer = CInt(txtPrice.Text)
+        Select Case cmbStatus.Text
+            Case "Valuation Pending"
+                If p > 0 Then
+                    Return "For Sale"
+                Else
+                    Return "Valuation Pending"
+                End If
+            Case Else
+                Return cmbStatus.Text
+        End Select
+    End Function
+
+    Private Sub btnCreateAppointment_Click(sender As System.Object, e As System.EventArgs) Handles btnCreateAppointment.Click
+
+        Select Case cmbStatus.Text
+            Case "Valuation Pending"
+                'owner details already loaded, so show appointment form
+                frmAppointments.Show()
+            Case "For Sale"
+                'add customer first - a prospective buyer or tenant
+                frmAddCustomer.ShowDialog()
+                cust.loadCustomer(Customer.custid)
+                CustProp.relationType = "Prospective Buyer"
+                Dim cp As New CustProp
+                cp.link("Active")
+                frmAppointments.Show()
+            Case Else
+                frmAppointments.Show()
+        End Select
+    End Sub
+
+    Private Sub btnOthers_Click(sender As System.Object, e As System.EventArgs) Handles btnOthers.Click
+        frmRelations.ShowDialog()
     End Sub
 End Class

@@ -45,7 +45,7 @@ Partial Class frmAddCustomer
         Me.txtSurname.Margin = New System.Windows.Forms.Padding(2)
         Me.txtSurname.Name = "txtSurname"
         Me.txtSurname.Size = New System.Drawing.Size(297, 20)
-        Me.txtSurname.TabIndex = 10
+        Me.txtSurname.TabIndex = 3
         '
         'Label2
         '
@@ -86,7 +86,7 @@ Partial Class frmAddCustomer
         Me.txtForename.Margin = New System.Windows.Forms.Padding(2)
         Me.txtForename.Name = "txtForename"
         Me.txtForename.Size = New System.Drawing.Size(297, 20)
-        Me.txtForename.TabIndex = 6
+        Me.txtForename.TabIndex = 2
         '
         'txtEmail
         '
@@ -96,7 +96,7 @@ Partial Class frmAddCustomer
         Me.txtEmail.Margin = New System.Windows.Forms.Padding(2)
         Me.txtEmail.Name = "txtEmail"
         Me.txtEmail.Size = New System.Drawing.Size(297, 20)
-        Me.txtEmail.TabIndex = 6
+        Me.txtEmail.TabIndex = 4
         '
         'Label3
         '
@@ -126,7 +126,7 @@ Partial Class frmAddCustomer
         Me.txtPhone.Margin = New System.Windows.Forms.Padding(2)
         Me.txtPhone.Name = "txtPhone"
         Me.txtPhone.Size = New System.Drawing.Size(297, 20)
-        Me.txtPhone.TabIndex = 10
+        Me.txtPhone.TabIndex = 5
         '
         'Label5
         '
@@ -148,7 +148,7 @@ Partial Class frmAddCustomer
         Me.txtAddress.Multiline = True
         Me.txtAddress.Name = "txtAddress"
         Me.txtAddress.Size = New System.Drawing.Size(297, 101)
-        Me.txtAddress.TabIndex = 10
+        Me.txtAddress.TabIndex = 6
         '
         'Label6
         '
@@ -168,7 +168,7 @@ Partial Class frmAddCustomer
         Me.cbType.Location = New System.Drawing.Point(95, 4)
         Me.cbType.Name = "cbType"
         Me.cbType.Size = New System.Drawing.Size(297, 21)
-        Me.cbType.TabIndex = 12
+        Me.cbType.TabIndex = 1
         '
         'frmAddCustomer
         '

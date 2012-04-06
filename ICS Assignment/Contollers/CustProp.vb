@@ -1,7 +1,7 @@
 ﻿Public Class CustProp
     Inherits DBConnector
 
-    Sub link(status As String)
+    Public Sub link(status As String)
         SQL = "INSERT INTO [MyTestDB].[dbo].[CustProp]"
         SQL &= " (agent,status,customerid,propertyid,relationshiptype)"
         SQL &= " VALUES ("

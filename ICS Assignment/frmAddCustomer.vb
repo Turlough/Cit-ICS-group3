@@ -11,5 +11,7 @@ Public Class frmAddCustomer
             Exit Sub
         End If
         cust.createCustomer(txtForename.Text, txtSurname.Text, txtAddress.Text, CInt(txtPhone.Text), txtEmail.Text)
+        Me.Hide()
+
     End Sub
 End Class

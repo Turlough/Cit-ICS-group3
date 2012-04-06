@@ -64,6 +64,8 @@ Partial Class frmFindProperties
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.pbxPhoto = New System.Windows.Forms.PictureBox()
+        Me.btnCreateAppointment = New System.Windows.Forms.Button()
+        Me.btnOthers = New System.Windows.Forms.Button()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -84,7 +86,7 @@ Partial Class frmFindProperties
         Me.btnEdit.Margin = New System.Windows.Forms.Padding(2)
         Me.btnEdit.Name = "btnEdit"
         Me.btnEdit.Size = New System.Drawing.Size(56, 19)
-        Me.btnEdit.TabIndex = 21
+        Me.btnEdit.TabIndex = 16
         Me.btnEdit.Text = "Edit"
         Me.btnEdit.UseVisualStyleBackColor = True
         '
@@ -130,6 +132,8 @@ Partial Class frmFindProperties
         '
         'SplitContainer1.Panel2
         '
+        Me.SplitContainer1.Panel2.Controls.Add(Me.btnOthers)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.btnCreateAppointment)
         Me.SplitContainer1.Panel2.Controls.Add(Me.btnCancel)
         Me.SplitContainer1.Panel2.Controls.Add(Me.btnSave)
         Me.SplitContainer1.Panel2.Controls.Add(Me.txtPrice)
@@ -160,7 +164,7 @@ Partial Class frmFindProperties
         Me.btnLocateProperty.Margin = New System.Windows.Forms.Padding(2)
         Me.btnLocateProperty.Name = "btnLocateProperty"
         Me.btnLocateProperty.Size = New System.Drawing.Size(110, 43)
-        Me.btnLocateProperty.TabIndex = 55
+        Me.btnLocateProperty.TabIndex = 9
         Me.btnLocateProperty.Text = "Locate Property"
         Me.btnLocateProperty.UseVisualStyleBackColor = True
         '
@@ -172,23 +176,25 @@ Partial Class frmFindProperties
         Me.cmbStatus.Margin = New System.Windows.Forms.Padding(2)
         Me.cmbStatus.Name = "cmbStatus"
         Me.cmbStatus.Size = New System.Drawing.Size(211, 21)
-        Me.cmbStatus.TabIndex = 54
+        Me.cmbStatus.TabIndex = 1
         '
         'maxPrice
         '
         Me.maxPrice.Location = New System.Drawing.Point(235, 130)
         Me.maxPrice.Margin = New System.Windows.Forms.Padding(2)
+        Me.maxPrice.Maximum = New Decimal(New Integer() {1000000000, 0, 0, 0})
         Me.maxPrice.Name = "maxPrice"
         Me.maxPrice.Size = New System.Drawing.Size(75, 20)
-        Me.maxPrice.TabIndex = 53
+        Me.maxPrice.TabIndex = 8
         '
         'minPrice
         '
         Me.minPrice.Location = New System.Drawing.Point(129, 130)
         Me.minPrice.Margin = New System.Windows.Forms.Padding(2)
+        Me.minPrice.Maximum = New Decimal(New Integer() {1000000000, 0, 0, 0})
         Me.minPrice.Name = "minPrice"
         Me.minPrice.Size = New System.Drawing.Size(75, 20)
-        Me.minPrice.TabIndex = 52
+        Me.minPrice.TabIndex = 7
         '
         'Label11
         '
@@ -236,7 +242,7 @@ Partial Class frmFindProperties
         Me.maxBeds.Margin = New System.Windows.Forms.Padding(2)
         Me.maxBeds.Name = "maxBeds"
         Me.maxBeds.Size = New System.Drawing.Size(75, 20)
-        Me.maxBeds.TabIndex = 46
+        Me.maxBeds.TabIndex = 6
         '
         'minBeds
         '
@@ -244,7 +250,7 @@ Partial Class frmFindProperties
         Me.minBeds.Margin = New System.Windows.Forms.Padding(2)
         Me.minBeds.Name = "minBeds"
         Me.minBeds.Size = New System.Drawing.Size(75, 20)
-        Me.minBeds.TabIndex = 47
+        Me.minBeds.TabIndex = 5
         '
         'txtCounty
         '
@@ -252,7 +258,7 @@ Partial Class frmFindProperties
         Me.txtCounty.Margin = New System.Windows.Forms.Padding(2)
         Me.txtCounty.Name = "txtCounty"
         Me.txtCounty.Size = New System.Drawing.Size(211, 20)
-        Me.txtCounty.TabIndex = 43
+        Me.txtCounty.TabIndex = 4
         '
         'txtTown
         '
@@ -260,7 +266,7 @@ Partial Class frmFindProperties
         Me.txtTown.Margin = New System.Windows.Forms.Padding(2)
         Me.txtTown.Name = "txtTown"
         Me.txtTown.Size = New System.Drawing.Size(211, 20)
-        Me.txtTown.TabIndex = 44
+        Me.txtTown.TabIndex = 3
         '
         'txtAdd
         '
@@ -268,7 +274,7 @@ Partial Class frmFindProperties
         Me.txtAdd.Margin = New System.Windows.Forms.Padding(2)
         Me.txtAdd.Name = "txtAdd"
         Me.txtAdd.Size = New System.Drawing.Size(211, 20)
-        Me.txtAdd.TabIndex = 45
+        Me.txtAdd.TabIndex = 2
         '
         'Label8
         '
@@ -385,7 +391,7 @@ Partial Class frmFindProperties
         Me.txtPrice.Location = New System.Drawing.Point(228, 37)
         Me.txtPrice.Name = "txtPrice"
         Me.txtPrice.Size = New System.Drawing.Size(176, 20)
-        Me.txtPrice.TabIndex = 38
+        Me.txtPrice.TabIndex = 10
         '
         'txtStatus
         '
@@ -393,7 +399,7 @@ Partial Class frmFindProperties
         Me.txtStatus.Location = New System.Drawing.Point(228, 63)
         Me.txtStatus.Name = "txtStatus"
         Me.txtStatus.Size = New System.Drawing.Size(176, 20)
-        Me.txtStatus.TabIndex = 37
+        Me.txtStatus.TabIndex = 11
         '
         'txtTownEdit
         '
@@ -401,7 +407,7 @@ Partial Class frmFindProperties
         Me.txtTownEdit.Location = New System.Drawing.Point(228, 143)
         Me.txtTownEdit.Name = "txtTownEdit"
         Me.txtTownEdit.Size = New System.Drawing.Size(176, 20)
-        Me.txtTownEdit.TabIndex = 36
+        Me.txtTownEdit.TabIndex = 14
         '
         'txtAdd2
         '
@@ -409,7 +415,7 @@ Partial Class frmFindProperties
         Me.txtAdd2.Location = New System.Drawing.Point(228, 117)
         Me.txtAdd2.Name = "txtAdd2"
         Me.txtAdd2.Size = New System.Drawing.Size(176, 20)
-        Me.txtAdd2.TabIndex = 35
+        Me.txtAdd2.TabIndex = 13
         '
         'txtAdd1
         '
@@ -417,7 +423,7 @@ Partial Class frmFindProperties
         Me.txtAdd1.Location = New System.Drawing.Point(228, 91)
         Me.txtAdd1.Name = "txtAdd1"
         Me.txtAdd1.Size = New System.Drawing.Size(176, 20)
-        Me.txtAdd1.TabIndex = 34
+        Me.txtAdd1.TabIndex = 12
         '
         'txtCountyEdit
         '
@@ -425,14 +431,14 @@ Partial Class frmFindProperties
         Me.txtCountyEdit.Location = New System.Drawing.Point(228, 169)
         Me.txtCountyEdit.Name = "txtCountyEdit"
         Me.txtCountyEdit.Size = New System.Drawing.Size(176, 20)
-        Me.txtCountyEdit.TabIndex = 33
+        Me.txtCountyEdit.TabIndex = 15
         '
         'txtOwner
         '
         Me.txtOwner.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtOwner.Location = New System.Drawing.Point(228, 16)
         Me.txtOwner.Name = "txtOwner"
-        Me.txtOwner.Size = New System.Drawing.Size(176, 20)
+        Me.txtOwner.Size = New System.Drawing.Size(113, 20)
         Me.txtOwner.TabIndex = 32
         '
         'rtbDescription
@@ -519,6 +525,25 @@ Partial Class frmFindProperties
         Me.pbxPhoto.TabIndex = 23
         Me.pbxPhoto.TabStop = False
         '
+        'btnCreateAppointment
+        '
+        Me.btnCreateAppointment.Location = New System.Drawing.Point(228, 205)
+        Me.btnCreateAppointment.Name = "btnCreateAppointment"
+        Me.btnCreateAppointment.Size = New System.Drawing.Size(176, 23)
+        Me.btnCreateAppointment.TabIndex = 41
+        Me.btnCreateAppointment.Text = "Create Appointment"
+        Me.btnCreateAppointment.UseVisualStyleBackColor = True
+        '
+        'btnOthers
+        '
+        Me.btnOthers.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnOthers.Location = New System.Drawing.Point(348, 16)
+        Me.btnOthers.Name = "btnOthers"
+        Me.btnOthers.Size = New System.Drawing.Size(56, 23)
+        Me.btnOthers.TabIndex = 42
+        Me.btnOthers.Text = "Others"
+        Me.btnOthers.UseVisualStyleBackColor = True
+        '
         'frmFindProperties
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -586,4 +611,6 @@ Partial Class frmFindProperties
     Friend WithEvents txtOwner As System.Windows.Forms.TextBox
     Friend WithEvents btnSave As System.Windows.Forms.Button
     Friend WithEvents btnCancel As System.Windows.Forms.Button
+    Friend WithEvents btnCreateAppointment As System.Windows.Forms.Button
+    Friend WithEvents btnOthers As System.Windows.Forms.Button
 End Class

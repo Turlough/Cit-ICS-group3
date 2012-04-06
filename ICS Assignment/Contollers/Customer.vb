@@ -14,6 +14,11 @@
         SQL = "SELECT * FROM Customer WHERE " & col & " LIKE '" & value & "%' "
         Return getData(SQL)
     End Function
+    ReadOnly Property fullName() As String
+        Get
+            Return fname & " " & sname
+        End Get
+    End Property
 
     Sub createCustomer(fname As String, sname As String, address As String, phone As String, email As String)
         'initialise

@@ -9,7 +9,7 @@
     Public numBeds As Integer
     Public price As Integer
     Public status As String
-    Public imageSource As String = ""
+
     Public photo As Image
 
     Sub CreateProperty(a1 As String, a2 As String, town As String, county As String)
@@ -35,35 +35,68 @@
         SQL = "SELECT * FROM property WHERE " & col & " LIKE '" & value & "%' "
         Return getData(SQL)
     End Function
+    Function getRelatedCustomer(relType As String) As Customer
+        SQL = "Select customer.id from "
+        SQL &= " (customer inner join custprop on customer.id = custprop.customerid)"
+        SQL &= " inner join property on custprop.propertyid=property.id"
+        SQL &= " where custprop.propertyid = " & propid
+        SQL &= " and custprop.relationshiptype='" & relType & "'"
+
+        Dim DT As DataTable = getData(SQL)
+        With DT
+            If .Rows.Count > 0 Then
+                custid = .Rows(0).Item(0)
+                Dim cust As New Customer
+                cust.loadCustomer(custid)
+                Return cust
+            Else
+                custid = 0
+                Return Nothing
+            End If
+        End With
+    End Function
+    ReadOnly Property fullAddress() As String
+        Get
+            Dim s As String
+            s = add1 & vbCrLf
+            If Not add2.Length = 0 Then
+                s &= add2 & vbCrLf
+            End If
+            s &= town & vbCrLf
+            s &= county
+            Return s
+        End Get
+    End Property
 
     Sub loadProperty(id As Integer)
         SQL = "SELECT * FROM property WHERE id =" & id
         Dim DT As DataTable = getData(SQL)
+        If DT.Rows.Count > 0 Then
+            With DT.Rows(0)
+                propid = id
+                add1 = .Item(1)
+                add2 = .Item(2)
+                town = .Item(3)
+                county = .Item(4)
+                'toString converts dbNull to ""
+                description = .Item(5).ToString
+                status = .Item(7).ToString
+                'must check
+                If Not IsDBNull(.Item(6)) Then
+                    numBeds = .Item(6)
+                Else
+                    numBeds = 0
+                End If
 
-        With DT.Rows(0)
-            propid = id
-            add1 = .Item(1)
-            add2 = .Item(2)
-            town = .Item(3)
-            county = .Item(4)
-            'toString converts dbNull to ""
-            description = .Item(5).ToString
-            status = .Item(7).ToString
-            'must check
-            If Not IsDBNull(.Item(6)) Then
-                numBeds = .Item(6)
-            Else
-                numBeds = 0
-            End If
+                If Not IsDBNull(.Item(9)) Then
+                    price = .Item(9)
+                Else
+                    price = 0
+                End If
 
-            If Not IsDBNull(.Item(9)) Then
-                price = .Item(9)
-            Else
-                price = 0
-            End If
-            'get photo from blob
-            photo = getPhoto()
-        End With
+            End With
+        End If
+
 
         DT = Nothing
     End Sub
@@ -116,35 +149,18 @@
 
         update(SQL)
     End Sub
-    Sub setPhoto()
-        If imageSource.Length = 0 Then Exit Sub
+    Function getCustomers() As DataTable
+        SQL = "Select customer.id,relationshiptype,fname,lname from "
+        SQL &= " (customer inner join custprop on customer.id = custprop.customerid)"
+        SQL &= " inner join property on custprop.propertyid=property.id"
+        SQL &= " where custprop.propertyid = " & propid
 
-        SQL = "UPDATE property SET photo = @Img WHERE id = " & propid
-        Using cmd As New System.Data.SqlClient.SqlCommand(SQL)
-            Dim par As New SqlClient.SqlParameter("@Img", SqlDbType.Image)
-            par.Value = IO.File.ReadAllBytes(imageSource)
-            cmd.Parameters.Add(par)
-            update(cmd)
-            MsgBox(par.Value.getLength(0))
-        End Using
-    End Sub
-    Function getPhoto() As Image
-        SQL = "SELECT photo FROM property WHERE id = " & propid
-        Dim dt As DataTable = getData(SQL)
-        'MsgBox(dt.Rows(0).Item(0))
+        Return getData(SQL)
 
-        Dim img As Image = Nothing
-        Try
-            Dim b As Byte() = CType(dt.Rows(0).Item(0), Byte())
-            MsgBox(b.GetLength(0))
-            Using ms As New IO.MemoryStream(CType(dt.Rows(0).Item(0), Byte()))
-                img = Image.FromStream(ms)
-            End Using
-            dt = Nothing
-        Catch ex As Exception
-            Return Nothing
-        End Try
-
-        Return img
     End Function
+    ReadOnly Property imageSource As String
+        Get
+            Return "c:\img\" & propid & ".jpg"
+        End Get
+    End Property
 End Class
