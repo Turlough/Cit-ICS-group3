@@ -23,7 +23,7 @@ Public Class frmAddProperty
 
         'relation
         CustProp.relationType = "Owner"
-        cp.link("Pending")
+        cp.link("Valuation Pending")
 
         'form
         Me.Hide()

@@ -18,6 +18,15 @@ Public Class frmFindProperties
         btnSave.Visible = False
         btnCancel.Visible = False
         btnCreateAppointment.Visible = False
+        'Disable editing textboxes
+        txtOwner.ReadOnly = True
+        txtPrice.ReadOnly = True
+        txtStatus.ReadOnly = True
+        txtAdd1.ReadOnly = True
+        txtAdd2.ReadOnly = True
+        txtTownEdit.ReadOnly = True
+        txtCountyEdit.ReadOnly = True
+        rtbDescription.ReadOnly = True
         
     End Sub
 
@@ -43,7 +52,7 @@ Public Class frmFindProperties
     End Sub
 
 
-    Private Sub dgvProperties_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvProperties.CellClick
+    Private Sub dgvProperties_CellClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvProperties.CellClick
         With dgvProperties
             Dim r As Integer = e.RowIndex
             .Rows(r).Selected = True    ' select the entire row
@@ -107,6 +116,16 @@ Public Class frmFindProperties
         btnSave.Visible = True
         btnCancel.Visible = True
         btnCreateAppointment.Visible = True
+        txtOwner.ReadOnly = False
+        txtPrice.ReadOnly = False
+        txtStatus.ReadOnly = False
+        txtAdd1.ReadOnly = False
+        txtAdd2.ReadOnly = False
+        txtTownEdit.ReadOnly = False
+        txtCountyEdit.ReadOnly = False
+        rtbDescription.ReadOnly = False
+
+
     End Sub
     Sub disableEdit()
         btnEdit.Visible = True
@@ -114,6 +133,15 @@ Public Class frmFindProperties
         btnSave.Visible = False
         btnCancel.Visible = False
         btnCreateAppointment.Visible = True
+        'disable textboxes
+        txtOwner.ReadOnly = True
+        txtPrice.ReadOnly = True
+        txtStatus.ReadOnly = True
+        txtAdd1.ReadOnly = True
+        txtAdd2.ReadOnly = True
+        txtTownEdit.ReadOnly = True
+        txtCountyEdit.ReadOnly = True
+        rtbDescription.ReadOnly = True
     End Sub
 
     Private Sub btnSave_Click(sender As System.Object, e As System.EventArgs) Handles btnSave.Click
@@ -133,6 +161,9 @@ Public Class frmFindProperties
         End With
         'hide show buttons
         disableEdit()
+
+        
+
         'refresh table
         refreshPropertyList()
 
@@ -172,5 +203,24 @@ Public Class frmFindProperties
 
     Private Sub btnOthers_Click(sender As System.Object, e As System.EventArgs) Handles btnOthers.Click
         frmRelations.ShowDialog()
+    End Sub
+
+    Private Sub btnDelete_Click(sender As System.Object, e As System.EventArgs) Handles btnDelete.Click
+        'Big Block of text to test pushing with git
+        'Big Block of text to test pushing with git
+        'Big Block of text to test pushing with git
+        'Big Block of text to test pushing with git
+        'Big Block of text to test pushing with git
+        'Big Block of text to test pushing with git
+        'Big Block of text to test pushing with git
+        'Big Block of text to test pushing with git
+        'Big Block of text to test pushing with git
+        'Big Block of text to test pushing with git
+        'Big Block of text to test pushing with git
+        'Big Block of text to test pushing with git
+
+        'Big Block of text to test pushing with git
+        MsgBox("You have clicked Delete, Sucker.")
+
     End Sub
 End Class
