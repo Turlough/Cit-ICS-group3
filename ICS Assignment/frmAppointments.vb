@@ -72,7 +72,7 @@ Public Class frmAppointments
 
     End Sub
 
-    Private Sub Times_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles Times.CellContentClick
+    Private Sub Times_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles Times.CellClick
 
         'TODO ensure contiguous selection
 
