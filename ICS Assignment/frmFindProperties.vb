@@ -116,6 +116,7 @@ Public Class frmFindProperties
         btnSave.Visible = True
         btnCancel.Visible = True
         btnCreateAppointment.Visible = True
+        'Enable textboxes
         txtOwner.ReadOnly = False
         txtPrice.ReadOnly = False
         txtStatus.ReadOnly = False
