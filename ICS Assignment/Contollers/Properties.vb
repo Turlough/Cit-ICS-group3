@@ -20,12 +20,13 @@
         Me.county = county
 
         SQL = "INSERT INTO [MyTestDB].[dbo].[Property]"
-        SQL &= " (add1,add2,town,county)"
+        SQL &= " (add1,add2,town,county,status)"
         SQL &= " VALUES ("
         SQL &= "'" & a1 & "'"
         SQL &= ",'" & a2 & "'"
         SQL &= ",'" & town & "'"
-        SQL &= ",'" & county & "')"
+        SQL &= ",'" & county & "'"
+        SQL &= ",'" & "Valuation Pending" & "')"
 
         propid = insert(SQL)
     End Sub
