@@ -12,8 +12,8 @@ Public Class frmFindCustomer
         If ComboBox1.Items.Count > 0 Then
             ComboBox1.SelectedIndex = 0    ' The first item has index 0 '
         End If
-        Button1.Visible = False
-        Button2.Visible = False
+        btnArchive.Visible = False
+        btnEdit.Visible = False
 
 
     End Sub
@@ -69,8 +69,8 @@ Public Class frmFindCustomer
 
         End With
 
-        Button1.Visible = True
-        Button2.Visible = True
+        btnArchive.Visible = True
+        btnEdit.Visible = True
 
     End Sub
     Sub ReturnCustomerID()
@@ -78,7 +78,7 @@ Public Class frmFindCustomer
         'MsgBox("form2 says " & Form1.custid)
     End Sub
 
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click, Button4.Click, Button2.Click
+    Private Sub btnArchive_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnArchive.Click
         ReturnCustomerID()
         Me.Close()
 
