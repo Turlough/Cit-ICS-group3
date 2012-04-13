@@ -1,86 +1,68 @@
 ﻿Imports System.Data.SqlClient
 Public Class frmFindCustomer
-    'Dim sqCon As New SqlClient.SqlConnection("Server=.\SQLExpress;AttachDbFilename=C:\Program Files\Microsoft SQL Server\MSSQL10_50.SQLEXPRESS\MSSQL\DATA\MyTestDB.mdf;Database=MyTestDB; Trusted_Connection=Yes;")
-    'Dim sqCon As New SqlClient.SqlConnection("Server=SQLNCLI10.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=MyTestDB;Data Source=(local);")
-    Dim sqCon As New SqlClient.SqlConnection(My.Settings.dbConnectorString)
-    Dim sqCmd As New SqlClient.SqlCommand
-    Private custid As Integer
-    Private Sub Form2_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Dim cust As New Customer
+    Private Sub frmFindCustomer_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         loadData()
 
         'set the default value to "first name"
-        If ComboBox1.Items.Count > 0 Then
-            ComboBox1.SelectedIndex = 0    ' The first item has index 0 '
+        If cbxField.Items.Count > 0 Then
+            cbxField.SelectedIndex = 0    ' The first item has index 0 '
         End If
-        Button1.Visible = False
-        Button2.Visible = False
+        btnArchive.Visible = False
+        btnEdit.Visible = False
+        btnProperties.Visible = False
 
 
     End Sub
 
 
-    Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
+    Private Sub btnFind_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFind.Click
         loadData()
 
     End Sub
     Private Sub loadData()
-
-
-        'define the DB connection and search string
-        sqCmd.Connection = sqCon
-        Dim col As String = "fName"
-
-        Select Case ComboBox1.Text
-            Case "First Name"
-                col = "fName"
-            Case "Second Name"
-                col = "lName"
-            Case "Email"
-                col = "email"
-            Case "Phone"
-                col = "phone"
-            Case "Address"
-                col = "address"
-        End Select
-        Dim s As String = TextBox3.Text
-
-        sqCmd.CommandText = "SELECT * FROM Customer WHERE " & col & " LIKE '" & s & "%' "
-        sqCon.Open()                        'open the DB connection
-
-        Dim TA As New SqlDataAdapter(sqCmd)
-        Dim DT As New DataTable
-        TA.Fill(DT)
-
-        With DataGridView1
-            .DataSource = DT
+        With dgvCustomers
+            .DataSource = cust.findCustomer(txtSearch.Text, cbxField.Text)
             .Columns(0).Visible = False
         End With
 
-        sqCon.Close()
+
     End Sub
 
-    Private Sub DataGridView1_CellClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellClick
+    Private Sub dgvCustomers_CellClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvCustomers.CellClick
 
-        With DataGridView1
+        With dgvCustomers
             Dim r As Integer = e.RowIndex
-
-            .Rows(r).Selected = True    ' select the entire row
-            custid = .Rows(r).Cells(0).Value ' get the customer ID (PK)
-
+            If r >= 0 Then
+                .Rows(r).Selected = True    ' select the entire row
+                Customer.custid = .Rows(r).Cells(0).Value ' get the customer ID (PK)
+                showCustomer()
+            End If
         End With
-
-        Button1.Visible = True
-        Button2.Visible = True
+    End Sub
+    Private Sub showCustomer()
+        If Customer.custid > 0 Then
+            With cust
+                .loadCustomer(Customer.custid)
+                txtFname.Text = .fname
+                txtSname.Text = .sname
+                txtPhone.Text = .phone
+                txtEmail.Text = .email
+                txtAddress.Text = .address
+            End With
+            btnArchive.Visible = True
+            btnEdit.Visible = True
+            btnProperties.Visible = True
+        End If
 
     End Sub
-    Sub ReturnCustomerID()
-        custid = Me.custid
-        'MsgBox("form2 says " & Form1.custid)
+
+
+    Private Sub btnArchive_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnArchive.Click
+        cust.delete(Customer.custid)
+        Customer.custid = 0 'reset custid
+        loadData()
     End Sub
 
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click, Button4.Click, Button2.Click
-        ReturnCustomerID()
-        Me.Close()
 
-    End Sub
 End Class

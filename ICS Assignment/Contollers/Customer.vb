@@ -11,7 +11,7 @@
 
     Function findCustomer(value As String, col As String) As DataTable
         If col = "" Then col = "fname"
-        SQL = "SELECT * FROM Customer WHERE " & col & " LIKE '" & value & "%' "
+        SQL = "SELECT * FROM ActiveCustomers WHERE " & col & " LIKE '%" & value & "%' "
         Return getData(SQL)
     End Function
     ReadOnly Property fullName() As String
@@ -49,9 +49,13 @@
             sname = .Item(2)
             email = .Item(3)
             phone = .Item(4)
-            status = .Item(5).ToString
+            address = .Item(5)
+            status = .Item(6).ToString
         End With
         DT = Nothing
     End Sub
-
+    Sub delete(id As Integer)
+        SQL = "EXEC sp_ArchiveCustomer " & id
+        update(SQL) 'TODO- dont use super.update. Tidy the command structure
+    End Sub
 End Class

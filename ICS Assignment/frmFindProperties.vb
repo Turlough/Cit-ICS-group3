@@ -27,7 +27,7 @@ Public Class frmFindProperties
         txtTownEdit.ReadOnly = True
         txtCountyEdit.ReadOnly = True
         rtbDescription.ReadOnly = True
-        
+
     End Sub
 
     Private Sub btnLocateProperty_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnLocateProperty.Click
@@ -170,7 +170,7 @@ Public Class frmFindProperties
         'hide show buttons
         disableEdit()
 
-        
+
 
         'refresh table
         refreshPropertyList()
@@ -214,20 +214,6 @@ Public Class frmFindProperties
     End Sub
 
     Private Sub btnDelete_Click(sender As System.Object, e As System.EventArgs) Handles btnDelete.Click
-        'Big Block of text to test pushing with git
-        'Big Block of text to test pushing with git
-        'Big Block of text to test pushing with git
-        'Big Block of text to test pushing with git
-        'Big Block of text to test pushing with git
-        'Big Block of text to test pushing with git
-        'Big Block of text to test pushing with git
-        'Big Block of text to test pushing with git
-        'Big Block of text to test pushing with git
-        'Big Block of text to test pushing with git
-        'Big Block of text to test pushing with git
-        'Big Block of text to test pushing with git
-
-        'Big Block of text to test pushing with git
         MsgBox("You have clicked Delete, Sucker.")
 
     End Sub
