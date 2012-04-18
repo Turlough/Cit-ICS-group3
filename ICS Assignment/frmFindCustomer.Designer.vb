@@ -43,6 +43,7 @@ Partial Class frmFindCustomer
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtFname = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.btnSet = New System.Windows.Forms.Button()
         CType(Me.dgvCustomers, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -168,6 +169,7 @@ Partial Class frmFindCustomer
         '
         'SplitContainer1.Panel2
         '
+        Me.SplitContainer1.Panel2.Controls.Add(Me.btnSet)
         Me.SplitContainer1.Panel2.Controls.Add(Me.btnProperties)
         Me.SplitContainer1.Panel2.Controls.Add(Me.txtEmail)
         Me.SplitContainer1.Panel2.Controls.Add(Me.Label7)
@@ -276,6 +278,15 @@ Partial Class frmFindCustomer
         Me.Label1.TabIndex = 14
         Me.Label1.Text = "Forename"
         '
+        'btnSet
+        '
+        Me.btnSet.Location = New System.Drawing.Point(78, 268)
+        Me.btnSet.Name = "btnSet"
+        Me.btnSet.Size = New System.Drawing.Size(148, 23)
+        Me.btnSet.TabIndex = 25
+        Me.btnSet.Text = "Set as Active Customer"
+        Me.btnSet.UseVisualStyleBackColor = True
+        '
         'frmFindCustomer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -317,4 +328,5 @@ Partial Class frmFindCustomer
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents txtFname As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents btnSet As System.Windows.Forms.Button
 End Class

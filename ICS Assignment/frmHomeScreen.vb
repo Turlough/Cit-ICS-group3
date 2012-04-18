@@ -71,4 +71,13 @@
         frmFindProperties.Show()
 
     End Sub
+
+    Private Sub btnMakeOffer_Click(sender As System.Object, e As System.EventArgs) Handles btnMakeOffer.Click
+        frmMakeOffer.Show()
+
+    End Sub
+
+    Private Sub btnAcceptOffer_Click(sender As System.Object, e As System.EventArgs) Handles btnAcceptOffer.Click
+        frmAcceptOffer.Show()
+    End Sub
 End Class

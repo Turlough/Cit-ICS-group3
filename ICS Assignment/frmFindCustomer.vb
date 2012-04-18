@@ -65,4 +65,11 @@ Public Class frmFindCustomer
     End Sub
 
 
+    Private Sub btnProperties_Click(sender As System.Object, e As System.EventArgs) Handles btnProperties.Click
+
+    End Sub
+
+    Private Sub btnSet_Click(sender As System.Object, e As System.EventArgs) Handles btnSet.Click
+        Me.Hide()
+    End Sub
 End Class
