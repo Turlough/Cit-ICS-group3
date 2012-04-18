@@ -56,6 +56,7 @@ Partial Class frmHomeScreen
         Me.lblCustomer = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.dgvSchedule = New System.Windows.Forms.DataGridView()
+        Me.btnMakeOffer = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
@@ -190,6 +191,7 @@ Partial Class frmHomeScreen
         '
         'SplitContainer1.Panel1
         '
+        Me.SplitContainer1.Panel1.Controls.Add(Me.btnMakeOffer)
         Me.SplitContainer1.Panel1.Controls.Add(Me.btnCreateAppointment)
         Me.SplitContainer1.Panel1.Controls.Add(Me.GroupBox1)
         Me.SplitContainer1.Panel1.Controls.Add(Me.btnSearchAppointments)
@@ -358,6 +360,17 @@ Partial Class frmHomeScreen
         Me.dgvSchedule.Size = New System.Drawing.Size(396, 390)
         Me.dgvSchedule.TabIndex = 0
         '
+        'btnMakeOffer
+        '
+        Me.btnMakeOffer.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnMakeOffer.Location = New System.Drawing.Point(12, 453)
+        Me.btnMakeOffer.Name = "btnMakeOffer"
+        Me.btnMakeOffer.Size = New System.Drawing.Size(164, 69)
+        Me.btnMakeOffer.TabIndex = 5
+        Me.btnMakeOffer.Text = "Make an Offer"
+        Me.btnMakeOffer.UseVisualStyleBackColor = True
+        '
         'frmHomeScreen
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -417,4 +430,5 @@ Partial Class frmHomeScreen
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
     Friend WithEvents lblProperty As System.Windows.Forms.Label
     Friend WithEvents lblCustomer As System.Windows.Forms.Label
+    Friend WithEvents btnMakeOffer As System.Windows.Forms.Button
 End Class

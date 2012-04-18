@@ -164,4 +164,15 @@
             Return "c:\img\" & propid & ".jpg"
         End Get
     End Property
+    Public Sub makeOffer(price As Integer)
+        SQL = "Insert into custprop (customerid,propertyid,relationshiptype,status,price,agent) values ("
+        SQL &= custid & ","
+        SQL &= propid & ","
+        SQL &= "'Offer Made',"
+        SQL &= "'Active',"
+        SQL &= price
+        SQL &= ",'" & agent & "')"
+
+        quickInsert(SQL)
+    End Sub
 End Class

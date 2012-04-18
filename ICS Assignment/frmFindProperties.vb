@@ -169,7 +169,7 @@ Public Class frmFindProperties
 
     End Sub
     Function nextStatus() As String
-        Dim s As String, p As Integer = CInt(txtPrice.Text)
+        Dim p As Integer = CInt(txtPrice.Text)
         Select Case cmbStatus.Text
             Case "Valuation Pending"
                 If p > 0 Then

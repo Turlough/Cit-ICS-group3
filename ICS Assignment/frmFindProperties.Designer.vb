@@ -82,10 +82,10 @@ Partial Class frmFindProperties
         'btnEdit
         '
         Me.btnEdit.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnEdit.Location = New System.Drawing.Point(380, 583)
-        Me.btnEdit.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnEdit.Location = New System.Drawing.Point(284, 474)
+        Me.btnEdit.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.btnEdit.Name = "btnEdit"
-        Me.btnEdit.Size = New System.Drawing.Size(75, 23)
+        Me.btnEdit.Size = New System.Drawing.Size(56, 19)
         Me.btnEdit.TabIndex = 16
         Me.btnEdit.Text = "Edit"
         Me.btnEdit.UseVisualStyleBackColor = True
@@ -93,10 +93,10 @@ Partial Class frmFindProperties
         'btnDelete
         '
         Me.btnDelete.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnDelete.Location = New System.Drawing.Point(477, 583)
-        Me.btnDelete.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnDelete.Location = New System.Drawing.Point(357, 474)
+        Me.btnDelete.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.btnDelete.Name = "btnDelete"
-        Me.btnDelete.Size = New System.Drawing.Size(75, 23)
+        Me.btnDelete.Size = New System.Drawing.Size(56, 19)
         Me.btnDelete.TabIndex = 22
         Me.btnDelete.Text = "Delete"
         Me.btnDelete.UseVisualStyleBackColor = True
@@ -105,7 +105,6 @@ Partial Class frmFindProperties
         '
         Me.SplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SplitContainer1.Location = New System.Drawing.Point(0, 0)
-        Me.SplitContainer1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.SplitContainer1.Name = "SplitContainer1"
         '
         'SplitContainer1.Panel1
@@ -155,17 +154,16 @@ Partial Class frmFindProperties
         Me.SplitContainer1.Panel2.Controls.Add(Me.pbxPhoto)
         Me.SplitContainer1.Panel2.Controls.Add(Me.btnEdit)
         Me.SplitContainer1.Panel2.Controls.Add(Me.btnDelete)
-        Me.SplitContainer1.Size = New System.Drawing.Size(1032, 613)
-        Me.SplitContainer1.SplitterDistance = 472
-        Me.SplitContainer1.SplitterWidth = 5
+        Me.SplitContainer1.Size = New System.Drawing.Size(774, 498)
+        Me.SplitContainer1.SplitterDistance = 354
         Me.SplitContainer1.TabIndex = 36
         '
         'btnLocateProperty
         '
-        Me.btnLocateProperty.Location = New System.Drawing.Point(307, 194)
-        Me.btnLocateProperty.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnLocateProperty.Location = New System.Drawing.Point(230, 158)
+        Me.btnLocateProperty.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.btnLocateProperty.Name = "btnLocateProperty"
-        Me.btnLocateProperty.Size = New System.Drawing.Size(147, 53)
+        Me.btnLocateProperty.Size = New System.Drawing.Size(110, 43)
         Me.btnLocateProperty.TabIndex = 9
         Me.btnLocateProperty.Text = "Locate Property"
         Me.btnLocateProperty.UseVisualStyleBackColor = True
@@ -174,157 +172,167 @@ Partial Class frmFindProperties
         '
         Me.cmbStatus.FormattingEnabled = True
         Me.cmbStatus.Items.AddRange(New Object() {"Valuation Pending", "Documentation Pending", "Offer Accepted", "For Sale", "For Rent", "Off Market"})
-        Me.cmbStatus.Location = New System.Drawing.Point(172, 1)
-        Me.cmbStatus.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.cmbStatus.Location = New System.Drawing.Point(129, 1)
+        Me.cmbStatus.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.cmbStatus.Name = "cmbStatus"
-        Me.cmbStatus.Size = New System.Drawing.Size(280, 24)
+        Me.cmbStatus.Size = New System.Drawing.Size(211, 21)
         Me.cmbStatus.TabIndex = 1
         '
         'maxPrice
         '
-        Me.maxPrice.Location = New System.Drawing.Point(313, 160)
-        Me.maxPrice.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.maxPrice.Location = New System.Drawing.Point(235, 130)
+        Me.maxPrice.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.maxPrice.Maximum = New Decimal(New Integer() {1000000000, 0, 0, 0})
         Me.maxPrice.Name = "maxPrice"
-        Me.maxPrice.Size = New System.Drawing.Size(100, 22)
+        Me.maxPrice.Size = New System.Drawing.Size(75, 20)
         Me.maxPrice.TabIndex = 8
         '
         'minPrice
         '
-        Me.minPrice.Location = New System.Drawing.Point(172, 160)
-        Me.minPrice.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.minPrice.Location = New System.Drawing.Point(129, 130)
+        Me.minPrice.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.minPrice.Maximum = New Decimal(New Integer() {1000000000, 0, 0, 0})
         Me.minPrice.Name = "minPrice"
-        Me.minPrice.Size = New System.Drawing.Size(100, 22)
+        Me.minPrice.Size = New System.Drawing.Size(75, 20)
         Me.minPrice.TabIndex = 7
         '
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(419, 161)
+        Me.Label11.Location = New System.Drawing.Point(314, 131)
+        Me.Label11.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(33, 17)
+        Me.Label11.Size = New System.Drawing.Size(26, 13)
         Me.Label11.TabIndex = 49
         Me.Label11.Text = "max"
         '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(419, 128)
+        Me.Label9.Location = New System.Drawing.Point(314, 104)
+        Me.Label9.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(33, 17)
+        Me.Label9.Size = New System.Drawing.Size(26, 13)
         Me.Label9.TabIndex = 48
         Me.Label9.Text = "max"
         '
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(277, 128)
+        Me.Label10.Location = New System.Drawing.Point(208, 104)
+        Me.Label10.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(30, 17)
+        Me.Label10.Size = New System.Drawing.Size(23, 13)
         Me.Label10.TabIndex = 51
         Me.Label10.Text = "min"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(277, 160)
+        Me.Label2.Location = New System.Drawing.Point(208, 130)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(30, 17)
+        Me.Label2.Size = New System.Drawing.Size(23, 13)
         Me.Label2.TabIndex = 50
         Me.Label2.Text = "min"
         '
         'maxBeds
         '
-        Me.maxBeds.Location = New System.Drawing.Point(313, 126)
-        Me.maxBeds.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.maxBeds.Location = New System.Drawing.Point(235, 102)
+        Me.maxBeds.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.maxBeds.Name = "maxBeds"
-        Me.maxBeds.Size = New System.Drawing.Size(100, 22)
+        Me.maxBeds.Size = New System.Drawing.Size(75, 20)
         Me.maxBeds.TabIndex = 6
         '
         'minBeds
         '
-        Me.minBeds.Location = New System.Drawing.Point(172, 126)
-        Me.minBeds.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.minBeds.Location = New System.Drawing.Point(129, 102)
+        Me.minBeds.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.minBeds.Name = "minBeds"
-        Me.minBeds.Size = New System.Drawing.Size(100, 22)
+        Me.minBeds.Size = New System.Drawing.Size(75, 20)
         Me.minBeds.TabIndex = 5
         '
         'txtCounty
         '
-        Me.txtCounty.Location = New System.Drawing.Point(172, 94)
-        Me.txtCounty.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.txtCounty.Location = New System.Drawing.Point(129, 76)
+        Me.txtCounty.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.txtCounty.Name = "txtCounty"
-        Me.txtCounty.Size = New System.Drawing.Size(280, 22)
+        Me.txtCounty.Size = New System.Drawing.Size(211, 20)
         Me.txtCounty.TabIndex = 4
         '
         'txtTown
         '
-        Me.txtTown.Location = New System.Drawing.Point(172, 65)
-        Me.txtTown.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.txtTown.Location = New System.Drawing.Point(129, 53)
+        Me.txtTown.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.txtTown.Name = "txtTown"
-        Me.txtTown.Size = New System.Drawing.Size(280, 22)
+        Me.txtTown.Size = New System.Drawing.Size(211, 20)
         Me.txtTown.TabIndex = 3
         '
         'txtAdd
         '
-        Me.txtAdd.Location = New System.Drawing.Point(172, 37)
-        Me.txtAdd.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.txtAdd.Location = New System.Drawing.Point(129, 30)
+        Me.txtAdd.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.txtAdd.Name = "txtAdd"
-        Me.txtAdd.Size = New System.Drawing.Size(280, 22)
+        Me.txtAdd.Size = New System.Drawing.Size(211, 20)
         Me.txtAdd.TabIndex = 2
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(15, 160)
+        Me.Label8.Location = New System.Drawing.Point(11, 130)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(40, 17)
+        Me.Label8.Size = New System.Drawing.Size(31, 13)
         Me.Label8.TabIndex = 42
         Me.Label8.Text = "Price"
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(15, 128)
+        Me.Label7.Location = New System.Drawing.Point(11, 104)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(113, 17)
+        Me.Label7.Size = New System.Drawing.Size(85, 13)
         Me.Label7.TabIndex = 41
         Me.Label7.Text = "Number Of Beds"
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(12, 97)
+        Me.Label6.Location = New System.Drawing.Point(9, 79)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(52, 17)
+        Me.Label6.Size = New System.Drawing.Size(40, 13)
         Me.Label6.TabIndex = 40
         Me.Label6.Text = "County"
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(12, 68)
+        Me.Label5.Location = New System.Drawing.Point(9, 55)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(42, 17)
+        Me.Label5.Size = New System.Drawing.Size(34, 13)
         Me.Label5.TabIndex = 39
         Me.Label5.Text = "Town"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(15, 7)
+        Me.Label3.Location = New System.Drawing.Point(11, 6)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(48, 17)
+        Me.Label3.Size = New System.Drawing.Size(37, 13)
         Me.Label3.TabIndex = 37
         Me.Label3.Text = "Status"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 39)
+        Me.Label1.Location = New System.Drawing.Point(9, 32)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(60, 17)
+        Me.Label1.Size = New System.Drawing.Size(45, 13)
         Me.Label1.TabIndex = 38
         Me.Label1.Text = "Address"
         '
@@ -334,10 +342,10 @@ Partial Class frmFindProperties
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel1.Controls.Add(Me.dgvProperties)
-        Me.Panel1.Location = New System.Drawing.Point(3, 252)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Panel1.Location = New System.Drawing.Point(2, 205)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(467, 354)
+        Me.Panel1.Size = New System.Drawing.Size(350, 288)
         Me.Panel1.TabIndex = 36
         '
         'dgvProperties
@@ -347,31 +355,28 @@ Partial Class frmFindProperties
         Me.dgvProperties.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvProperties.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvProperties.Location = New System.Drawing.Point(0, 0)
-        Me.dgvProperties.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.dgvProperties.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.dgvProperties.Name = "dgvProperties"
         Me.dgvProperties.ReadOnly = True
         Me.dgvProperties.RowHeadersVisible = False
         Me.dgvProperties.RowTemplate.Height = 24
-        Me.dgvProperties.Size = New System.Drawing.Size(467, 354)
+        Me.dgvProperties.Size = New System.Drawing.Size(350, 288)
         Me.dgvProperties.TabIndex = 11
         '
         'btnOthers
         '
-        Me.btnOthers.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnOthers.Location = New System.Drawing.Point(464, 20)
-        Me.btnOthers.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnOthers.Location = New System.Drawing.Point(347, 16)
         Me.btnOthers.Name = "btnOthers"
-        Me.btnOthers.Size = New System.Drawing.Size(75, 28)
+        Me.btnOthers.Size = New System.Drawing.Size(56, 23)
         Me.btnOthers.TabIndex = 42
         Me.btnOthers.Text = "Others"
         Me.btnOthers.UseVisualStyleBackColor = True
         '
         'btnCreateAppointment
         '
-        Me.btnCreateAppointment.Location = New System.Drawing.Point(304, 252)
-        Me.btnCreateAppointment.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnCreateAppointment.Location = New System.Drawing.Point(228, 205)
         Me.btnCreateAppointment.Name = "btnCreateAppointment"
-        Me.btnCreateAppointment.Size = New System.Drawing.Size(235, 28)
+        Me.btnCreateAppointment.Size = New System.Drawing.Size(176, 23)
         Me.btnCreateAppointment.TabIndex = 41
         Me.btnCreateAppointment.Text = "Create Appointment"
         Me.btnCreateAppointment.UseVisualStyleBackColor = True
@@ -379,10 +384,10 @@ Partial Class frmFindProperties
         'btnCancel
         '
         Me.btnCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnCancel.Location = New System.Drawing.Point(185, 583)
-        Me.btnCancel.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnCancel.Location = New System.Drawing.Point(138, 474)
+        Me.btnCancel.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(75, 23)
+        Me.btnCancel.Size = New System.Drawing.Size(56, 19)
         Me.btnCancel.TabIndex = 40
         Me.btnCancel.Text = "Cancel"
         Me.btnCancel.UseVisualStyleBackColor = True
@@ -390,75 +395,61 @@ Partial Class frmFindProperties
         'btnSave
         '
         Me.btnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnSave.Location = New System.Drawing.Point(284, 583)
-        Me.btnSave.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.btnSave.Location = New System.Drawing.Point(212, 474)
+        Me.btnSave.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(75, 23)
+        Me.btnSave.Size = New System.Drawing.Size(56, 19)
         Me.btnSave.TabIndex = 39
         Me.btnSave.Text = "Save"
         Me.btnSave.UseVisualStyleBackColor = True
         '
         'txtPrice
         '
-        Me.txtPrice.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtPrice.Location = New System.Drawing.Point(304, 46)
-        Me.txtPrice.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtPrice.Location = New System.Drawing.Point(227, 37)
         Me.txtPrice.Name = "txtPrice"
-        Me.txtPrice.Size = New System.Drawing.Size(233, 22)
+        Me.txtPrice.Size = New System.Drawing.Size(176, 20)
         Me.txtPrice.TabIndex = 10
         '
         'txtStatus
         '
-        Me.txtStatus.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtStatus.Location = New System.Drawing.Point(304, 78)
-        Me.txtStatus.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtStatus.Location = New System.Drawing.Point(227, 63)
         Me.txtStatus.Name = "txtStatus"
-        Me.txtStatus.Size = New System.Drawing.Size(233, 22)
+        Me.txtStatus.Size = New System.Drawing.Size(176, 20)
         Me.txtStatus.TabIndex = 11
         '
         'txtTownEdit
         '
-        Me.txtTownEdit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtTownEdit.Location = New System.Drawing.Point(304, 176)
-        Me.txtTownEdit.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtTownEdit.Location = New System.Drawing.Point(227, 143)
         Me.txtTownEdit.Name = "txtTownEdit"
-        Me.txtTownEdit.Size = New System.Drawing.Size(233, 22)
+        Me.txtTownEdit.Size = New System.Drawing.Size(176, 20)
         Me.txtTownEdit.TabIndex = 14
         '
         'txtAdd2
         '
-        Me.txtAdd2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtAdd2.Location = New System.Drawing.Point(304, 144)
-        Me.txtAdd2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtAdd2.Location = New System.Drawing.Point(227, 117)
         Me.txtAdd2.Name = "txtAdd2"
-        Me.txtAdd2.Size = New System.Drawing.Size(233, 22)
+        Me.txtAdd2.Size = New System.Drawing.Size(176, 20)
         Me.txtAdd2.TabIndex = 13
         '
         'txtAdd1
         '
-        Me.txtAdd1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtAdd1.Location = New System.Drawing.Point(304, 112)
-        Me.txtAdd1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtAdd1.Location = New System.Drawing.Point(227, 91)
         Me.txtAdd1.Name = "txtAdd1"
-        Me.txtAdd1.Size = New System.Drawing.Size(233, 22)
+        Me.txtAdd1.Size = New System.Drawing.Size(176, 20)
         Me.txtAdd1.TabIndex = 12
         '
         'txtCountyEdit
         '
-        Me.txtCountyEdit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtCountyEdit.Location = New System.Drawing.Point(304, 208)
-        Me.txtCountyEdit.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtCountyEdit.Location = New System.Drawing.Point(227, 169)
         Me.txtCountyEdit.Name = "txtCountyEdit"
-        Me.txtCountyEdit.Size = New System.Drawing.Size(233, 22)
+        Me.txtCountyEdit.Size = New System.Drawing.Size(176, 20)
         Me.txtCountyEdit.TabIndex = 15
         '
         'txtOwner
         '
-        Me.txtOwner.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtOwner.Location = New System.Drawing.Point(304, 20)
-        Me.txtOwner.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtOwner.Location = New System.Drawing.Point(227, 16)
         Me.txtOwner.Name = "txtOwner"
-        Me.txtOwner.Size = New System.Drawing.Size(149, 22)
+        Me.txtOwner.Size = New System.Drawing.Size(113, 20)
         Me.txtOwner.TabIndex = 32
         '
         'rtbDescription
@@ -466,101 +457,92 @@ Partial Class frmFindProperties
         Me.rtbDescription.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.rtbDescription.Location = New System.Drawing.Point(17, 288)
-        Me.rtbDescription.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.rtbDescription.Location = New System.Drawing.Point(13, 234)
         Me.rtbDescription.Name = "rtbDescription"
-        Me.rtbDescription.Size = New System.Drawing.Size(520, 288)
+        Me.rtbDescription.Size = New System.Drawing.Size(390, 235)
         Me.rtbDescription.TabIndex = 31
         Me.rtbDescription.Text = ""
         '
         'Label17
         '
         Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(228, 148)
-        Me.Label17.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label17.Location = New System.Drawing.Point(171, 120)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(68, 17)
+        Me.Label17.Size = New System.Drawing.Size(51, 13)
         Me.Label17.TabIndex = 30
         Me.Label17.Text = "Address2"
         '
         'Label16
         '
         Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(228, 116)
-        Me.Label16.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label16.Location = New System.Drawing.Point(171, 94)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(68, 17)
+        Me.Label16.Size = New System.Drawing.Size(51, 13)
         Me.Label16.TabIndex = 29
         Me.Label16.Text = "Address1"
         '
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(243, 213)
-        Me.Label15.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label15.Location = New System.Drawing.Point(182, 173)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(52, 17)
+        Me.Label15.Size = New System.Drawing.Size(40, 13)
         Me.Label15.TabIndex = 28
         Me.Label15.Text = "County"
         '
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(251, 180)
-        Me.Label14.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label14.Location = New System.Drawing.Point(188, 146)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(42, 17)
+        Me.Label14.Size = New System.Drawing.Size(34, 13)
         Me.Label14.TabIndex = 27
         Me.Label14.Text = "Town"
         '
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(247, 86)
-        Me.Label13.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label13.Location = New System.Drawing.Point(185, 70)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(48, 17)
+        Me.Label13.Size = New System.Drawing.Size(37, 13)
         Me.Label13.TabIndex = 26
         Me.Label13.Text = "Status"
         '
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(243, 49)
-        Me.Label12.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label12.Location = New System.Drawing.Point(182, 40)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(40, 17)
+        Me.Label12.Size = New System.Drawing.Size(31, 13)
         Me.Label12.TabIndex = 25
         Me.Label12.Text = "Price"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(233, 23)
-        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label4.Location = New System.Drawing.Point(175, 19)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(49, 17)
+        Me.Label4.Size = New System.Drawing.Size(38, 13)
         Me.Label4.TabIndex = 24
         Me.Label4.Text = "Owner"
         '
         'pbxPhoto
         '
         Me.pbxPhoto.BackColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.pbxPhoto.Location = New System.Drawing.Point(17, 7)
-        Me.pbxPhoto.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.pbxPhoto.Location = New System.Drawing.Point(13, 6)
         Me.pbxPhoto.Name = "pbxPhoto"
-        Me.pbxPhoto.Size = New System.Drawing.Size(203, 225)
+        Me.pbxPhoto.Size = New System.Drawing.Size(152, 183)
         Me.pbxPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.pbxPhoto.TabIndex = 23
         Me.pbxPhoto.TabStop = False
         '
         'frmFindProperties
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1032, 613)
+        Me.ClientSize = New System.Drawing.Size(774, 498)
         Me.Controls.Add(Me.SplitContainer1)
-        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
         Me.Name = "frmFindProperties"
         Me.Text = "Manage Properties"
         Me.SplitContainer1.Panel1.ResumeLayout(False)
