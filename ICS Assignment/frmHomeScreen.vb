@@ -76,4 +76,8 @@
         frmMakeOffer.Show()
 
     End Sub
+
+    Private Sub btnAcceptOffer_Click(sender As System.Object, e As System.EventArgs) Handles btnAcceptOffer.Click
+        frmAcceptOffer.Show()
+    End Sub
 End Class
