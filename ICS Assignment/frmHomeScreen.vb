@@ -5,7 +5,7 @@
     Dim prop As New Properties
 
     Private Sub btnAddProperty_Click(sender As System.Object, e As System.EventArgs) Handles btnAddProperty.Click
-        frmAddProperty.Show()
+        frmAddProperty.ShowDialog()
         ' Me.Hide()
     End Sub
 
@@ -55,29 +55,29 @@
     End Sub
 
     Private Sub btnCreateAppointment_Click(sender As System.Object, e As System.EventArgs) Handles btnCreateAppointment.Click
-        frmAppointments.Show()
+        frmAppointments.ShowDialog()
         'Me.Hide()
     End Sub
 
     Private Sub AddToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles AddToolStripMenuItem.Click
-        frmAddCustomer.Show()
+        frmAddCustomer.ShowDialog()
     End Sub
 
     Private Sub SearchToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles SearchToolStripMenuItem.Click
-        frmFindCustomer.Show()
+        frmFindCustomer.ShowDialog()
     End Sub
 
     Private Sub btnSearchProperty_Click(sender As System.Object, e As System.EventArgs) Handles btnSearchProperty.Click
-        frmFindProperties.Show()
+        frmFindProperties.ShowDialog()
 
     End Sub
 
     Private Sub btnMakeOffer_Click(sender As System.Object, e As System.EventArgs) Handles btnMakeOffer.Click
-        frmMakeOffer.Show()
+        frmMakeOffer.ShowDialog()
 
     End Sub
 
     Private Sub btnAcceptOffer_Click(sender As System.Object, e As System.EventArgs) Handles btnAcceptOffer.Click
-        frmAcceptOffer.Show()
+        frmAcceptOffer.ShowDialog()
     End Sub
 End Class

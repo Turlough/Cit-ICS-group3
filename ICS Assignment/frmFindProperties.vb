@@ -18,6 +18,7 @@ Public Class frmFindProperties
         btnSave.Visible = False
         btnCancel.Visible = False
         btnCreateAppointment.Visible = False
+        btnSetActive.Visible = True
         'Disable editing textboxes
         txtOwner.ReadOnly = True
         txtPrice.ReadOnly = True
@@ -66,7 +67,7 @@ Public Class frmFindProperties
 
 
         End With
-        
+
 
     End Sub
     Sub fillDetails()
@@ -93,7 +94,7 @@ Public Class frmFindProperties
             End With
 
         End With
-
+        btnSetActive.Visible = True
     End Sub
 
     Private Sub pbxPhoto_Click(sender As System.Object, e As System.EventArgs) Handles pbxPhoto.Click
@@ -216,7 +217,11 @@ Public Class frmFindProperties
     End Sub
 
     Private Sub btnDelete_Click(sender As System.Object, e As System.EventArgs) Handles btnDelete.Click
-        MsgBox("You have clicked Delete, Sucker.")
+        MsgBox("TODO")
 
+    End Sub
+
+    Private Sub btnSetActivate_Click(sender As System.Object, e As System.EventArgs) Handles btnSetActive.Click
+        Me.Close()
     End Sub
 End Class

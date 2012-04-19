@@ -44,6 +44,7 @@ Partial Class frmHomeScreen
         Me.DeleteToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+        Me.btnAcceptOffer = New System.Windows.Forms.Button()
         Me.btnMakeOffer = New System.Windows.Forms.Button()
         Me.btnCreateAppointment = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -57,7 +58,6 @@ Partial Class frmHomeScreen
         Me.lblCustomer = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.dgvSchedule = New System.Windows.Forms.DataGridView()
-        Me.btnAcceptOffer = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
@@ -208,6 +208,17 @@ Partial Class frmHomeScreen
         Me.SplitContainer1.SplitterDistance = 191
         Me.SplitContainer1.TabIndex = 1
         '
+        'btnAcceptOffer
+        '
+        Me.btnAcceptOffer.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnAcceptOffer.Location = New System.Drawing.Point(12, 540)
+        Me.btnAcceptOffer.Name = "btnAcceptOffer"
+        Me.btnAcceptOffer.Size = New System.Drawing.Size(164, 69)
+        Me.btnAcceptOffer.TabIndex = 6
+        Me.btnAcceptOffer.Text = "Accept an Offer"
+        Me.btnAcceptOffer.UseVisualStyleBackColor = True
+        '
         'btnMakeOffer
         '
         Me.btnMakeOffer.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
@@ -282,7 +293,7 @@ Partial Class frmHomeScreen
         Me.btnSearchProperty.Name = "btnSearchProperty"
         Me.btnSearchProperty.Size = New System.Drawing.Size(164, 72)
         Me.btnSearchProperty.TabIndex = 2
-        Me.btnSearchProperty.Text = "Search Properties for Buyers"
+        Me.btnSearchProperty.Text = "Manage Properties"
         Me.btnSearchProperty.UseVisualStyleBackColor = True
         '
         'btnAddProperty
@@ -293,7 +304,7 @@ Partial Class frmHomeScreen
         Me.btnAddProperty.Name = "btnAddProperty"
         Me.btnAddProperty.Size = New System.Drawing.Size(164, 69)
         Me.btnAddProperty.TabIndex = 1
-        Me.btnAddProperty.Text = "Add Property for Sale"
+        Me.btnAddProperty.Text = "Add Property"
         Me.btnAddProperty.UseVisualStyleBackColor = True
         '
         'GroupBox3
@@ -372,17 +383,6 @@ Partial Class frmHomeScreen
         Me.dgvSchedule.RowsDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvSchedule.Size = New System.Drawing.Size(396, 456)
         Me.dgvSchedule.TabIndex = 0
-        '
-        'btnAcceptOffer
-        '
-        Me.btnAcceptOffer.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnAcceptOffer.Location = New System.Drawing.Point(12, 540)
-        Me.btnAcceptOffer.Name = "btnAcceptOffer"
-        Me.btnAcceptOffer.Size = New System.Drawing.Size(164, 69)
-        Me.btnAcceptOffer.TabIndex = 6
-        Me.btnAcceptOffer.Text = "Accept an Offer"
-        Me.btnAcceptOffer.UseVisualStyleBackColor = True
         '
         'frmHomeScreen
         '

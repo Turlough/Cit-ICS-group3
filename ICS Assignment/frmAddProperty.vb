@@ -28,7 +28,7 @@ Public Class frmAddProperty
         'form
         Me.Hide()
         frmHomeScreen.showDetails()
-        frmAppointments.Show()
+        frmAppointments.ShowDialog()
     End Sub
     ''' <summary>
     ''' The Find Customer form is shown, and the user selects a customer (or cancels).
@@ -38,7 +38,7 @@ Public Class frmAddProperty
     ''' <param name="e">not used</param>
     ''' <remarks></remarks>
     Private Sub btnSearchCustomers_Click(sender As System.Object, e As System.EventArgs) Handles btnSearchCustomers.Click
-        frmFindCustomer.Show()
+        frmFindCustomer.ShowDialog()
         loadCustomer()
     End Sub
 
