@@ -46,6 +46,7 @@ Partial Class frmFindProperties
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.dgvProperties = New System.Windows.Forms.DataGridView()
+        Me.btnSetActive = New System.Windows.Forms.Button()
         Me.btnOthers = New System.Windows.Forms.Button()
         Me.btnCreateAppointment = New System.Windows.Forms.Button()
         Me.btnCancel = New System.Windows.Forms.Button()
@@ -66,7 +67,6 @@ Partial Class frmFindProperties
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.pbxPhoto = New System.Windows.Forms.PictureBox()
-        Me.btnSetActive = New System.Windows.Forms.Button()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -362,8 +362,18 @@ Partial Class frmFindProperties
         Me.dgvProperties.ReadOnly = True
         Me.dgvProperties.RowHeadersVisible = False
         Me.dgvProperties.RowTemplate.Height = 24
+        Me.dgvProperties.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvProperties.Size = New System.Drawing.Size(350, 288)
         Me.dgvProperties.TabIndex = 11
+        '
+        'btnSetActive
+        '
+        Me.btnSetActive.Location = New System.Drawing.Point(13, 205)
+        Me.btnSetActive.Name = "btnSetActive"
+        Me.btnSetActive.Size = New System.Drawing.Size(156, 23)
+        Me.btnSetActive.TabIndex = 52
+        Me.btnSetActive.Text = "Set as Active Property"
+        Me.btnSetActive.UseVisualStyleBackColor = True
         '
         'btnOthers
         '
@@ -537,15 +547,6 @@ Partial Class frmFindProperties
         Me.pbxPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.pbxPhoto.TabIndex = 23
         Me.pbxPhoto.TabStop = False
-        '
-        'btnSetActive
-        '
-        Me.btnSetActive.Location = New System.Drawing.Point(13, 205)
-        Me.btnSetActive.Name = "btnSetActive"
-        Me.btnSetActive.Size = New System.Drawing.Size(156, 23)
-        Me.btnSetActive.TabIndex = 52
-        Me.btnSetActive.Text = "Set as Active Property"
-        Me.btnSetActive.UseVisualStyleBackColor = True
         '
         'frmFindProperties
         '
