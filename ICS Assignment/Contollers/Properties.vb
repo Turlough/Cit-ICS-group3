@@ -5,7 +5,7 @@
     Public add2 As String
     Public town As String
     Public county As String
-    Public description As String
+    Public description As String = "Enter description here...."
     Public numBeds As Integer
     Public price As Integer
     Public status As String

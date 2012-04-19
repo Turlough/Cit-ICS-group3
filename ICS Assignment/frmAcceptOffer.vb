@@ -61,7 +61,7 @@
             price = CInt(txtPrice.Text)
             'update property
             prop.price = price
-            prop.status = "Buyer Documentation Pending"
+            prop.status = "Offer Accepted"
             prop.updateProperty()
 
             'update buyer relationship

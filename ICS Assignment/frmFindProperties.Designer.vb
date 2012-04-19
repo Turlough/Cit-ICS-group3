@@ -82,8 +82,11 @@ Partial Class frmFindProperties
         'btnEdit
         '
         Me.btnEdit.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+
+
         Me.btnEdit.Location = New System.Drawing.Point(284, 474)
         Me.btnEdit.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+
         Me.btnEdit.Name = "btnEdit"
         Me.btnEdit.Size = New System.Drawing.Size(56, 19)
         Me.btnEdit.TabIndex = 16
@@ -93,8 +96,11 @@ Partial Class frmFindProperties
         'btnDelete
         '
         Me.btnDelete.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+
+
         Me.btnDelete.Location = New System.Drawing.Point(357, 474)
         Me.btnDelete.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(56, 19)
         Me.btnDelete.TabIndex = 22
@@ -105,6 +111,8 @@ Partial Class frmFindProperties
         '
         Me.SplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SplitContainer1.Location = New System.Drawing.Point(0, 0)
+
+
         Me.SplitContainer1.Name = "SplitContainer1"
         '
         'SplitContainer1.Panel1
@@ -365,7 +373,10 @@ Partial Class frmFindProperties
         '
         'btnOthers
         '
+
+
         Me.btnOthers.Location = New System.Drawing.Point(347, 16)
+
         Me.btnOthers.Name = "btnOthers"
         Me.btnOthers.Size = New System.Drawing.Size(56, 23)
         Me.btnOthers.TabIndex = 42
@@ -374,7 +385,9 @@ Partial Class frmFindProperties
         '
         'btnCreateAppointment
         '
+
         Me.btnCreateAppointment.Location = New System.Drawing.Point(228, 205)
+
         Me.btnCreateAppointment.Name = "btnCreateAppointment"
         Me.btnCreateAppointment.Size = New System.Drawing.Size(176, 23)
         Me.btnCreateAppointment.TabIndex = 41
@@ -384,8 +397,10 @@ Partial Class frmFindProperties
         'btnCancel
         '
         Me.btnCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+
         Me.btnCancel.Location = New System.Drawing.Point(138, 474)
         Me.btnCancel.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(56, 19)
         Me.btnCancel.TabIndex = 40
@@ -395,8 +410,10 @@ Partial Class frmFindProperties
         'btnSave
         '
         Me.btnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+
         Me.btnSave.Location = New System.Drawing.Point(212, 474)
         Me.btnSave.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(56, 19)
         Me.btnSave.TabIndex = 39
@@ -405,49 +422,63 @@ Partial Class frmFindProperties
         '
         'txtPrice
         '
+
         Me.txtPrice.Location = New System.Drawing.Point(227, 37)
+
         Me.txtPrice.Name = "txtPrice"
         Me.txtPrice.Size = New System.Drawing.Size(176, 20)
         Me.txtPrice.TabIndex = 10
         '
         'txtStatus
         '
+
         Me.txtStatus.Location = New System.Drawing.Point(227, 63)
+
         Me.txtStatus.Name = "txtStatus"
         Me.txtStatus.Size = New System.Drawing.Size(176, 20)
         Me.txtStatus.TabIndex = 11
         '
         'txtTownEdit
         '
+
         Me.txtTownEdit.Location = New System.Drawing.Point(227, 143)
+
         Me.txtTownEdit.Name = "txtTownEdit"
         Me.txtTownEdit.Size = New System.Drawing.Size(176, 20)
         Me.txtTownEdit.TabIndex = 14
         '
         'txtAdd2
         '
+
         Me.txtAdd2.Location = New System.Drawing.Point(227, 117)
+
         Me.txtAdd2.Name = "txtAdd2"
         Me.txtAdd2.Size = New System.Drawing.Size(176, 20)
         Me.txtAdd2.TabIndex = 13
         '
         'txtAdd1
         '
+
         Me.txtAdd1.Location = New System.Drawing.Point(227, 91)
+
         Me.txtAdd1.Name = "txtAdd1"
         Me.txtAdd1.Size = New System.Drawing.Size(176, 20)
         Me.txtAdd1.TabIndex = 12
         '
         'txtCountyEdit
         '
+
         Me.txtCountyEdit.Location = New System.Drawing.Point(227, 169)
+
         Me.txtCountyEdit.Name = "txtCountyEdit"
         Me.txtCountyEdit.Size = New System.Drawing.Size(176, 20)
         Me.txtCountyEdit.TabIndex = 15
         '
         'txtOwner
         '
+
         Me.txtOwner.Location = New System.Drawing.Point(227, 16)
+
         Me.txtOwner.Name = "txtOwner"
         Me.txtOwner.Size = New System.Drawing.Size(113, 20)
         Me.txtOwner.TabIndex = 32
@@ -457,11 +488,13 @@ Partial Class frmFindProperties
         Me.rtbDescription.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+
         Me.rtbDescription.Location = New System.Drawing.Point(13, 234)
         Me.rtbDescription.Name = "rtbDescription"
         Me.rtbDescription.Size = New System.Drawing.Size(390, 235)
+
         Me.rtbDescription.TabIndex = 31
-        Me.rtbDescription.Text = ""
+        Me.rtbDescription.Text = "Enter description here...."
         '
         'Label17
         '
@@ -529,7 +562,9 @@ Partial Class frmFindProperties
         'pbxPhoto
         '
         Me.pbxPhoto.BackColor = System.Drawing.SystemColors.ControlDarkDark
+
         Me.pbxPhoto.Location = New System.Drawing.Point(13, 6)
+
         Me.pbxPhoto.Name = "pbxPhoto"
         Me.pbxPhoto.Size = New System.Drawing.Size(152, 183)
         Me.pbxPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
