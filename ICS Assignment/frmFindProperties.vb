@@ -172,8 +172,10 @@ Public Class frmFindProperties
 
 
 
-        'refresh table
+        'refresh table and details
         refreshPropertyList()
+        fillDetails()
+
 
     End Sub
     Function nextStatus() As String
