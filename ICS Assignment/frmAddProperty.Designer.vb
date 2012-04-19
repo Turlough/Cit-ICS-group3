@@ -47,8 +47,8 @@ Partial Class frmAddProperty
         Me.txtFname = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.rbOwner = New System.Windows.Forms.RadioButton()
         Me.rbLandlord = New System.Windows.Forms.RadioButton()
+        Me.rbOwner = New System.Windows.Forms.RadioButton()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -321,6 +321,16 @@ Partial Class frmAddProperty
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Relationship"
         '
+        'rbLandlord
+        '
+        Me.rbLandlord.AutoSize = True
+        Me.rbLandlord.Location = New System.Drawing.Point(239, 20)
+        Me.rbLandlord.Name = "rbLandlord"
+        Me.rbLandlord.Size = New System.Drawing.Size(66, 17)
+        Me.rbLandlord.TabIndex = 1
+        Me.rbLandlord.Text = "Landlord"
+        Me.rbLandlord.UseVisualStyleBackColor = True
+        '
         'rbOwner
         '
         Me.rbOwner.AutoSize = True
@@ -332,16 +342,6 @@ Partial Class frmAddProperty
         Me.rbOwner.TabStop = True
         Me.rbOwner.Text = "Owner"
         Me.rbOwner.UseVisualStyleBackColor = True
-        '
-        'rbLandlord
-        '
-        Me.rbLandlord.AutoSize = True
-        Me.rbLandlord.Location = New System.Drawing.Point(239, 20)
-        Me.rbLandlord.Name = "rbLandlord"
-        Me.rbLandlord.Size = New System.Drawing.Size(66, 17)
-        Me.rbLandlord.TabIndex = 1
-        Me.rbLandlord.Text = "Landlord"
-        Me.rbLandlord.UseVisualStyleBackColor = True
         '
         'frmAddProperty
         '

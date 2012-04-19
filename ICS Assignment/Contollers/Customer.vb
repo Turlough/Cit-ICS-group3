@@ -41,21 +41,36 @@
     End Sub
 
     Sub loadCustomer(id As Integer)
+        If id = 0 Then clear()
         SQL = "SELECT * FROM Customer WHERE id =" & id
         Dim DT As DataTable = getData(SQL)
-        With DT.Rows(0)
-            custid = id
-            fname = .Item(1)
-            sname = .Item(2)
-            email = .Item(3)
-            phone = .Item(4)
-            address = .Item(5)
-            status = .Item(6).ToString
-        End With
+        If DT.Rows.Count = 1 Then
+            With DT.Rows(0)
+                custid = id
+                fname = .Item(1)
+                sname = .Item(2)
+                email = .Item(3)
+                phone = .Item(4)
+                address = .Item(5)
+                status = .Item(6).ToString
+            End With
+        Else
+            clear()
+        End If
+
         DT = Nothing
     End Sub
     Sub delete(id As Integer)
         SQL = "EXEC sp_ArchiveCustomer " & id
         update(SQL) 'TODO- dont use super.update. Tidy the command structure
+    End Sub
+    Sub clear()
+        custid = 0
+        fname = ""
+        sname = ""
+        email = ""
+        phone = ""
+        address = ""
+        status = ""
     End Sub
 End Class

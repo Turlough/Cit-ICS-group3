@@ -11,7 +11,9 @@ Public Class frmAddProperty
     Dim cust As New Customer
     Dim cp As New CustProp
 
-
+    Private Sub frmAddProperty_Shown(sender As Object, e As System.EventArgs) Handles Me.Shown
+        cust.loadCustomer(0)
+    End Sub
 
     Private Sub btnSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSave.Click
 
@@ -29,6 +31,7 @@ Public Class frmAddProperty
         Me.Hide()
         frmHomeScreen.showDetails()
         frmAppointments.ShowDialog()
+
     End Sub
     ''' <summary>
     ''' The Find Customer form is shown, and the user selects a customer (or cancels).
@@ -39,13 +42,10 @@ Public Class frmAddProperty
     ''' <remarks></remarks>
     Private Sub btnSearchCustomers_Click(sender As System.Object, e As System.EventArgs) Handles btnSearchCustomers.Click
         frmFindCustomer.ShowDialog()
-        loadCustomer()
+        displayCustomer()
     End Sub
 
-    Private Sub loadCustomer()
-        If Customer.custid = 0 Then
-            Exit Sub
-        End If
+    Private Sub displayCustomer()
         cust.loadCustomer(Customer.custid)
 
         txtFname.Text = cust.fname
@@ -55,4 +55,11 @@ Public Class frmAddProperty
         txtAddress.Text = cust.address
 
     End Sub
+    Sub clearForm()
+        cust.loadCustomer(0)
+        displayCustomer()
+
+    End Sub
+
+
 End Class
