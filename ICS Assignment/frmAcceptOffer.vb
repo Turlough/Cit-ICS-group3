@@ -72,4 +72,8 @@
             MsgBox("Enter the price accepted")
         End If
     End Sub
+
+    Private Sub GroupBox4_Enter(sender As System.Object, e As System.EventArgs) Handles GroupBox4.Enter
+
+    End Sub
 End Class

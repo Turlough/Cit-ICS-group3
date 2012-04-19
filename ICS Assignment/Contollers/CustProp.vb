@@ -1,5 +1,6 @@
 ﻿Public Class CustProp
     Inherits DBConnector
+    Public priceRel As Long
 
     Public Sub link(status As String)
         SQL = "INSERT INTO CustProp"
