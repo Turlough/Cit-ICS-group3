@@ -7,7 +7,7 @@
     Public county As String
     Public description As String = "Enter description here...."
     Public numBeds As Integer
-    Public price As Integer
+    Public price As Long
     Public status As String
 
     Public photo As Image

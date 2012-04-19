@@ -5,7 +5,7 @@ Public Class frmMakeOffer
     Private prop As New Properties
     Private cp As New CustProp
     Dim buyer As Integer
-    Dim owner As Integer
+    Dim vendor As Integer
 
     Private Sub frmMakeOffer_Shown(sender As Object, e As System.EventArgs) Handles Me.Shown
         showDetails()
@@ -42,7 +42,7 @@ Public Class frmMakeOffer
 
     Private Sub btnSearchProperty_Click(sender As System.Object, e As System.EventArgs) Handles btnSearchProperty.Click
         frmFindProperties.ShowDialog()
-        owner = Customer.custid 'set when showing dialog
+        vendor = Customer.custid 'set when showing dialog
         cust.loadCustomer(buyer) 'reset buyer
         showDetails()
     End Sub
