@@ -8,14 +8,11 @@
 ''' </summary>
 ''' <remarks>CustProp does not use ID</remarks>
 Public Class DBConnector
-<<<<<<< HEAD
+
     'Dim sqCon As New SqlClient.SqlConnection(My.Settings.dbConnectorString)
     'Dim sqCon As New SqlClient.SqlConnection(My.Settings.turloughConnector)
     Dim sqCon As New SqlClient.SqlConnection(My.Settings.SQLAzureConnection)
-=======
-    Dim sqCon As New SqlClient.SqlConnection(My.Settings.dbConnectorString)
-    'Dim sqCon As New SqlClient.SqlConnection(My.Settings.turloughConnector)
->>>>>>> aa39338fb43f1ba97fa924f5b5c9859557cb5036
+
     Dim sqCmd As New SqlClient.SqlCommand
 
     Public Shared custid As Integer = 0
