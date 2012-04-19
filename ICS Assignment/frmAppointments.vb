@@ -119,7 +119,7 @@ Public Class frmAppointments
         fillTimes() 'refresh this datagrid
         frmHomeScreen.showDetails() 'refresh calendar on home screen
         frmHomeScreen.Show()
-        Me.Hide()
+        Me.Close()
 
     End Sub
 

@@ -32,6 +32,7 @@ Partial Class frmFindCustomer
         Me.btnArchive = New System.Windows.Forms.Button()
         Me.btnEdit = New System.Windows.Forms.Button()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+        Me.btnSet = New System.Windows.Forms.Button()
         Me.btnProperties = New System.Windows.Forms.Button()
         Me.txtEmail = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -43,7 +44,7 @@ Partial Class frmFindCustomer
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtFname = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.btnSet = New System.Windows.Forms.Button()
+        Me.btnSave = New System.Windows.Forms.Button()
         CType(Me.dgvCustomers, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -169,6 +170,7 @@ Partial Class frmFindCustomer
         '
         'SplitContainer1.Panel2
         '
+        Me.SplitContainer1.Panel2.Controls.Add(Me.btnSave)
         Me.SplitContainer1.Panel2.Controls.Add(Me.btnSet)
         Me.SplitContainer1.Panel2.Controls.Add(Me.btnProperties)
         Me.SplitContainer1.Panel2.Controls.Add(Me.txtEmail)
@@ -187,12 +189,21 @@ Partial Class frmFindCustomer
         Me.SplitContainer1.SplitterDistance = 450
         Me.SplitContainer1.TabIndex = 14
         '
+        'btnSet
+        '
+        Me.btnSet.Location = New System.Drawing.Point(48, 268)
+        Me.btnSet.Name = "btnSet"
+        Me.btnSet.Size = New System.Drawing.Size(178, 23)
+        Me.btnSet.TabIndex = 25
+        Me.btnSet.Text = "Set as Active Customer"
+        Me.btnSet.UseVisualStyleBackColor = True
+        '
         'btnProperties
         '
         Me.btnProperties.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnProperties.Location = New System.Drawing.Point(43, 436)
+        Me.btnProperties.Location = New System.Drawing.Point(48, 297)
         Me.btnProperties.Name = "btnProperties"
-        Me.btnProperties.Size = New System.Drawing.Size(75, 19)
+        Me.btnProperties.Size = New System.Drawing.Size(178, 25)
         Me.btnProperties.TabIndex = 24
         Me.btnProperties.Text = "Properties"
         Me.btnProperties.UseVisualStyleBackColor = True
@@ -278,14 +289,16 @@ Partial Class frmFindCustomer
         Me.Label1.TabIndex = 14
         Me.Label1.Text = "Forename"
         '
-        'btnSet
+        'btnSave
         '
-        Me.btnSet.Location = New System.Drawing.Point(78, 268)
-        Me.btnSet.Name = "btnSet"
-        Me.btnSet.Size = New System.Drawing.Size(148, 23)
-        Me.btnSet.TabIndex = 25
-        Me.btnSet.Text = "Set as Active Customer"
-        Me.btnSet.UseVisualStyleBackColor = True
+        Me.btnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnSave.Location = New System.Drawing.Point(63, 436)
+        Me.btnSave.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnSave.Name = "btnSave"
+        Me.btnSave.Size = New System.Drawing.Size(56, 19)
+        Me.btnSave.TabIndex = 26
+        Me.btnSave.Text = "Save"
+        Me.btnSave.UseVisualStyleBackColor = True
         '
         'frmFindCustomer
         '
@@ -329,4 +342,5 @@ Partial Class frmFindCustomer
     Friend WithEvents txtFname As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents btnSet As System.Windows.Forms.Button
+    Friend WithEvents btnSave As System.Windows.Forms.Button
 End Class
