@@ -21,7 +21,7 @@
         SQL &= ", (p.add1 + ' ' + p.add2 + ' ' + p.town + ' ' + p.county) AS Prop"
         SQL &= " FROM activecustomers c INNER JOIN custprop cp ON c.id=cp.customerid"
         SQL &= " INNER JOIN activeproperties p ON p.id=cp.propertyid"
-        SQL &= " WHERE cp.relationshiptype <> 'Owner'"
+        SQL &= " WHERE cp.relationshiptype = 'Offer Made'"
         SQL &= " ORDER BY cp.propertyid DESC, cp.customerid DESC"
 
         Return getData(SQL)
