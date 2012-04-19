@@ -55,11 +55,18 @@ Public Class frmFindProperties
     Private Sub dgvProperties_CellClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvProperties.CellClick
         With dgvProperties
             Dim r As Integer = e.RowIndex
-            .Rows(r).Selected = True    ' select the entire row
-            Properties.propid = .Rows(r).Cells(0).Value ' get the property ID (PK)
+            If r >= 0 Then
+                .Rows(r).Selected = True    ' select the entire row
+                Properties.propid = .Rows(r).Cells(0).Value ' get the property ID (PK)
+                fillDetails()
+                disableEdit()
+            End If
+
+
+
+
         End With
-        fillDetails()
-        disableEdit()
+        
 
     End Sub
     Sub fillDetails()
@@ -116,6 +123,7 @@ Public Class frmFindProperties
         btnSave.Visible = True
         btnCancel.Visible = True
         btnCreateAppointment.Visible = True
+        'Enable textboxes
         txtOwner.ReadOnly = False
         txtPrice.ReadOnly = False
         txtStatus.ReadOnly = False
@@ -164,8 +172,10 @@ Public Class frmFindProperties
 
 
 
-        'refresh table
+        'refresh table and details
         refreshPropertyList()
+        fillDetails()
+
 
     End Sub
     Function nextStatus() As String
