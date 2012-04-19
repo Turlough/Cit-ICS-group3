@@ -14,4 +14,13 @@
             Return True
         End If
     End Function
+    Public Function eMail(s As String) As Boolean
+        If Not IsNumeric(s) Then
+            msg = "Enter a Number"
+            Return False
+        Else
+            msg = ""
+            Return True
+        End If
+    End Function
 End Class
