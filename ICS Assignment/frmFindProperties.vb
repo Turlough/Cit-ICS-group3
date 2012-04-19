@@ -220,4 +220,8 @@ Public Class frmFindProperties
     Private Sub btnSetActivate_Click(sender As System.Object, e As System.EventArgs) Handles btnSetActive.Click
         Me.Close()
     End Sub
+
+    Private Sub btnCancel_Click(sender As System.Object, e As System.EventArgs) Handles btnCancel.Click
+        disableEdit()
+    End Sub
 End Class
