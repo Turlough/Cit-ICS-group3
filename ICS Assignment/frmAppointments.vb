@@ -8,14 +8,7 @@ Public Class frmAppointments
     Dim cp As New CustProp
     Dim DT As New DataTable
 
-    Sub New()
 
-        ' This call is required by the designer.
-        InitializeComponent()
-
-        setDefaults()
-
-    End Sub
     Sub setDefaults()
         Try
             cust.loadCustomer(Customer.custid)
@@ -56,6 +49,7 @@ Public Class frmAppointments
 
     End Sub
     Private Sub frmCalendar_Shown(sender As Object, e As System.EventArgs) Handles Me.Shown
+        setDefaults()
         app.chosenDate = Now()
 
         txtStart.Text = "14"
