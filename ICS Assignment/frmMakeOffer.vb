@@ -18,6 +18,8 @@ Public Class frmMakeOffer
         If Properties.propid > 0 Then
             prop.loadProperty(Properties.propid)
             lblProperty.Text = prop.fullAddress
+            txtAmount.Text = prop.price
+            lblAskingPrice.Text = prop.price
         End If
         If Customer.custid > 0 And Properties.propid > 0 Then
             gbxOffer.Visible = True
