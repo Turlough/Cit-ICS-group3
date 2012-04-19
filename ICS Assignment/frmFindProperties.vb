@@ -157,7 +157,7 @@ Public Class frmFindProperties
             .county = txtCountyEdit.Text
             .description = rtbDescription.Text
             .status = nextStatus()
-            .price = clong(txtPrice.Text)
+            .price = CLng(txtPrice.Text)
             .photo = pbxPhoto.Image
 
             'update DB
@@ -176,7 +176,7 @@ Public Class frmFindProperties
 
     End Sub
     Function nextStatus() As String
-        Dim p As Integer = clong(txtPrice.Text)
+        Dim p As Integer = CLng(txtPrice.Text)
         Select Case cmbStatus.Text
             Case "Valuation Pending"
                 If p > 0 Then

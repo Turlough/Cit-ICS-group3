@@ -58,7 +58,7 @@ Public Class frmMakeOffer
     End Sub
     Sub makeOffer()
         cust.loadCustomer(buyer)
-        Dim p As Integer = CInt(txtAmount.Text)
+        Dim p As Integer = CLng(txtAmount.Text)
         prop.makeOffer(p)
         notifyOwner()
 

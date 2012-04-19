@@ -33,6 +33,8 @@ Partial Class frmMakeOffer
         Me.txtAmount = New System.Windows.Forms.TextBox()
         Me.btnMakeOffer = New System.Windows.Forms.Button()
         Me.gbxOffer = New System.Windows.Forms.GroupBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.lblAskingPrice = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.gbxOffer.SuspendLayout()
@@ -47,7 +49,7 @@ Partial Class frmMakeOffer
         Me.GroupBox1.Controls.Add(Me.lblCustomer)
         Me.GroupBox1.Location = New System.Drawing.Point(17, 18)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(427, 78)
+        Me.GroupBox1.Size = New System.Drawing.Size(479, 78)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Customer"
@@ -55,7 +57,7 @@ Partial Class frmMakeOffer
         'btnAddCustomer
         '
         Me.btnAddCustomer.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnAddCustomer.Location = New System.Drawing.Point(346, 40)
+        Me.btnAddCustomer.Location = New System.Drawing.Point(398, 40)
         Me.btnAddCustomer.Name = "btnAddCustomer"
         Me.btnAddCustomer.Size = New System.Drawing.Size(75, 23)
         Me.btnAddCustomer.TabIndex = 2
@@ -65,7 +67,7 @@ Partial Class frmMakeOffer
         'btnSearchCustomer
         '
         Me.btnSearchCustomer.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnSearchCustomer.Location = New System.Drawing.Point(346, 11)
+        Me.btnSearchCustomer.Location = New System.Drawing.Point(398, 11)
         Me.btnSearchCustomer.Name = "btnSearchCustomer"
         Me.btnSearchCustomer.Size = New System.Drawing.Size(75, 23)
         Me.btnSearchCustomer.TabIndex = 1
@@ -89,7 +91,7 @@ Partial Class frmMakeOffer
         Me.GroupBox2.Controls.Add(Me.lblProperty)
         Me.GroupBox2.Location = New System.Drawing.Point(17, 102)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(427, 84)
+        Me.GroupBox2.Size = New System.Drawing.Size(479, 84)
         Me.GroupBox2.TabIndex = 2
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Property"
@@ -97,7 +99,7 @@ Partial Class frmMakeOffer
         'btnSearchProperty
         '
         Me.btnSearchProperty.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnSearchProperty.Location = New System.Drawing.Point(346, 11)
+        Me.btnSearchProperty.Location = New System.Drawing.Point(398, 11)
         Me.btnSearchProperty.Name = "btnSearchProperty"
         Me.btnSearchProperty.Size = New System.Drawing.Size(75, 23)
         Me.btnSearchProperty.TabIndex = 1
@@ -117,7 +119,7 @@ Partial Class frmMakeOffer
         '
         Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(144, 24)
+        Me.Label1.Location = New System.Drawing.Point(197, 24)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(81, 13)
         Me.Label1.TabIndex = 3
@@ -126,15 +128,15 @@ Partial Class frmMakeOffer
         'txtAmount
         '
         Me.txtAmount.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtAmount.Location = New System.Drawing.Point(231, 21)
+        Me.txtAmount.Location = New System.Drawing.Point(303, 21)
         Me.txtAmount.Name = "txtAmount"
-        Me.txtAmount.Size = New System.Drawing.Size(100, 20)
+        Me.txtAmount.Size = New System.Drawing.Size(81, 20)
         Me.txtAmount.TabIndex = 4
         '
         'btnMakeOffer
         '
         Me.btnMakeOffer.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnMakeOffer.Location = New System.Drawing.Point(346, 19)
+        Me.btnMakeOffer.Location = New System.Drawing.Point(399, 19)
         Me.btnMakeOffer.Name = "btnMakeOffer"
         Me.btnMakeOffer.Size = New System.Drawing.Size(75, 23)
         Me.btnMakeOffer.TabIndex = 5
@@ -143,22 +145,44 @@ Partial Class frmMakeOffer
         '
         'gbxOffer
         '
+        Me.gbxOffer.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.gbxOffer.BackColor = System.Drawing.SystemColors.Info
+        Me.gbxOffer.Controls.Add(Me.lblAskingPrice)
+        Me.gbxOffer.Controls.Add(Me.Label2)
         Me.gbxOffer.Controls.Add(Me.Label1)
         Me.gbxOffer.Controls.Add(Me.btnMakeOffer)
         Me.gbxOffer.Controls.Add(Me.txtAmount)
         Me.gbxOffer.Location = New System.Drawing.Point(17, 200)
         Me.gbxOffer.Name = "gbxOffer"
-        Me.gbxOffer.Size = New System.Drawing.Size(427, 57)
+        Me.gbxOffer.Size = New System.Drawing.Size(480, 57)
         Me.gbxOffer.TabIndex = 6
         Me.gbxOffer.TabStop = False
         Me.gbxOffer.Text = "Offer"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(16, 24)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(68, 13)
+        Me.Label2.TabIndex = 6
+        Me.Label2.Text = "Asking price:"
+        '
+        'lblAskingPrice
+        '
+        Me.lblAskingPrice.AutoSize = True
+        Me.lblAskingPrice.Location = New System.Drawing.Point(90, 24)
+        Me.lblAskingPrice.Name = "lblAskingPrice"
+        Me.lblAskingPrice.Size = New System.Drawing.Size(13, 13)
+        Me.lblAskingPrice.TabIndex = 7
+        Me.lblAskingPrice.Text = "0"
         '
         'frmMakeOffer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(459, 271)
+        Me.ClientSize = New System.Drawing.Size(511, 272)
         Me.Controls.Add(Me.gbxOffer)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
@@ -189,5 +213,7 @@ Partial Class frmMakeOffer
     Friend WithEvents txtAmount As System.Windows.Forms.TextBox
     Friend WithEvents btnMakeOffer As System.Windows.Forms.Button
     Friend WithEvents gbxOffer As System.Windows.Forms.GroupBox
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents lblAskingPrice As System.Windows.Forms.Label
 
 End Class
