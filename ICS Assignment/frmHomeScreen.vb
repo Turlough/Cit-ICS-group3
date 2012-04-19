@@ -56,28 +56,32 @@
 
     Private Sub btnCreateAppointment_Click(sender As System.Object, e As System.EventArgs) Handles btnCreateAppointment.Click
         frmAppointments.ShowDialog()
-        'Me.Hide()
+        showDetails()
     End Sub
 
     Private Sub AddToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles AddToolStripMenuItem.Click
         frmAddCustomer.ShowDialog()
+        showDetails()
     End Sub
 
     Private Sub SearchToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles SearchToolStripMenuItem.Click
         frmFindCustomer.ShowDialog()
+        showDetails()
     End Sub
 
     Private Sub btnSearchProperty_Click(sender As System.Object, e As System.EventArgs) Handles btnSearchProperty.Click
         frmFindProperties.ShowDialog()
-
+        showDetails()
     End Sub
 
     Private Sub btnMakeOffer_Click(sender As System.Object, e As System.EventArgs) Handles btnMakeOffer.Click
         frmMakeOffer.ShowDialog()
-
+        showDetails()
     End Sub
 
     Private Sub btnAcceptOffer_Click(sender As System.Object, e As System.EventArgs) Handles btnAcceptOffer.Click
         frmAcceptOffer.ShowDialog()
+        showDetails()
+
     End Sub
 End Class
