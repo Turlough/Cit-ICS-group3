@@ -8,10 +8,12 @@ Public Class frmFindCustomer
         If cbxField.Items.Count > 0 Then
             cbxField.SelectedIndex = 0    ' The first item has index 0 '
         End If
+        'hide controls
+        disableEdit()
         btnArchive.Visible = False
         btnEdit.Visible = False
         btnProperties.Visible = False
-
+        btnSave.Visible = False
 
     End Sub
 
@@ -63,7 +65,27 @@ Public Class frmFindCustomer
         Customer.custid = 0 'reset custid
         loadData()
     End Sub
+    Sub EnableEdit()
+        txtFname.Enabled = True
+        txtSname.Enabled = True
+        txtAddress.Enabled = True
+        txtEmail.Enabled = True
+        txtPhone.Enabled = True
+        btnSave.Visible = True
+        btnEdit.Visible = False
+        btnArchive.Visible = False
 
+    End Sub
+    Sub disableEdit()
+        txtFname.Enabled = False
+        txtSname.Enabled = False
+        txtAddress.Enabled = False
+        txtEmail.Enabled = False
+        txtPhone.Enabled = False
+        btnSave.Visible = False
+        btnEdit.Visible = True
+        btnArchive.Visible = True
+    End Sub
 
     Private Sub btnProperties_Click(sender As System.Object, e As System.EventArgs) Handles btnProperties.Click
 
@@ -71,5 +93,9 @@ Public Class frmFindCustomer
 
     Private Sub btnSet_Click(sender As System.Object, e As System.EventArgs) Handles btnSet.Click
         Me.Hide()
+    End Sub
+
+    Private Sub btnEdit_Click(sender As System.Object, e As System.EventArgs) Handles btnEdit.Click
+        EnableEdit()
     End Sub
 End Class
