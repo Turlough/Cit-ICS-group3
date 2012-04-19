@@ -67,7 +67,7 @@
             'update buyer relationship
             cp.setRelation(buyerId, Properties.propid, "Buyer")
 
-
+            Me.Close()
         Else
             MsgBox("Enter the price accepted")
         End If
