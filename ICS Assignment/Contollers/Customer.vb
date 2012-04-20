@@ -28,7 +28,7 @@
         Me.phone = phone
         Me.email = email
         'insert
-        SQL = "INSERT INTO [MyTestDB].[dbo].[Customer]"
+        SQL = "INSERT INTO customer"
         SQL &= " (fname,lname,address,phone,email)"
         SQL &= " VALUES ("
         SQL &= "'" & fname & "'"

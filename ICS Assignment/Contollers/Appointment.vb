@@ -23,7 +23,7 @@
         Return getData(SQL)
     End Function
     Sub create()
-        SQL = "INSERT INTO [MyTestDB].[dbo].[Appointment]"
+        SQL = "INSERT INTO appointment"
         SQL &= " (custid,propid,chosendate,start,finish,notes)"
         SQL &= " VALUES ("
         SQL &= custid
