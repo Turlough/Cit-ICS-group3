@@ -21,7 +21,8 @@ Public Class frmAddProperty
         If Customer.custid = 0 Then
             cust.createCustomer(txtFname.Text, txtSname.Text, txtAddress.Text, txtPhone.Text, txtEmail.Text)
         End If
-        props.CreateProperty(txtAdd1.Text, txtAdd2.Text, txtTown.Text, txtCounty.Text)
+
+        props.CreateProperty(txtAdd1.Text, txtAdd2.Text, txtTown.Text, cstmCounty.County)
 
         'relation
         CustProp.relationType = "Owner"

@@ -4,10 +4,7 @@
     Dim cust As New Customer
     Dim prop As New Properties
 
-    Private Sub btnAddProperty_Click(sender As System.Object, e As System.EventArgs) Handles btnAddProperty.Click
-        frmAddProperty.ShowDialog()
-        ' Me.Hide()
-    End Sub
+
 
     Public Sub showDetails()
         Dim S As String
@@ -32,28 +29,31 @@
             lblProperty.Text = S
         End If
 
-        dgvSchedule.DataSource = schedule.showAppointments()
+        ' dgvSchedule.DataSource = schedule.showAppointments()
     End Sub
 
     Private Sub HomeScreen_Shown(sender As Object, e As System.EventArgs) Handles Me.Shown
         Me.WindowState = FormWindowState.Maximized
-        schedule.chosenDate = Now
-        With dgvSchedule
+        'schedule.chosenDate = Now
+        'With dgvSchedule
 
-            .DataSource = schedule.showAppointments()
+        '    .DataSource = schedule.showAppointments()
 
-            .Columns(0).Visible = False
-            .Columns(1).Visible = False
-            .Columns(2).Visible = False
-            .Columns(3).Width = 150
-            .Columns(4).Width = 50
-            .Columns(5).Width = 50
-            .Columns(6).AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+        '    .Columns(0).Visible = False
+        '    .Columns(1).Visible = False
+        '    .Columns(2).Visible = False
+        '    .Columns(3).Width = 150
+        '    .Columns(4).Width = 50
+        '    .Columns(5).Width = 50
+        '    .Columns(6).AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
 
-        End With
+        'End With
 
     End Sub
-
+    Private Sub btnAddProperty_Click(sender As System.Object, e As System.EventArgs) Handles btnAddProperty.Click
+        frmAddProperty.ShowDialog()
+        showDetails()
+    End Sub
     Private Sub btnCreateAppointment_Click(sender As System.Object, e As System.EventArgs) Handles btnCreateAppointment.Click
         frmAppointments.ShowDialog()
         showDetails()
@@ -82,6 +82,10 @@
     Private Sub btnAcceptOffer_Click(sender As System.Object, e As System.EventArgs) Handles btnAcceptOffer.Click
         frmAcceptOffer.ShowDialog()
         showDetails()
+
+    End Sub
+
+    Private Sub frmHomeScreen_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
 
     End Sub
 End Class
