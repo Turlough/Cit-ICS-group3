@@ -13,6 +13,8 @@ Public Class frmAddProperty
 
     Private Sub frmAddProperty_Shown(sender As Object, e As System.EventArgs) Handles Me.Shown
         cust.loadCustomer(0)
+        clearForm()
+        cstmCounty.County = "Cork"
     End Sub
 
     Private Sub btnSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSave.Click
@@ -21,16 +23,16 @@ Public Class frmAddProperty
         If Customer.custid = 0 Then
             cust.createCustomer(txtFname.Text, txtSname.Text, txtAddress.Text, txtPhone.Text, txtEmail.Text)
         End If
-        props.CreateProperty(txtAdd1.Text, txtAdd2.Text, txtTown.Text, txtCounty.Text)
+
+        props.CreateProperty(txtAdd1.Text, txtAdd2.Text, txtTown.Text, cstmCounty.County)
 
         'relation
         CustProp.relationType = "Owner"
         cp.link("Valuation Pending")
 
         'form
-        Me.Hide()
-        frmHomeScreen.showDetails()
         frmAppointments.ShowDialog()
+        Me.Close()
 
     End Sub
     ''' <summary>
@@ -53,6 +55,19 @@ Public Class frmAddProperty
         txtEmail.Text = cust.email
         txtPhone.Text = cust.phone
         txtAddress.Text = cust.address
+        If Customer.custid > 0 Then
+            txtFname.Enabled = False
+            txtSname.Enabled = False
+            txtEmail.Enabled = False
+            txtPhone.Enabled = False
+            txtAddress.Enabled = False
+        Else
+            txtFname.Enabled = True
+            txtSname.Enabled = True
+            txtEmail.Enabled = True
+            txtPhone.Enabled = True
+            txtAddress.Enabled = True
+        End If
 
     End Sub
     Sub clearForm()

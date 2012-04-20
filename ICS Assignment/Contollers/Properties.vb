@@ -19,7 +19,7 @@
         Me.town = town
         Me.county = county
 
-        SQL = "INSERT INTO [MyTestDB].[dbo].[Property]"
+        SQL = "INSERT INTO property"
         SQL &= " (add1,add2,town,county,status)"
         SQL &= " VALUES ("
         SQL &= "'" & a1 & "'"

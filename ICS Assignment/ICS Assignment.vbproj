@@ -75,6 +75,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contollers\CustProp.vb" />
+    <Compile Include="customControls\crtlCounty.Designer.vb">
+      <DependentUpon>crtlCounty.vb</DependentUpon>
+    </Compile>
+    <Compile Include="customControls\crtlCounty.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="customControls\ctrlFname.Designer.vb">
+      <DependentUpon>ctrlFname.vb</DependentUpon>
+    </Compile>
+    <Compile Include="customControls\ctrlFname.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="frmAcceptOffer.Designer.vb">
       <DependentUpon>frmAcceptOffer.vb</DependentUpon>
     </Compile>
@@ -152,6 +164,12 @@
     <Compile Include="Validator.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="customControls\crtlCounty.resx">
+      <DependentUpon>crtlCounty.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="customControls\ctrlFname.resx">
+      <DependentUpon>ctrlFname.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAcceptOffer.resx">
       <DependentUpon>frmAcceptOffer.vb</DependentUpon>
     </EmbeddedResource>

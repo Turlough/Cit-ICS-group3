@@ -58,6 +58,7 @@ Partial Class frmHomeScreen
         Me.lblCustomer = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.dgvSchedule = New System.Windows.Forms.DataGridView()
+        Me.dtpAppointments = New System.Windows.Forms.DateTimePicker()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
@@ -343,6 +344,7 @@ Partial Class frmHomeScreen
         Me.GroupBox2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox2.Controls.Add(Me.dtpAppointments)
         Me.GroupBox2.Controls.Add(Me.dgvSchedule)
         Me.GroupBox2.Location = New System.Drawing.Point(16, 3)
         Me.GroupBox2.Name = "GroupBox2"
@@ -371,7 +373,7 @@ Partial Class frmHomeScreen
         Me.dgvSchedule.DefaultCellStyle = DataGridViewCellStyle1
         Me.dgvSchedule.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.dgvSchedule.GridColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.dgvSchedule.Location = New System.Drawing.Point(3, 16)
+        Me.dgvSchedule.Location = New System.Drawing.Point(3, 50)
         Me.dgvSchedule.Name = "dgvSchedule"
         Me.dgvSchedule.ReadOnly = True
         Me.dgvSchedule.RowHeadersVisible = False
@@ -381,8 +383,15 @@ Partial Class frmHomeScreen
         DataGridViewCellStyle2.NullValue = Nothing
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.dgvSchedule.RowsDefaultCellStyle = DataGridViewCellStyle2
-        Me.dgvSchedule.Size = New System.Drawing.Size(396, 456)
+        Me.dgvSchedule.Size = New System.Drawing.Size(396, 422)
         Me.dgvSchedule.TabIndex = 0
+        '
+        'dtpAppointments
+        '
+        Me.dtpAppointments.Location = New System.Drawing.Point(6, 19)
+        Me.dtpAppointments.Name = "dtpAppointments"
+        Me.dtpAppointments.Size = New System.Drawing.Size(200, 20)
+        Me.dtpAppointments.TabIndex = 1
         '
         'frmHomeScreen
         '
@@ -445,4 +454,5 @@ Partial Class frmHomeScreen
     Friend WithEvents lblCustomer As System.Windows.Forms.Label
     Friend WithEvents btnMakeOffer As System.Windows.Forms.Button
     Friend WithEvents btnAcceptOffer As System.Windows.Forms.Button
+    Friend WithEvents dtpAppointments As System.Windows.Forms.DateTimePicker
 End Class

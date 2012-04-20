@@ -28,7 +28,7 @@
         Me.phone = phone
         Me.email = email
         'insert
-        SQL = "INSERT INTO [MyTestDB].[dbo].[Customer]"
+        SQL = "INSERT INTO customer"
         SQL &= " (fname,lname,address,phone,email)"
         SQL &= " VALUES ("
         SQL &= "'" & fname & "'"
@@ -73,4 +73,8 @@
         address = ""
         status = ""
     End Sub
+    Function forenames(fn As String) As DataTable
+        SQL = "SELECT fname FROM customer WHERE fname LIKE '" & fn & "%'"
+        Return getData(SQL)
+    End Function
 End Class

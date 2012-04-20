@@ -4,10 +4,7 @@
     Dim cust As New Customer
     Dim prop As New Properties
 
-    Private Sub btnAddProperty_Click(sender As System.Object, e As System.EventArgs) Handles btnAddProperty.Click
-        frmAddProperty.ShowDialog()
-        ' Me.Hide()
-    End Sub
+
 
     Public Sub showDetails()
         Dim S As String
@@ -53,7 +50,10 @@
         End With
 
     End Sub
-
+    Private Sub btnAddProperty_Click(sender As System.Object, e As System.EventArgs) Handles btnAddProperty.Click
+        frmAddProperty.ShowDialog()
+        showDetails()
+    End Sub
     Private Sub btnCreateAppointment_Click(sender As System.Object, e As System.EventArgs) Handles btnCreateAppointment.Click
         frmAppointments.ShowDialog()
         showDetails()
@@ -83,5 +83,14 @@
         frmAcceptOffer.ShowDialog()
         showDetails()
 
+    End Sub
+
+    Private Sub frmHomeScreen_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+
+    End Sub
+
+    Private Sub dtpAppointments_ValueChanged(sender As System.Object, e As System.EventArgs) Handles dtpAppointments.ValueChanged
+        schedule.chosenDate = dtpAppointments.Value
+        showDetails()
     End Sub
 End Class
