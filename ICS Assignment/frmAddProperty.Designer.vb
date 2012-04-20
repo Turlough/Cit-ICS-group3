@@ -177,7 +177,7 @@ Partial Class frmAddProperty
         Me.btnSearchCustomers.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnSearchCustomers.Location = New System.Drawing.Point(353, 17)
         Me.btnSearchCustomers.Name = "btnSearchCustomers"
-        Me.btnSearchCustomers.Size = New System.Drawing.Size(75, 23)
+        Me.btnSearchCustomers.Size = New System.Drawing.Size(84, 23)
         Me.btnSearchCustomers.TabIndex = 11
         Me.btnSearchCustomers.Text = "Search"
         Me.btnSearchCustomers.UseVisualStyleBackColor = True
@@ -335,6 +335,7 @@ Partial Class frmAddProperty
         '
         'cstmCounty
         '
+        Me.cstmCounty.County = ""
         Me.cstmCounty.Location = New System.Drawing.Point(91, 105)
         Me.cstmCounty.Name = "cstmCounty"
         Me.cstmCounty.Size = New System.Drawing.Size(168, 53)

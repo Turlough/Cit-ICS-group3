@@ -5,13 +5,26 @@ Public Class frmAddCustomer
 
 
     Private Sub btnSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSave.Click
-
-        If (txtForename.Text = "" Or txtSurname.Text = "" Or txtAddress.Text = "") Then
-            MsgBox("empty box")
-            Exit Sub
+        If isValid() Then
+            cust.createCustomer(txtForename.Text, txtSurname.Text, txtAddress.Text, CInt(txtPhone.Text), txtEmail.Text)
+            Me.Close()
         End If
-        cust.createCustomer(txtForename.Text, txtSurname.Text, txtAddress.Text, CInt(txtPhone.Text), txtEmail.Text)
-        Me.Hide()
-
     End Sub
+    Private Function isValid() As Boolean
+        Dim b As Boolean = True
+        Dim v As New Validator
+        Dim msg As String = ""
+        If v.empty(txtForename.Text) Then
+            msg &= "Forename not entered" & vbCr
+            b = False
+        End If
+        If v.empty(txtSurname.Text) Then
+            msg &= "Surname not entered" & vbCr
+            b = False
+        End If
+        Return (b)
+    End Function
+
+
+
 End Class

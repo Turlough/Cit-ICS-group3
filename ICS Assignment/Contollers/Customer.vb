@@ -73,4 +73,8 @@
         address = ""
         status = ""
     End Sub
+    Function forenames(fn As String) As DataTable
+        SQL = "SELECT fname FROM customer WHERE fname LIKE '" & fn & "%'"
+        Return getData(SQL)
+    End Function
 End Class
