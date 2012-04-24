@@ -88,8 +88,8 @@ Public Class frmAppointments
                 txtStart.Text = app.start & ":00"
                 txtFinish.Text = app.finish & ":00"
             Else
-                'TODO offer update/cancel
-                MsgBox("This time is booked")
+                'TODO create edit and delete functions for appointments
+                frmAppointmentOptions.ShowDialog()
             End If
 
 
@@ -103,10 +103,13 @@ Public Class frmAppointments
 
         'Default time text boxes to first empty timeslot
         For Each r As DataGridViewRow In Times.Rows
-            If r.Cells(1).Value = "" Then
-                txtStart.Text = r.Cells(1).Value
-                txtFinish.Text = CInt(r.Cells(1).Value + 1)
+            If r.Cells(1).Value = 0 Then
+                txtStart.Text = r.Cells(0).Value
+                txtFinish.Text = CInt(r.Cells(0).Value + 1)
+                r.Selected = True
                 Exit For
+            Else
+                r.Selected = False
             End If
         Next
 

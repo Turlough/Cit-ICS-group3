@@ -93,6 +93,12 @@
     <Compile Include="frmAcceptOffer.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmAppointmentOptions.Designer.vb">
+      <DependentUpon>frmAppointmentOptions.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAppointmentOptions.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmMakeOffer.Designer.vb">
       <DependentUpon>frmMakeOffer.vb</DependentUpon>
     </Compile>
@@ -175,6 +181,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddProperty.resx">
       <DependentUpon>frmAddProperty.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAppointmentOptions.resx">
+      <DependentUpon>frmAppointmentOptions.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmFindCustomer.resx">
       <DependentUpon>frmFindCustomer.vb</DependentUpon>
