@@ -90,12 +90,12 @@ Public Class frmAddProperty
 
         If Not v.isName(txtFname.Text) Then b = False
         If Not v.isName(txtSname.Text) Then b = False
-        If Not v.phone(txtPhone.Text) Then b = False
+        If v.notEmpty(txtPhone.Text) And Not v.phone(txtPhone.Text) Then b = False
         If Not v.email(txtEmail.Text) Then b = False
 
         If Not v.isAddress(txtAdd1.Text) Then b = False
-        If Not v.isName(txtAdd2.Text) Then b = False
-        If Not v.email(txtTown.Text) Then b = False
+        If v.notEmpty(txtAdd2.Text) and Not v.isName(txtAdd2.Text) Then b = False
+        If Not v.isName(txtTown.Text) Then b = False
         If Not v.email(txtEmail.Text) Then b = False
 
         If b Then btnSave.Enabled = True Else btnSave.Enabled = False

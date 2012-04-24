@@ -70,7 +70,7 @@ Public Class Validator
     Public Function prepareForSql(ByVal s As String) As String
         s = Replace(s, Chr(39), "''") 'escape single quote
         s = s.Trim() 'remove surrounding spaces
-        StrConv(s, VbStrConv.ProperCase) 'use proper case
+        s = StrConv(s, VbStrConv.ProperCase) 'use proper case
 
         Return s
     End Function

@@ -52,7 +52,8 @@ Public Class frmAppointments
         setDefaults()
         app.chosenDate = Now()
 
-        txtStart.Text = "14"
+
+
         fillTimes()
 
     End Sub
@@ -100,19 +101,25 @@ Public Class frmAppointments
         'Times.DataSource = app.showAppointments()
         app.makeGrid(Times)
 
+        'Default time text boxes to first empty timeslot
+        For Each r As DataGridViewRow In Times.Rows
+            If r.Cells(1).Value = "" Then
+                txtStart.Text = r.Cells(1).Value
+                txtFinish.Text = CInt(r.Cells(1).Value + 1)
+                Exit For
+            End If
+        Next
+
     End Sub
 
 
 
     Private Sub btnAdd_Click(sender As System.Object, e As System.EventArgs) Handles btnAdd.Click
-
-
         app.notes = txtNotes.Text
         app.create()
 
         fillTimes() 'refresh this datagrid
         frmHomeScreen.showDetails() 'refresh calendar on home screen
-        frmHomeScreen.Show()
         Me.Close()
 
     End Sub
