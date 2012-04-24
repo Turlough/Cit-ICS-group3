@@ -22,7 +22,7 @@ Public Class Validator
         End If
     End Function
     Public Function isName(s As String) As Boolean
-        Dim re As New Regex("^[A-Z] [a-z .'-]+$/i")
+        Dim re As New Regex("^[A-Z][a-z A-Z]*$")
         If Not re.IsMatch(s) Then
             msg = "Invalid characters. Be more alphabetical"
             Return False
@@ -31,13 +31,23 @@ Public Class Validator
             Return True
         End If
     End Function
-    Public Function empty(s As String) As Boolean
-        If s.Length = 0 Then
-            msg = "You need to enter text"
-            Return True
+    Public Function address1(s As String) As Boolean
+        Dim re As New Regex("^[0-9A-Z][a-z A-Z]*$")
+        If Not re.IsMatch(s) Then
+            msg = "Invalid characters. Be more alphabetical"
+            Return False
         Else
             msg = ""
+            Return True
+        End If
+    End Function
+    Public Function notEmpty(s As String) As Boolean
+        If s.Length = 0 Then
+            msg = "You need to enter text"
             Return False
+        Else
+            msg = ""
+            Return True
         End If
     End Function
     Public Function email(s As String) As Boolean
@@ -47,7 +57,7 @@ Public Class Validator
             Return False
         Else
             msg = ""
-            Return False
+            Return True
         End If
 
     End Function
