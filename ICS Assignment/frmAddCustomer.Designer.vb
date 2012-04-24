@@ -41,7 +41,7 @@ Partial Class frmAddCustomer
         '
         Me.txtSurname.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtSurname.Location = New System.Drawing.Point(95, 60)
+        Me.txtSurname.Location = New System.Drawing.Point(95, 54)
         Me.txtSurname.Margin = New System.Windows.Forms.Padding(2)
         Me.txtSurname.Name = "txtSurname"
         Me.txtSurname.Size = New System.Drawing.Size(297, 20)
@@ -50,22 +50,22 @@ Partial Class frmAddCustomer
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(10, 59)
+        Me.Label2.Location = New System.Drawing.Point(10, 57)
         Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(75, 13)
+        Me.Label2.Size = New System.Drawing.Size(49, 13)
         Me.Label2.TabIndex = 9
-        Me.Label2.Text = "Second Name"
+        Me.Label2.Text = "Surname"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(11, 33)
+        Me.Label1.Location = New System.Drawing.Point(5, 33)
         Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(57, 13)
+        Me.Label1.Size = New System.Drawing.Size(54, 13)
         Me.Label1.TabIndex = 8
-        Me.Label1.Text = "First Name"
+        Me.Label1.Text = "Forename"
         '
         'btnSave
         '
@@ -92,7 +92,7 @@ Partial Class frmAddCustomer
         '
         Me.txtEmail.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtEmail.Location = New System.Drawing.Point(95, 84)
+        Me.txtEmail.Location = New System.Drawing.Point(95, 78)
         Me.txtEmail.Margin = New System.Windows.Forms.Padding(2)
         Me.txtEmail.Name = "txtEmail"
         Me.txtEmail.Size = New System.Drawing.Size(297, 20)
@@ -101,7 +101,7 @@ Partial Class frmAddCustomer
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(11, 79)
+        Me.Label3.Location = New System.Drawing.Point(27, 81)
         Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(32, 13)
@@ -111,7 +111,7 @@ Partial Class frmAddCustomer
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(10, 105)
+        Me.Label4.Location = New System.Drawing.Point(22, 105)
         Me.Label4.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(38, 13)
@@ -122,7 +122,7 @@ Partial Class frmAddCustomer
         '
         Me.txtPhone.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtPhone.Location = New System.Drawing.Point(95, 108)
+        Me.txtPhone.Location = New System.Drawing.Point(95, 102)
         Me.txtPhone.Margin = New System.Windows.Forms.Padding(2)
         Me.txtPhone.Name = "txtPhone"
         Me.txtPhone.Size = New System.Drawing.Size(297, 20)
@@ -131,7 +131,7 @@ Partial Class frmAddCustomer
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(10, 134)
+        Me.Label5.Location = New System.Drawing.Point(15, 129)
         Me.Label5.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(45, 13)
@@ -143,17 +143,17 @@ Partial Class frmAddCustomer
         Me.txtAddress.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtAddress.Location = New System.Drawing.Point(95, 134)
+        Me.txtAddress.Location = New System.Drawing.Point(95, 126)
         Me.txtAddress.Margin = New System.Windows.Forms.Padding(2)
         Me.txtAddress.Multiline = True
         Me.txtAddress.Name = "txtAddress"
-        Me.txtAddress.Size = New System.Drawing.Size(297, 101)
+        Me.txtAddress.Size = New System.Drawing.Size(297, 109)
         Me.txtAddress.TabIndex = 6
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(13, 4)
+        Me.Label6.Location = New System.Drawing.Point(28, 7)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(31, 13)
         Me.Label6.TabIndex = 11

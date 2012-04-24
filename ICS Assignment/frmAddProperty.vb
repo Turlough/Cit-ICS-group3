@@ -20,7 +20,6 @@ Public Class frmAddProperty
 
     Private Sub btnSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSave.Click
 
-        'controller
         If Customer.custid = 0 Then
             cust.createCustomer(txtFname.Text, txtSname.Text, txtAddress.Text, txtPhone.Text, txtEmail.Text)
         End If
@@ -28,7 +27,12 @@ Public Class frmAddProperty
         props.CreateProperty(txtAdd1.Text, txtAdd2.Text, txtTown.Text, cstmCounty.County)
 
         'relation
-        CustProp.relationType = "Owner"
+        If rbOwner.Checked Then
+            CustProp.relationType = "Owner"
+        Else
+            CustProp.relationType = "Landlord"
+        End If
+
         cp.link("Valuation Pending")
 
         'form
@@ -36,13 +40,7 @@ Public Class frmAddProperty
         Me.Close()
 
     End Sub
-    ''' <summary>
-    ''' The Find Customer form is shown, and the user selects a customer (or cancels).
-    ''' The selected customer is loaded and displayed on form
-    ''' </summary>
-    ''' <param name="sender">not used</param>
-    ''' <param name="e">not used</param>
-    ''' <remarks></remarks>
+
     Private Sub btnSearchCustomers_Click(sender As System.Object, e As System.EventArgs) Handles btnSearchCustomers.Click
         frmFindCustomer.ShowDialog()
         displayCustomer()
@@ -76,11 +74,26 @@ Public Class frmAddProperty
         displayCustomer()
 
     End Sub
+    '*******************************
+    '  VALIDATIONS
+    '*******************************
+    Function valid() As Boolean
+        Dim b As Boolean = True
 
+        If Not v.isName(txtFname.Text) Then b = False
+        If Not v.isName(txtSname.Text) Then b = False
+        If Not v.phone(txtPhone.Text) Then b = False
+        If Not v.email(txtEmail.Text) Then b = False
 
-    Private Sub frmAddProperty_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+        If Not v.isAddress(txtAdd1.Text) Then b = False
+        If Not v.isName(txtAdd2.Text) Then b = False
+        If Not v.email(txtTown.Text) Then b = False
+        If Not v.email(txtEmail.Text) Then b = False
 
-    End Sub
+        If b Then btnSave.Enabled = True Else btnSave.Enabled = False
+
+        Return b
+    End Function
 
     Private Sub txtEmail_Validated(sender As Object, e As System.EventArgs) Handles txtEmail.Validated
         ep.SetError(txtEmail, "")
@@ -123,13 +136,23 @@ Public Class frmAddProperty
     End Sub
 
     Private Sub txtAdd1_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles txtAdd1.Validating
-        If Not v.isName(txtAdd1.Text) Then
+        If Not v.isAddress(txtAdd1.Text) Then
             e.Cancel = True
             txtAdd1.Select(0, txtAdd1.Text.Length)
             ep.SetError(txtAdd1, v.message)
         End If
     End Sub
+    Private Sub txtAdd2_Validated(sender As Object, e As System.EventArgs) Handles txtAdd2.Validated
+        ep.SetError(txtAdd2, "")
+    End Sub
 
+    Private Sub txtAdd2_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles txtAdd2.Validating
+        If v.notEmpty(txtAdd2.Text) And Not v.isName(txtAdd2.Text) Then
+            e.Cancel = True
+            txtAdd2.Select(0, txtAdd2.Text.Length)
+            ep.SetError(txtAdd2, v.message)
+        End If
+    End Sub
     Private Sub txtTown_Validated(sender As Object, e As System.EventArgs) Handles txtTown.Validated
         ep.SetError(txtTown, "")
     End Sub
@@ -139,6 +162,18 @@ Public Class frmAddProperty
             e.Cancel = True
             txtTown.Select(0, txtTown.Text.Length)
             ep.SetError(txtTown, v.message)
+        End If
+    End Sub
+
+    Private Sub txtPhone_Validated(sender As Object, e As System.EventArgs) Handles txtPhone.Validated
+        ep.SetError(txtPhone, "")
+    End Sub
+
+    Private Sub txtPhone_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles txtPhone.Validating
+        If v.notEmpty(txtPhone.Text) And Not v.phone(txtPhone.Text) Then
+            e.Cancel = True
+            txtPhone.Select(0, txtPhone.Text.Length)
+            ep.SetError(txtPhone, v.message)
         End If
     End Sub
 End Class

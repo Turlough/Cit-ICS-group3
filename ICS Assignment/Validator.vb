@@ -1,4 +1,6 @@
 ﻿Imports System.Text.RegularExpressions
+Imports System.Globalization.TextInfo
+
 
 Public Class Validator
     Private msg As String
@@ -31,8 +33,8 @@ Public Class Validator
             Return True
         End If
     End Function
-    Public Function address1(s As String) As Boolean
-        Dim re As New Regex("^[0-9A-Z][a-z A-Z]*$")
+    Public Function isAddress(s As String) As Boolean
+        Dim re As New Regex("^[0-9a-z A-Z][a-z A-Z]*$")
         If Not re.IsMatch(s) Then
             msg = "Invalid characters. Be more alphabetical"
             Return False
@@ -65,10 +67,12 @@ Public Class Validator
         Return isNumeric(s) 'TODO regex
     End Function
 
-    Public Function cleanName(ByVal s As String) As String
-        s = Replace(s, Chr(39), "''")
-        s = "'" & s & "'"
-        Return s.Trim()
+    Public Function prepareForSql(ByVal s As String) As String
+        s = Replace(s, Chr(39), "''") 'escape single quote
+        s = s.Trim() 'remove surrounding spaces
+        StrConv(s, VbStrConv.ProperCase) 'use proper case
+
+        Return s
     End Function
 
 End Class
