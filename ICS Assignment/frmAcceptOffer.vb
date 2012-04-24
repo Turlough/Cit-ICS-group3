@@ -29,7 +29,7 @@
             prop.loadProperty(.Rows(e.RowIndex).Cells(1).Value())
             'get price
             Dim s As String = .Rows(e.RowIndex).Cells(2).Value.ToString
-            If val.isNumeric(s) Then
+            If val.numeric(s) Then
                 price = CInt(s)
             Else
                 price = 0
@@ -57,7 +57,7 @@
 
     Private Sub btnAccept_Click(sender As System.Object, e As System.EventArgs) Handles btnAccept.Click
 
-        If val.isNumeric(txtPrice.Text) Then
+        If val.numeric(txtPrice.Text) Then
             price = CInt(txtPrice.Text)
             'update property
             prop.price = price

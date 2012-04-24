@@ -14,8 +14,8 @@ Public Class Validator
         Return s.Length > 0
     End Function
 
-    Public Function isNumeric(s As String) As Boolean
-        If Not isNumeric(s) Then
+    Public Function numeric(s As String) As Boolean
+        If Not IsNumeric(s) Then
             msg = "Must be a number"
             Return False
         Else
@@ -64,7 +64,7 @@ Public Class Validator
 
     End Function
     Public Function phone(s As String) As Boolean
-        Return isNumeric(s) 'TODO regex
+        Return numeric(s) 'TODO regex
     End Function
 
     Public Function prepareForSql(ByVal s As String) As String

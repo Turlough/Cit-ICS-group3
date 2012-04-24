@@ -19,6 +19,11 @@ Public Class frmAddProperty
     End Sub
 
     Private Sub btnSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSave.Click
+        'validate
+        If Not validateForm() Then
+            MsgBox("Invalid Entry. Please review your submission")
+            Exit Sub
+        End If
 
         If Customer.custid = 0 Then
             cust.createCustomer(txtFname.Text, txtSname.Text, txtAddress.Text, txtPhone.Text, txtEmail.Text)
@@ -69,6 +74,9 @@ Public Class frmAddProperty
         End If
 
     End Sub
+    Private Sub btnClear_Click(sender As System.Object, e As System.EventArgs) Handles btnClear.Click
+        clearForm()
+    End Sub
     Sub clearForm()
         cust.loadCustomer(0)
         displayCustomer()
@@ -77,7 +85,7 @@ Public Class frmAddProperty
     '*******************************
     '  VALIDATIONS
     '*******************************
-    Function valid() As Boolean
+    Function validateForm() As Boolean
         Dim b As Boolean = True
 
         If Not v.isName(txtFname.Text) Then b = False
@@ -97,6 +105,7 @@ Public Class frmAddProperty
 
     Private Sub txtEmail_Validated(sender As Object, e As System.EventArgs) Handles txtEmail.Validated
         ep.SetError(txtEmail, "")
+        validateForm()
     End Sub
 
     Private Sub txtEmail_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles txtEmail.Validating
@@ -110,9 +119,11 @@ Public Class frmAddProperty
 
     Private Sub txtFname_Validated(sender As Object, e As System.EventArgs) Handles txtFname.Validated
         ep.SetError(txtFname, "")
+        validateForm()
     End Sub
 
     Private Sub txtFname_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles txtFname.Validating
+        txtFname.Text = v.prepareForSql(txtFname.Text)
         If Not v.isName(txtFname.Text) Then
             e.Cancel = True
             txtFname.Select(0, txtFname.Text.Length)
@@ -121,9 +132,11 @@ Public Class frmAddProperty
     End Sub
     Private Sub txtSname_Validated(sender As Object, e As System.EventArgs) Handles txtSname.Validated
         ep.SetError(txtSname, "")
+        validateForm()
     End Sub
 
     Private Sub txtSname_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles txtSname.Validating
+        txtSname.Text = v.prepareForSql(txtSname.Text)
         If Not v.isName(txtSname.Text) Then
             e.Cancel = True
             txtSname.Select(0, txtSname.Text.Length)
@@ -133,6 +146,7 @@ Public Class frmAddProperty
 
     Private Sub txtAdd1_Validated(sender As Object, e As System.EventArgs) Handles txtAdd1.Validated
         ep.SetError(txtAdd1, "")
+        validateForm()
     End Sub
 
     Private Sub txtAdd1_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles txtAdd1.Validating
@@ -144,6 +158,7 @@ Public Class frmAddProperty
     End Sub
     Private Sub txtAdd2_Validated(sender As Object, e As System.EventArgs) Handles txtAdd2.Validated
         ep.SetError(txtAdd2, "")
+        validateForm()
     End Sub
 
     Private Sub txtAdd2_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles txtAdd2.Validating
@@ -155,6 +170,7 @@ Public Class frmAddProperty
     End Sub
     Private Sub txtTown_Validated(sender As Object, e As System.EventArgs) Handles txtTown.Validated
         ep.SetError(txtTown, "")
+        validateForm()
     End Sub
 
     Private Sub txtTown_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles txtTown.Validating
@@ -167,6 +183,7 @@ Public Class frmAddProperty
 
     Private Sub txtPhone_Validated(sender As Object, e As System.EventArgs) Handles txtPhone.Validated
         ep.SetError(txtPhone, "")
+        validateForm()
     End Sub
 
     Private Sub txtPhone_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles txtPhone.Validating
@@ -176,4 +193,6 @@ Public Class frmAddProperty
             ep.SetError(txtPhone, v.message)
         End If
     End Sub
+
+
 End Class

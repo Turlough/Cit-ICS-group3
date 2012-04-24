@@ -51,6 +51,7 @@ Partial Class frmAddProperty
         Me.rbOwner = New System.Windows.Forms.RadioButton()
         Me.ep = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.cstmCounty = New WindowsApplication1.crtlCounty()
+        Me.btnClear = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -71,7 +72,6 @@ Partial Class frmAddProperty
         '
         Me.txtAdd2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtAdd2.CausesValidation = False
         Me.txtAdd2.Location = New System.Drawing.Point(86, 51)
         Me.txtAdd2.Margin = New System.Windows.Forms.Padding(2)
         Me.txtAdd2.Name = "txtAdd2"
@@ -147,6 +147,7 @@ Partial Class frmAddProperty
         '
         Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.btnClear)
         Me.GroupBox1.Controls.Add(Me.Label10)
         Me.GroupBox1.Controls.Add(Me.btnSearchCustomers)
         Me.GroupBox1.Controls.Add(Me.Label9)
@@ -179,9 +180,9 @@ Partial Class frmAddProperty
         'btnSearchCustomers
         '
         Me.btnSearchCustomers.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnSearchCustomers.Location = New System.Drawing.Point(353, 17)
+        Me.btnSearchCustomers.Location = New System.Drawing.Point(372, 17)
         Me.btnSearchCustomers.Name = "btnSearchCustomers"
-        Me.btnSearchCustomers.Size = New System.Drawing.Size(84, 23)
+        Me.btnSearchCustomers.Size = New System.Drawing.Size(54, 23)
         Me.btnSearchCustomers.TabIndex = 11
         Me.btnSearchCustomers.Text = "Search"
         Me.btnSearchCustomers.UseVisualStyleBackColor = True
@@ -218,7 +219,6 @@ Partial Class frmAddProperty
         '
         Me.txtPhone.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtPhone.CausesValidation = False
         Me.txtPhone.Location = New System.Drawing.Point(89, 93)
         Me.txtPhone.Margin = New System.Windows.Forms.Padding(2)
         Me.txtPhone.Name = "txtPhone"
@@ -352,8 +352,18 @@ Partial Class frmAddProperty
         Me.cstmCounty.Size = New System.Drawing.Size(168, 26)
         Me.cstmCounty.TabIndex = 12
         '
+        'btnClear
+        '
+        Me.btnClear.Location = New System.Drawing.Point(372, 211)
+        Me.btnClear.Name = "btnClear"
+        Me.btnClear.Size = New System.Drawing.Size(54, 23)
+        Me.btnClear.TabIndex = 13
+        Me.btnClear.Text = "Clear"
+        Me.btnClear.UseVisualStyleBackColor = True
+        '
         'frmAddProperty
         '
+        Me.AcceptButton = Me.btnSave
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(467, 524)
@@ -402,4 +412,5 @@ Partial Class frmAddProperty
     Friend WithEvents rbOwner As System.Windows.Forms.RadioButton
     Friend WithEvents cstmCounty As WindowsApplication1.crtlCounty
     Friend WithEvents ep As System.Windows.Forms.ErrorProvider
+    Friend WithEvents btnClear As System.Windows.Forms.Button
 End Class

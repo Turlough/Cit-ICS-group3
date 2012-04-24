@@ -52,7 +52,7 @@ Public Class frmMakeOffer
 
     Private Sub btnMakeOffer_Click(sender As System.Object, e As System.EventArgs) Handles btnMakeOffer.Click
         Dim v As New Validator
-        If v.isNumeric(txtAmount.Text) Then
+        If v.numeric(txtAmount.Text) Then
             makeOffer()
         Else
             MsgBox(v.message)
