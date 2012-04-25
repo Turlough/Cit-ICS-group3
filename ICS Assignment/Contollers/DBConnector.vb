@@ -54,6 +54,7 @@ Public Class DBConnector
             TA.Fill(DT)
             sqCon.Close()
         Catch ex As Exception
+            sqCon.Close()
             MsgBox(ex.Message)
         End Try
         Return DT
@@ -81,6 +82,7 @@ Public Class DBConnector
             sqCon.Close()                       'close the connection
             Return ID
         Catch ex As Exception
+            sqCon.Close()
             MsgBox(ex.Message)
             Return 0
         End Try
@@ -100,6 +102,7 @@ Public Class DBConnector
             sqCmd.ExecuteNonQuery()        'execute the SQL command
             sqCon.Close()                       'close the connection
         Catch ex As Exception
+            sqCon.Close()
             MsgBox(ex.Message)
         End Try
 
@@ -112,6 +115,7 @@ Public Class DBConnector
             sqCmd.ExecuteNonQuery()        'execute the SQL command
             sqCon.Close()                       'close the connection
         Catch ex As Exception
+            sqCon.Close()
             MsgBox(ex.Message)
         End Try
 
