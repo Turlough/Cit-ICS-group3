@@ -78,6 +78,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contollers\CustProp.vb" />
+    <Compile Include="customControls\ctrlProperty.Designer.vb">
+      <DependentUpon>ctrlProperty.vb</DependentUpon>
+    </Compile>
+    <Compile Include="customControls\ctrlProperty.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="customControls\crtlCounty.Designer.vb">
       <DependentUpon>crtlCounty.vb</DependentUpon>
     </Compile>
@@ -179,6 +185,9 @@
     <Compile Include="Validator.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="customControls\ctrlProperty.resx">
+      <DependentUpon>ctrlProperty.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="customControls\crtlCounty.resx">
       <DependentUpon>crtlCounty.vb</DependentUpon>
     </EmbeddedResource>

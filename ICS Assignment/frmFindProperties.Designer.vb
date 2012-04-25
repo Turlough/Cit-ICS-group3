@@ -22,8 +22,6 @@ Partial Class frmFindProperties
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.btnEdit = New System.Windows.Forms.Button()
-        Me.btnDelete = New System.Windows.Forms.Button()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.btnLocateProperty = New System.Windows.Forms.Button()
         Me.cmbStatus = New System.Windows.Forms.ComboBox()
@@ -49,24 +47,16 @@ Partial Class frmFindProperties
         Me.btnSetActive = New System.Windows.Forms.Button()
         Me.btnOthers = New System.Windows.Forms.Button()
         Me.btnCreateAppointment = New System.Windows.Forms.Button()
-        Me.btnCancel = New System.Windows.Forms.Button()
-        Me.btnSave = New System.Windows.Forms.Button()
         Me.txtPrice = New System.Windows.Forms.TextBox()
         Me.txtStatus = New System.Windows.Forms.TextBox()
-        Me.txtTownEdit = New System.Windows.Forms.TextBox()
-        Me.txtAdd2 = New System.Windows.Forms.TextBox()
-        Me.txtAdd1 = New System.Windows.Forms.TextBox()
-        Me.txtCountyEdit = New System.Windows.Forms.TextBox()
         Me.txtOwner = New System.Windows.Forms.TextBox()
         Me.rtbDescription = New System.Windows.Forms.RichTextBox()
-        Me.Label17 = New System.Windows.Forms.Label()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.Label15 = New System.Windows.Forms.Label()
-        Me.Label14 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.pbxPhoto = New System.Windows.Forms.PictureBox()
+        Me.CtrlProperty1 = New WindowsApplication1.ctrlProperty()
+        Me.CtrlAdminButtons1 = New WindowsApplication1.ctrlAdminButtons()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -79,28 +69,6 @@ Partial Class frmFindProperties
         CType(Me.dgvProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbxPhoto, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'btnEdit
-        '
-        Me.btnEdit.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnEdit.Location = New System.Drawing.Point(284, 474)
-        Me.btnEdit.Margin = New System.Windows.Forms.Padding(2)
-        Me.btnEdit.Name = "btnEdit"
-        Me.btnEdit.Size = New System.Drawing.Size(56, 19)
-        Me.btnEdit.TabIndex = 16
-        Me.btnEdit.Text = "Edit"
-        Me.btnEdit.UseVisualStyleBackColor = True
-        '
-        'btnDelete
-        '
-        Me.btnDelete.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnDelete.Location = New System.Drawing.Point(357, 474)
-        Me.btnDelete.Margin = New System.Windows.Forms.Padding(2)
-        Me.btnDelete.Name = "btnDelete"
-        Me.btnDelete.Size = New System.Drawing.Size(56, 19)
-        Me.btnDelete.TabIndex = 22
-        Me.btnDelete.Text = "Delete"
-        Me.btnDelete.UseVisualStyleBackColor = True
         '
         'SplitContainer1
         '
@@ -133,29 +101,19 @@ Partial Class frmFindProperties
         '
         'SplitContainer1.Panel2
         '
+        Me.SplitContainer1.Panel2.Controls.Add(Me.CtrlAdminButtons1)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.CtrlProperty1)
         Me.SplitContainer1.Panel2.Controls.Add(Me.btnSetActive)
         Me.SplitContainer1.Panel2.Controls.Add(Me.btnOthers)
         Me.SplitContainer1.Panel2.Controls.Add(Me.btnCreateAppointment)
-        Me.SplitContainer1.Panel2.Controls.Add(Me.btnCancel)
-        Me.SplitContainer1.Panel2.Controls.Add(Me.btnSave)
         Me.SplitContainer1.Panel2.Controls.Add(Me.txtPrice)
         Me.SplitContainer1.Panel2.Controls.Add(Me.txtStatus)
-        Me.SplitContainer1.Panel2.Controls.Add(Me.txtTownEdit)
-        Me.SplitContainer1.Panel2.Controls.Add(Me.txtAdd2)
-        Me.SplitContainer1.Panel2.Controls.Add(Me.txtAdd1)
-        Me.SplitContainer1.Panel2.Controls.Add(Me.txtCountyEdit)
         Me.SplitContainer1.Panel2.Controls.Add(Me.txtOwner)
         Me.SplitContainer1.Panel2.Controls.Add(Me.rtbDescription)
-        Me.SplitContainer1.Panel2.Controls.Add(Me.Label17)
-        Me.SplitContainer1.Panel2.Controls.Add(Me.Label16)
-        Me.SplitContainer1.Panel2.Controls.Add(Me.Label15)
-        Me.SplitContainer1.Panel2.Controls.Add(Me.Label14)
         Me.SplitContainer1.Panel2.Controls.Add(Me.Label13)
         Me.SplitContainer1.Panel2.Controls.Add(Me.Label12)
         Me.SplitContainer1.Panel2.Controls.Add(Me.Label4)
         Me.SplitContainer1.Panel2.Controls.Add(Me.pbxPhoto)
-        Me.SplitContainer1.Panel2.Controls.Add(Me.btnEdit)
-        Me.SplitContainer1.Panel2.Controls.Add(Me.btnDelete)
         Me.SplitContainer1.Size = New System.Drawing.Size(774, 498)
         Me.SplitContainer1.SplitterDistance = 354
         Me.SplitContainer1.TabIndex = 36
@@ -368,7 +326,7 @@ Partial Class frmFindProperties
         '
         'btnSetActive
         '
-        Me.btnSetActive.Location = New System.Drawing.Point(13, 205)
+        Me.btnSetActive.Location = New System.Drawing.Point(13, 429)
         Me.btnSetActive.Name = "btnSetActive"
         Me.btnSetActive.Size = New System.Drawing.Size(156, 23)
         Me.btnSetActive.TabIndex = 52
@@ -386,34 +344,12 @@ Partial Class frmFindProperties
         '
         'btnCreateAppointment
         '
-        Me.btnCreateAppointment.Location = New System.Drawing.Point(228, 205)
+        Me.btnCreateAppointment.Location = New System.Drawing.Point(13, 458)
         Me.btnCreateAppointment.Name = "btnCreateAppointment"
-        Me.btnCreateAppointment.Size = New System.Drawing.Size(176, 23)
+        Me.btnCreateAppointment.Size = New System.Drawing.Size(162, 23)
         Me.btnCreateAppointment.TabIndex = 41
         Me.btnCreateAppointment.Text = "Create Appointment"
         Me.btnCreateAppointment.UseVisualStyleBackColor = True
-        '
-        'btnCancel
-        '
-        Me.btnCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnCancel.Location = New System.Drawing.Point(138, 474)
-        Me.btnCancel.Margin = New System.Windows.Forms.Padding(2)
-        Me.btnCancel.Name = "btnCancel"
-        Me.btnCancel.Size = New System.Drawing.Size(56, 19)
-        Me.btnCancel.TabIndex = 40
-        Me.btnCancel.Text = "Cancel"
-        Me.btnCancel.UseVisualStyleBackColor = True
-        '
-        'btnSave
-        '
-        Me.btnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnSave.Location = New System.Drawing.Point(212, 474)
-        Me.btnSave.Margin = New System.Windows.Forms.Padding(2)
-        Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(56, 19)
-        Me.btnSave.TabIndex = 39
-        Me.btnSave.Text = "Save"
-        Me.btnSave.UseVisualStyleBackColor = True
         '
         'txtPrice
         '
@@ -429,34 +365,6 @@ Partial Class frmFindProperties
         Me.txtStatus.Size = New System.Drawing.Size(176, 20)
         Me.txtStatus.TabIndex = 11
         '
-        'txtTownEdit
-        '
-        Me.txtTownEdit.Location = New System.Drawing.Point(227, 143)
-        Me.txtTownEdit.Name = "txtTownEdit"
-        Me.txtTownEdit.Size = New System.Drawing.Size(176, 20)
-        Me.txtTownEdit.TabIndex = 14
-        '
-        'txtAdd2
-        '
-        Me.txtAdd2.Location = New System.Drawing.Point(227, 117)
-        Me.txtAdd2.Name = "txtAdd2"
-        Me.txtAdd2.Size = New System.Drawing.Size(176, 20)
-        Me.txtAdd2.TabIndex = 13
-        '
-        'txtAdd1
-        '
-        Me.txtAdd1.Location = New System.Drawing.Point(227, 91)
-        Me.txtAdd1.Name = "txtAdd1"
-        Me.txtAdd1.Size = New System.Drawing.Size(176, 20)
-        Me.txtAdd1.TabIndex = 12
-        '
-        'txtCountyEdit
-        '
-        Me.txtCountyEdit.Location = New System.Drawing.Point(227, 169)
-        Me.txtCountyEdit.Name = "txtCountyEdit"
-        Me.txtCountyEdit.Size = New System.Drawing.Size(176, 20)
-        Me.txtCountyEdit.TabIndex = 15
-        '
         'txtOwner
         '
         Me.txtOwner.Location = New System.Drawing.Point(227, 16)
@@ -471,45 +379,9 @@ Partial Class frmFindProperties
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.rtbDescription.Location = New System.Drawing.Point(13, 234)
         Me.rtbDescription.Name = "rtbDescription"
-        Me.rtbDescription.Size = New System.Drawing.Size(390, 235)
+        Me.rtbDescription.Size = New System.Drawing.Size(390, 189)
         Me.rtbDescription.TabIndex = 31
         Me.rtbDescription.Text = "Enter description here...."
-        '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(171, 120)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(51, 13)
-        Me.Label17.TabIndex = 30
-        Me.Label17.Text = "Address2"
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(171, 94)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(51, 13)
-        Me.Label16.TabIndex = 29
-        Me.Label16.Text = "Address1"
-        '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(182, 173)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(40, 13)
-        Me.Label15.TabIndex = 28
-        Me.Label15.Text = "County"
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(188, 146)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(34, 13)
-        Me.Label14.TabIndex = 27
-        Me.Label14.Text = "Town"
         '
         'Label13
         '
@@ -548,6 +420,21 @@ Partial Class frmFindProperties
         Me.pbxPhoto.TabIndex = 23
         Me.pbxPhoto.TabStop = False
         '
+        'CtrlProperty1
+        '
+        Me.CtrlProperty1.Location = New System.Drawing.Point(171, 89)
+        Me.CtrlProperty1.Name = "CtrlProperty1"
+        Me.CtrlProperty1.Size = New System.Drawing.Size(242, 125)
+        Me.CtrlProperty1.TabIndex = 53
+        '
+        'CtrlAdminButtons1
+        '
+        Me.CtrlAdminButtons1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.CtrlAdminButtons1.Location = New System.Drawing.Point(241, 453)
+        Me.CtrlAdminButtons1.Name = "CtrlAdminButtons1"
+        Me.CtrlAdminButtons1.Size = New System.Drawing.Size(162, 28)
+        Me.CtrlAdminButtons1.TabIndex = 54
+        '
         'frmFindProperties
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -573,8 +460,6 @@ Partial Class frmFindProperties
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents btnEdit As System.Windows.Forms.Button
-    Friend WithEvents btnDelete As System.Windows.Forms.Button
     Friend WithEvents SplitContainer1 As System.Windows.Forms.SplitContainer
     Friend WithEvents btnLocateProperty As System.Windows.Forms.Button
     Friend WithEvents cmbStatus As System.Windows.Forms.ComboBox
@@ -598,24 +483,16 @@ Partial Class frmFindProperties
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents dgvProperties As System.Windows.Forms.DataGridView
     Friend WithEvents rtbDescription As System.Windows.Forms.RichTextBox
-    Public WithEvents Label17 As System.Windows.Forms.Label
-    Public WithEvents Label16 As System.Windows.Forms.Label
-    Public WithEvents Label15 As System.Windows.Forms.Label
-    Public WithEvents Label14 As System.Windows.Forms.Label
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents pbxPhoto As System.Windows.Forms.PictureBox
     Friend WithEvents txtPrice As System.Windows.Forms.TextBox
     Friend WithEvents txtStatus As System.Windows.Forms.TextBox
-    Friend WithEvents txtTownEdit As System.Windows.Forms.TextBox
-    Friend WithEvents txtAdd2 As System.Windows.Forms.TextBox
-    Friend WithEvents txtAdd1 As System.Windows.Forms.TextBox
-    Friend WithEvents txtCountyEdit As System.Windows.Forms.TextBox
     Friend WithEvents txtOwner As System.Windows.Forms.TextBox
-    Friend WithEvents btnSave As System.Windows.Forms.Button
-    Friend WithEvents btnCancel As System.Windows.Forms.Button
     Friend WithEvents btnCreateAppointment As System.Windows.Forms.Button
     Friend WithEvents btnOthers As System.Windows.Forms.Button
     Friend WithEvents btnSetActive As System.Windows.Forms.Button
+    Friend WithEvents CtrlProperty1 As WindowsApplication1.ctrlProperty
+    Friend WithEvents CtrlAdminButtons1 As WindowsApplication1.ctrlAdminButtons
 End Class

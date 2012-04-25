@@ -181,4 +181,8 @@
 
         quickInsert(SQL)
     End Sub
+    Sub delete(id As Integer)
+        SQL = "DELETE FROM property WHERE id = " & id
+        execute(SQL)
+    End Sub
 End Class
