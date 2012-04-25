@@ -46,19 +46,18 @@ Partial Class frmHomeScreen
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.btnAcceptOffer = New System.Windows.Forms.Button()
         Me.btnMakeOffer = New System.Windows.Forms.Button()
-        Me.btnCreateAppointment = New System.Windows.Forms.Button()
+        Me.btnManageAppointment = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.llUserName = New System.Windows.Forms.LinkLabel()
-        Me.btnSearchAppointments = New System.Windows.Forms.Button()
         Me.btnSearchProperty = New System.Windows.Forms.Button()
         Me.btnAddProperty = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.lblProperty = New System.Windows.Forms.Label()
         Me.lblCustomer = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.dgvSchedule = New System.Windows.Forms.DataGridView()
         Me.dtpAppointments = New System.Windows.Forms.DateTimePicker()
+        Me.dgvSchedule = New System.Windows.Forms.DataGridView()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
@@ -195,9 +194,8 @@ Partial Class frmHomeScreen
         '
         Me.SplitContainer1.Panel1.Controls.Add(Me.btnAcceptOffer)
         Me.SplitContainer1.Panel1.Controls.Add(Me.btnMakeOffer)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.btnCreateAppointment)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.btnManageAppointment)
         Me.SplitContainer1.Panel1.Controls.Add(Me.GroupBox1)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.btnSearchAppointments)
         Me.SplitContainer1.Panel1.Controls.Add(Me.btnSearchProperty)
         Me.SplitContainer1.Panel1.Controls.Add(Me.btnAddProperty)
         '
@@ -213,7 +211,7 @@ Partial Class frmHomeScreen
         '
         Me.btnAcceptOffer.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnAcceptOffer.Location = New System.Drawing.Point(12, 540)
+        Me.btnAcceptOffer.Location = New System.Drawing.Point(12, 449)
         Me.btnAcceptOffer.Name = "btnAcceptOffer"
         Me.btnAcceptOffer.Size = New System.Drawing.Size(164, 69)
         Me.btnAcceptOffer.TabIndex = 6
@@ -224,23 +222,23 @@ Partial Class frmHomeScreen
         '
         Me.btnMakeOffer.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnMakeOffer.Location = New System.Drawing.Point(12, 453)
+        Me.btnMakeOffer.Location = New System.Drawing.Point(12, 360)
         Me.btnMakeOffer.Name = "btnMakeOffer"
         Me.btnMakeOffer.Size = New System.Drawing.Size(164, 69)
         Me.btnMakeOffer.TabIndex = 5
         Me.btnMakeOffer.Text = "Make an Offer"
         Me.btnMakeOffer.UseVisualStyleBackColor = True
         '
-        'btnCreateAppointment
+        'btnManageAppointment
         '
-        Me.btnCreateAppointment.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.btnManageAppointment.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnCreateAppointment.Location = New System.Drawing.Point(12, 266)
-        Me.btnCreateAppointment.Name = "btnCreateAppointment"
-        Me.btnCreateAppointment.Size = New System.Drawing.Size(164, 72)
-        Me.btnCreateAppointment.TabIndex = 4
-        Me.btnCreateAppointment.Text = "Create Appointment"
-        Me.btnCreateAppointment.UseVisualStyleBackColor = True
+        Me.btnManageAppointment.Location = New System.Drawing.Point(12, 266)
+        Me.btnManageAppointment.Name = "btnManageAppointment"
+        Me.btnManageAppointment.Size = New System.Drawing.Size(164, 72)
+        Me.btnManageAppointment.TabIndex = 4
+        Me.btnManageAppointment.Text = "Manage Appointments"
+        Me.btnManageAppointment.UseVisualStyleBackColor = True
         '
         'GroupBox1
         '
@@ -274,17 +272,6 @@ Partial Class frmHomeScreen
         Me.llUserName.TabIndex = 2
         Me.llUserName.TabStop = True
         Me.llUserName.Text = "Turlough Cowman"
-        '
-        'btnSearchAppointments
-        '
-        Me.btnSearchAppointments.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnSearchAppointments.Location = New System.Drawing.Point(12, 357)
-        Me.btnSearchAppointments.Name = "btnSearchAppointments"
-        Me.btnSearchAppointments.Size = New System.Drawing.Size(164, 72)
-        Me.btnSearchAppointments.TabIndex = 3
-        Me.btnSearchAppointments.Text = "Search Appointments"
-        Me.btnSearchAppointments.UseVisualStyleBackColor = True
         '
         'btnSearchProperty
         '
@@ -353,6 +340,13 @@ Partial Class frmHomeScreen
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Schedule"
         '
+        'dtpAppointments
+        '
+        Me.dtpAppointments.Location = New System.Drawing.Point(6, 19)
+        Me.dtpAppointments.Name = "dtpAppointments"
+        Me.dtpAppointments.Size = New System.Drawing.Size(200, 20)
+        Me.dtpAppointments.TabIndex = 1
+        '
         'dgvSchedule
         '
         Me.dgvSchedule.AllowUserToAddRows = False
@@ -385,13 +379,6 @@ Partial Class frmHomeScreen
         Me.dgvSchedule.RowsDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvSchedule.Size = New System.Drawing.Size(396, 422)
         Me.dgvSchedule.TabIndex = 0
-        '
-        'dtpAppointments
-        '
-        Me.dtpAppointments.Location = New System.Drawing.Point(6, 19)
-        Me.dtpAppointments.Name = "dtpAppointments"
-        Me.dtpAppointments.Size = New System.Drawing.Size(200, 20)
-        Me.dtpAppointments.TabIndex = 1
         '
         'frmHomeScreen
         '
@@ -447,8 +434,7 @@ Partial Class frmHomeScreen
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents llUserName As System.Windows.Forms.LinkLabel
     Friend WithEvents btnSearchProperty As System.Windows.Forms.Button
-    Friend WithEvents btnSearchAppointments As System.Windows.Forms.Button
-    Friend WithEvents btnCreateAppointment As System.Windows.Forms.Button
+    Friend WithEvents btnManageAppointment As System.Windows.Forms.Button
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
     Friend WithEvents lblProperty As System.Windows.Forms.Label
     Friend WithEvents lblCustomer As System.Windows.Forms.Label

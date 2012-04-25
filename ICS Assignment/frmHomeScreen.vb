@@ -54,7 +54,7 @@
         frmAddProperty.ShowDialog()
         showDetails()
     End Sub
-    Private Sub btnCreateAppointment_Click(sender As System.Object, e As System.EventArgs) Handles btnCreateAppointment.Click
+    Private Sub btnManageAppointment_Click(sender As System.Object, e As System.EventArgs) Handles btnManageAppointment.Click
         frmAppointments.ShowDialog()
         showDetails()
     End Sub

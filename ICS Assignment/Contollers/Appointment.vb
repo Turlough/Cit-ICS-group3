@@ -7,6 +7,7 @@
     Public finish As Integer = 0
     Public duration As Integer = 0
     Public notes As String = ""
+    Public id As Integer = 0
 
     Structure temp
         Public chosenDate As DateTime
@@ -14,6 +15,8 @@
         Public finish As Integer
         Public duration As Integer
         Public notes As String
+        Public custid As Integer
+        Public propid As Integer
     End Structure
 
     Function showAppointments() As DataTable
@@ -36,6 +39,42 @@
 
         'MsgBox(SQL)
         insert(SQL)
+    End Sub
+    Sub load(id As Integer)
+        SQL = "select * from appointment where id =" & id
+        Dim DT As DataTable = getData(SQL)
+        If DT.Rows.Count > 0 Then
+            With DT.Rows(0)
+                id = id
+                chosenDate = .Item("chosenDate")
+                start = .Item("start")
+                finish = .Item("finish")
+                custid = .Item(custid)
+                propid = .Item(propid)
+                duration = finish - start
+
+                If Not IsDBNull(.Item("notes")) Then
+                    notes = .Item("notes")
+                Else
+                    notes = ""
+                End If
+            End With
+        Else
+            id = 0
+            chosenDate = Now.Date
+            start = 0
+            finish = 0
+            custid = 0
+            propid = 0
+            duration = finish - start
+            notes = ""
+        End If
+        DT = Nothing
+
+    End Sub
+    Sub delete(id)
+        SQL = "DELETE FROM appointment WHERE id =" & id
+        execute(SQL)
     End Sub
     Sub makeGrid(grid As DataGridView)
 

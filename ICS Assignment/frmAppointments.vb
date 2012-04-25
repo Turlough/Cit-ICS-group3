@@ -7,7 +7,14 @@ Public Class frmAppointments
     Dim prop As New Properties
     Dim cp As New CustProp
     Dim DT As New DataTable
+    Private Sub frmCalendar_Shown(sender As Object, e As System.EventArgs) Handles Me.Shown
+        'setup form & controls
+        setDefaults()
+        app.chosenDate = Now()
+        fillTimes()
+        ctrlAdmin.Visible = False
 
+    End Sub
 
     Sub setDefaults()
         'display cust and prop details
@@ -53,19 +60,11 @@ Public Class frmAppointments
             txtNotes.Text = s.ToString
         Else
             btnAdd.Enabled = False
-            Times.Enabled = False
+
         End If
 
     End Sub
-    Private Sub frmCalendar_Shown(sender As Object, e As System.EventArgs) Handles Me.Shown
-        setDefaults()
-        app.chosenDate = Now()
 
-
-
-        fillTimes()
-
-    End Sub
 
     Private Sub DateTimePicker1_ValueChanged(sender As System.Object, e As System.EventArgs) Handles DateTimePicker1.ValueChanged
         With DateTimePicker1
@@ -77,34 +76,56 @@ Public Class frmAppointments
     End Sub
 
     Private Sub Times_CellContentClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles Times.CellClick
-
-        'TODO ensure contiguous selection
-
-        'Toggling selection
         With Times.Rows(e.RowIndex)
-            If .Cells(1).Value Is Nothing Then
-
-                'set variables
-                app.start = Times.SelectedRows(0).Cells(0).Value
+            'evaluate edit or add mode (timeslot is active or inactive)
+            If .Cells("finish").Value Is Nothing Then
+                'create commands
+                ctrlAdmin.eSql = eSql
+                ctrlAdmin.dSql = dSql
+                'show/hide buttons
+                ctrlAdmin.Visible = False
+                btnAdd.Visible = True
+                'locate first selected row
+                app.start = Times.SelectedRows(0).Cells("start").Value
                 For Each r As DataGridViewRow In Times.SelectedRows
-                    If r.Cells(0).Value < app.start Then
-                        app.start = r.Cells(0).Value
+                    If r.Cells("start").Value < app.start Then
+                        app.start = r.Cells("start").Value
                     End If
                 Next
+                'set variables
                 Dim duration As Integer = Times.SelectedRows.Count
                 app.finish = app.start + duration
                 'display
                 txtStart.Text = app.start & ":00"
                 txtFinish.Text = app.finish & ":00"
             Else
-                'TODO create edit and delete functions for appointments
-                frmAppointmentOptions.ShowDialog()
+                ctrlAdmin.Visible = True
+                btnAdd.Visible = False
             End If
 
 
         End With
 
     End Sub
+    Private ReadOnly Property dSql As String
+        Get
+            Dim id As Integer = Times.SelectedRows(0).Cells("id").Value
+            Return String.Format("Delete from appointment where id = {0}", id)
+        End Get
+    End Property
+    Private ReadOnly Property eSql As String
+        Get
+            Dim id As Integer = Times.SelectedRows(0).Cells("id").Value
+            'app.load(id)
+            Dim s As String
+            s = "update appointment set"
+            s &= " custid = " & Customer.custid
+            s &= ", propid =" & Properties.propid
+            s &= String.Format(", notes ='{0}'", txtNotes.Text)
+            s &= " WHERE id = " & id
+            Return s
+        End Get
+    End Property
 
     Private Sub fillTimes()
         'Times.DataSource = app.showAppointments()
@@ -112,9 +133,9 @@ Public Class frmAppointments
 
         'Default time text boxes to first empty timeslot
         For Each r As DataGridViewRow In Times.Rows
-            If r.Cells(1).Value = 0 Then
-                txtStart.Text = r.Cells(0).Value
-                txtFinish.Text = CInt(r.Cells(0).Value + 1)
+            If r.Cells("finish").Value = 0 Then
+                txtStart.Text = r.Cells("start").Value
+                txtFinish.Text = CInt(r.Cells("finish").Value + 1)
                 r.Selected = True
                 Exit For
             Else
