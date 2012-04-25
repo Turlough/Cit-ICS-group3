@@ -64,6 +64,19 @@
         SQL = "EXEC sp_ArchiveCustomer " & id
         update(SQL) 'TODO- dont use super.update. Tidy the command structure
     End Sub
+    Overloads Sub update(id As Integer)
+        SQL = "UPDATE customer SET "
+        SQL &= String.Format(" fname = '{0}'", fname)
+        SQL &= String.Format(", lname = '{0}'", sname)
+        SQL &= String.Format(", email = '{0}'", email)
+        SQL &= String.Format(", phone = '{0}'", phone)
+        SQL &= String.Format(", address = '{0}'", address)
+        SQL &= String.Format(", status = '{0}'", status)
+        SQL &= " WHERE id=" & id
+
+        execute(SQL)
+
+    End Sub
     Sub clear()
         custid = 0
         fname = ""
