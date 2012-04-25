@@ -29,9 +29,8 @@ Partial Class frmFindCustomer
         Me.cbxField = New System.Windows.Forms.ComboBox()
         Me.dgvCustomers = New System.Windows.Forms.DataGridView()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.btnArchive = New System.Windows.Forms.Button()
-        Me.btnEdit = New System.Windows.Forms.Button()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+        Me.ctrlAdmin = New WindowsApplication1.ctrlAdminButtons()
         Me.btnSet = New System.Windows.Forms.Button()
         Me.btnProperties = New System.Windows.Forms.Button()
         Me.txtEmail = New System.Windows.Forms.TextBox()
@@ -44,7 +43,6 @@ Partial Class frmFindCustomer
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtFname = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.btnSave = New System.Windows.Forms.Button()
         CType(Me.dgvCustomers, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -129,28 +127,6 @@ Partial Class frmFindCustomer
         Me.Panel1.Size = New System.Drawing.Size(448, 418)
         Me.Panel1.TabIndex = 12
         '
-        'btnArchive
-        '
-        Me.btnArchive.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnArchive.Location = New System.Drawing.Point(183, 436)
-        Me.btnArchive.Margin = New System.Windows.Forms.Padding(2)
-        Me.btnArchive.Name = "btnArchive"
-        Me.btnArchive.Size = New System.Drawing.Size(56, 19)
-        Me.btnArchive.TabIndex = 13
-        Me.btnArchive.Text = "Archive"
-        Me.btnArchive.UseVisualStyleBackColor = True
-        '
-        'btnEdit
-        '
-        Me.btnEdit.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnEdit.Location = New System.Drawing.Point(123, 436)
-        Me.btnEdit.Margin = New System.Windows.Forms.Padding(2)
-        Me.btnEdit.Name = "btnEdit"
-        Me.btnEdit.Size = New System.Drawing.Size(56, 19)
-        Me.btnEdit.TabIndex = 13
-        Me.btnEdit.Text = "Edit"
-        Me.btnEdit.UseVisualStyleBackColor = True
-        '
         'SplitContainer1
         '
         Me.SplitContainer1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
@@ -170,7 +146,7 @@ Partial Class frmFindCustomer
         '
         'SplitContainer1.Panel2
         '
-        Me.SplitContainer1.Panel2.Controls.Add(Me.btnSave)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.ctrlAdmin)
         Me.SplitContainer1.Panel2.Controls.Add(Me.btnSet)
         Me.SplitContainer1.Panel2.Controls.Add(Me.btnProperties)
         Me.SplitContainer1.Panel2.Controls.Add(Me.txtEmail)
@@ -183,11 +159,16 @@ Partial Class frmFindCustomer
         Me.SplitContainer1.Panel2.Controls.Add(Me.Label2)
         Me.SplitContainer1.Panel2.Controls.Add(Me.txtFname)
         Me.SplitContainer1.Panel2.Controls.Add(Me.Label1)
-        Me.SplitContainer1.Panel2.Controls.Add(Me.btnEdit)
-        Me.SplitContainer1.Panel2.Controls.Add(Me.btnArchive)
         Me.SplitContainer1.Size = New System.Drawing.Size(695, 457)
         Me.SplitContainer1.SplitterDistance = 450
         Me.SplitContainer1.TabIndex = 14
+        '
+        'ctrlAdmin
+        '
+        Me.ctrlAdmin.Location = New System.Drawing.Point(63, 420)
+        Me.ctrlAdmin.Name = "ctrlAdmin"
+        Me.ctrlAdmin.Size = New System.Drawing.Size(163, 28)
+        Me.ctrlAdmin.TabIndex = 27
         '
         'btnSet
         '
@@ -289,17 +270,6 @@ Partial Class frmFindCustomer
         Me.Label1.TabIndex = 14
         Me.Label1.Text = "Forename"
         '
-        'btnSave
-        '
-        Me.btnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnSave.Location = New System.Drawing.Point(63, 436)
-        Me.btnSave.Margin = New System.Windows.Forms.Padding(2)
-        Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(56, 19)
-        Me.btnSave.TabIndex = 26
-        Me.btnSave.Text = "Save"
-        Me.btnSave.UseVisualStyleBackColor = True
-        '
         'frmFindCustomer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -327,8 +297,6 @@ Partial Class frmFindCustomer
     Friend WithEvents cbxField As System.Windows.Forms.ComboBox
     Friend WithEvents dgvCustomers As System.Windows.Forms.DataGridView
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
-    Friend WithEvents btnArchive As System.Windows.Forms.Button
-    Friend WithEvents btnEdit As System.Windows.Forms.Button
     Friend WithEvents SplitContainer1 As System.Windows.Forms.SplitContainer
     Friend WithEvents btnProperties As System.Windows.Forms.Button
     Friend WithEvents txtEmail As System.Windows.Forms.TextBox
@@ -342,5 +310,5 @@ Partial Class frmFindCustomer
     Friend WithEvents txtFname As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents btnSet As System.Windows.Forms.Button
-    Friend WithEvents btnSave As System.Windows.Forms.Button
+    Friend WithEvents ctrlAdmin As WindowsApplication1.ctrlAdminButtons
 End Class

@@ -119,7 +119,7 @@ Public Class DBConnector
 
     Protected Overrides Sub Finalize()
         sqCmd.Dispose()
-        sqCon.Dispose()
+        sqCon = Nothing
         MyBase.Finalize()
     End Sub
 End Class

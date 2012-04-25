@@ -50,8 +50,8 @@
                 chosenDate = .Item("chosenDate")
                 start = .Item("start")
                 finish = .Item("finish")
-                custid = .Item(custid)
-                propid = .Item(propid)
+                custid = .Item("custid")
+                propid = .Item("propid")
                 duration = finish - start
 
                 If Not IsDBNull(.Item("notes")) Then

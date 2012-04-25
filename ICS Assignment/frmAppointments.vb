@@ -51,7 +51,7 @@ Public Class frmAppointments
             End Select
 
             s.AppendLine(UCase(rt))
-            s.Append(String.Format("Meet {0} at", cust.fullName))
+            s.Append(String.Format("Meet {0} at ", cust.fullName))
             s.AppendLine(prop.fullAddress)
             s.Append(String.Format("for {0}", rt))
 
@@ -104,10 +104,7 @@ Public Class frmAppointments
                 ctrlAdmin.Visible = True
                 btnAdd.Visible = False
             End If
-
-
         End With
-
     End Sub
     Private ReadOnly Property dSql As String
         Get
@@ -169,29 +166,42 @@ Public Class frmAppointments
         setDefaults()
     End Sub
 
-    Private Sub ctrlAdmin_EnableEdit(sender As Object, e As System.EventArgs) Handles ctrlAdmin.EnableEdit
+    Private Sub ctrlAdmin_EnableEdit(sender As Object, e As System.EventArgs) Handles ctrlAdmin.Edit
         app.id = Times.SelectedRows(0).Cells("id").Value
         app.load(app.id)
         If app.id > 0 Then
             cust.loadCustomer(Appointment.custid)
             prop.loadProperty(Appointment.propid)
+
             setDefaults()
+            app.delete(app.id) 'delete so all fields can be edited
+            fillTimes()
         Else
             MsgBox("Select the appointment to edit first")
         End If
-
-
-
     End Sub
 
-    Private Sub ctrlAdmin_Deleted(sender As Object, e As System.EventArgs) Handles ctrlAdmin.Deleted, ctrlAdmin.Saved
-        fillTimes() 'refresh this datagrid
-        frmHomeScreen.showDetails() 'refresh calendar on home screen
+    Private Sub ctrlAdmin_Deleted(sender As Object, e As System.EventArgs) Handles ctrlAdmin.Delete
+        app.id = Times.SelectedRows(0).Cells("id").Value
+        If app.id > 0 Then
+            app.delete(app.id)
+            fillTimes() 'refresh this datagrid
+            frmHomeScreen.showDetails() 'refresh calendar on home screen
+            setDefaults()
+        Else
+            MsgBox("You must select a non empty timeslot")
+        End If
         ctrlAdmin.Visible = False
         btnAdd.Enabled = True
-        setDefaults()
 
     End Sub
 
 
+    Private Sub ctrlAdmin_Save(sender As Object, e As System.EventArgs) Handles ctrlAdmin.Save
+        app.notes = txtNotes.Text
+        app.create()
+
+        fillTimes() 'refresh this datagrid
+        frmHomeScreen.showDetails() 'refresh calendar on home screen
+    End Sub
 End Class

@@ -1,6 +1,8 @@
 ﻿Imports System.Data.SqlClient
 Public Class frmFindCustomer
     Dim cust As New Customer
+    Dim dSql As String
+    Dim sSql As String
     Private Sub frmFindCustomer_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         loadData()
 
@@ -10,10 +12,10 @@ Public Class frmFindCustomer
         End If
         'hide controls
         disableEdit()
-        btnArchive.Visible = False
-        btnEdit.Visible = False
+
+        ctrlAdmin.Visible = False
         btnProperties.Visible = False
-        btnSave.Visible = False
+
 
     End Sub
 
@@ -52,15 +54,17 @@ Public Class frmFindCustomer
                 txtEmail.Text = .email
                 txtAddress.Text = .address
             End With
-            btnArchive.Visible = True
-            btnEdit.Visible = True
+            ctrlAdmin.Visible = True
             btnProperties.Visible = True
+        Else
+            ctrlAdmin.Visible = False
+            btnProperties.Visible = False
         End If
-
+        disableEdit()
     End Sub
 
 
-    Private Sub btnArchive_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnArchive.Click
+    Private Sub btnArchive_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         cust.delete(Customer.custid)
         Customer.custid = 0 'reset custid
         loadData()
@@ -71,9 +75,7 @@ Public Class frmFindCustomer
         txtAddress.Enabled = True
         txtEmail.Enabled = True
         txtPhone.Enabled = True
-        btnSave.Visible = True
-        btnEdit.Visible = False
-        btnArchive.Visible = False
+
 
     End Sub
     Sub disableEdit()
@@ -82,9 +84,6 @@ Public Class frmFindCustomer
         txtAddress.Enabled = False
         txtEmail.Enabled = False
         txtPhone.Enabled = False
-        btnSave.Visible = False
-        btnEdit.Visible = True
-        btnArchive.Visible = True
     End Sub
 
     Private Sub btnProperties_Click(sender As System.Object, e As System.EventArgs) Handles btnProperties.Click
@@ -92,10 +91,10 @@ Public Class frmFindCustomer
     End Sub
 
     Private Sub btnSet_Click(sender As System.Object, e As System.EventArgs) Handles btnSet.Click
-        Me.Hide()
+        Me.Close()
     End Sub
 
-    Private Sub btnEdit_Click(sender As System.Object, e As System.EventArgs) Handles btnEdit.Click
+    Private Sub ctrlAdmin_EnableEdit(sender As Object, e As System.EventArgs) Handles ctrlAdmin.Edit
         EnableEdit()
     End Sub
 End Class

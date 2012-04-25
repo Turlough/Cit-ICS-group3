@@ -58,23 +58,29 @@
     End Function
     ReadOnly Property fullAddress() As String
         Get
-            Dim s As String
-            s = add1 & vbCrLf
-            If Not add2.Length = 0 Then
-                s &= add2 & vbCrLf
+            If propid > 0 Then
+                Dim s As String
+                s = add1 & vbCrLf
+                If Not add2.Length = 0 Then
+                    s &= add2 & vbCrLf
+                End If
+                s &= town & vbCrLf
+                s &= county
+                Return s
+            Else
+                Return ""
             End If
-            s &= town & vbCrLf
-            s &= county
-            Return s
+
         End Get
     End Property
 
     Sub loadProperty(id As Integer)
+        propid = id
         SQL = "SELECT * FROM property WHERE id =" & id
         Dim DT As DataTable = getData(SQL)
         If DT.Rows.Count > 0 Then
             With DT.Rows(0)
-                propid = id
+
                 add1 = .Item(1)
                 add2 = .Item(2)
                 town = .Item(3)
