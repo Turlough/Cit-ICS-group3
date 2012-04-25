@@ -170,6 +170,17 @@ Public Class frmAppointments
     End Sub
 
     Private Sub ctrlAdmin_EnableEdit(sender As Object, e As System.EventArgs) Handles ctrlAdmin.EnableEdit
+        app.id = Times.SelectedRows(0).Cells("id").Value
+        app.load(app.id)
+        If app.id > 0 Then
+            cust.loadCustomer(Appointment.custid)
+            prop.loadProperty(Appointment.propid)
+            setDefaults()
+        Else
+            MsgBox("Select the appointment to edit first")
+        End If
+
+
 
     End Sub
 

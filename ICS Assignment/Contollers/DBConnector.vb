@@ -116,4 +116,10 @@ Public Class DBConnector
         End Try
 
     End Sub
+
+    Protected Overrides Sub Finalize()
+        sqCmd.Dispose()
+        sqCon.Dispose()
+        MyBase.Finalize()
+    End Sub
 End Class
