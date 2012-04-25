@@ -87,10 +87,10 @@
     <Compile Include="customControls\ctrlAdminButtons.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="customControls\ctrlFname.Designer.vb">
-      <DependentUpon>ctrlFname.vb</DependentUpon>
+    <Compile Include="customControls\ctrlCustomer.Designer.vb">
+      <DependentUpon>ctrlCustomer.vb</DependentUpon>
     </Compile>
-    <Compile Include="customControls\ctrlFname.vb">
+    <Compile Include="customControls\ctrlCustomer.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="frmAcceptOffer.Designer.vb">
@@ -182,8 +182,8 @@
     <EmbeddedResource Include="customControls\ctrlAdminButtons.resx">
       <DependentUpon>ctrlAdminButtons.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="customControls\ctrlFname.resx">
-      <DependentUpon>ctrlFname.vb</DependentUpon>
+    <EmbeddedResource Include="customControls\ctrlCustomer.resx">
+      <DependentUpon>ctrlCustomer.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAcceptOffer.resx">
       <DependentUpon>frmAcceptOffer.vb</DependentUpon>
