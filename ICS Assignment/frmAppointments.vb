@@ -169,7 +169,18 @@ Public Class frmAppointments
         setDefaults()
     End Sub
 
-    Private Sub ctrlAdmin_Load(sender As System.Object, e As System.EventArgs) Handles ctrlAdmin.Load
+    Private Sub ctrlAdmin_EnableEdit(sender As Object, e As System.EventArgs) Handles ctrlAdmin.EnableEdit
 
     End Sub
+
+    Private Sub ctrlAdmin_Deleted(sender As Object, e As System.EventArgs) Handles ctrlAdmin.Deleted, ctrlAdmin.Saved
+        fillTimes() 'refresh this datagrid
+        frmHomeScreen.showDetails() 'refresh calendar on home screen
+        ctrlAdmin.Visible = False
+        btnAdd.Enabled = True
+        setDefaults()
+
+    End Sub
+
+
 End Class

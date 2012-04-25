@@ -31,6 +31,12 @@ Public Class frmFindProperties
 
     End Sub
 
+    Private Sub frmFindProperties_Shown(sender As Object, e As System.EventArgs) Handles Me.Shown
+        refreshPropertyList()
+    End Sub
+    Private Sub cmbStatus_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles cmbStatus.SelectedIndexChanged
+        refreshPropertyList()
+    End Sub
     Private Sub btnLocateProperty_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnLocateProperty.Click
         refreshPropertyList()
     End Sub
@@ -224,4 +230,6 @@ Public Class frmFindProperties
     Private Sub btnCancel_Click(sender As System.Object, e As System.EventArgs) Handles btnCancel.Click
         disableEdit()
     End Sub
+
+ 
 End Class
