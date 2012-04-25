@@ -44,6 +44,8 @@ Partial Class frmFindProperties
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.dgvProperties = New System.Windows.Forms.DataGridView()
+        Me.CtrlAdminButtons1 = New WindowsApplication1.ctrlAdminButtons()
+        Me.CtrlProperty1 = New WindowsApplication1.ctrlProperty()
         Me.btnSetActive = New System.Windows.Forms.Button()
         Me.btnOthers = New System.Windows.Forms.Button()
         Me.btnCreateAppointment = New System.Windows.Forms.Button()
@@ -55,8 +57,6 @@ Partial Class frmFindProperties
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.pbxPhoto = New System.Windows.Forms.PictureBox()
-        Me.CtrlProperty1 = New WindowsApplication1.ctrlProperty()
-        Me.CtrlAdminButtons1 = New WindowsApplication1.ctrlAdminButtons()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -120,10 +120,10 @@ Partial Class frmFindProperties
         '
         'btnLocateProperty
         '
-        Me.btnLocateProperty.Location = New System.Drawing.Point(230, 158)
+        Me.btnLocateProperty.Location = New System.Drawing.Point(211, 158)
         Me.btnLocateProperty.Margin = New System.Windows.Forms.Padding(2)
         Me.btnLocateProperty.Name = "btnLocateProperty"
-        Me.btnLocateProperty.Size = New System.Drawing.Size(110, 43)
+        Me.btnLocateProperty.Size = New System.Drawing.Size(129, 43)
         Me.btnLocateProperty.TabIndex = 9
         Me.btnLocateProperty.Text = "Locate Property"
         Me.btnLocateProperty.UseVisualStyleBackColor = True
@@ -324,8 +324,24 @@ Partial Class frmFindProperties
         Me.dgvProperties.Size = New System.Drawing.Size(350, 288)
         Me.dgvProperties.TabIndex = 11
         '
+        'CtrlAdminButtons1
+        '
+        Me.CtrlAdminButtons1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.CtrlAdminButtons1.Location = New System.Drawing.Point(241, 453)
+        Me.CtrlAdminButtons1.Name = "CtrlAdminButtons1"
+        Me.CtrlAdminButtons1.Size = New System.Drawing.Size(162, 28)
+        Me.CtrlAdminButtons1.TabIndex = 54
+        '
+        'CtrlProperty1
+        '
+        Me.CtrlProperty1.Location = New System.Drawing.Point(171, 89)
+        Me.CtrlProperty1.Name = "CtrlProperty1"
+        Me.CtrlProperty1.Size = New System.Drawing.Size(242, 125)
+        Me.CtrlProperty1.TabIndex = 53
+        '
         'btnSetActive
         '
+        Me.btnSetActive.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnSetActive.Location = New System.Drawing.Point(13, 429)
         Me.btnSetActive.Name = "btnSetActive"
         Me.btnSetActive.Size = New System.Drawing.Size(156, 23)
@@ -344,9 +360,10 @@ Partial Class frmFindProperties
         '
         'btnCreateAppointment
         '
+        Me.btnCreateAppointment.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnCreateAppointment.Location = New System.Drawing.Point(13, 458)
         Me.btnCreateAppointment.Name = "btnCreateAppointment"
-        Me.btnCreateAppointment.Size = New System.Drawing.Size(162, 23)
+        Me.btnCreateAppointment.Size = New System.Drawing.Size(156, 23)
         Me.btnCreateAppointment.TabIndex = 41
         Me.btnCreateAppointment.Text = "Create Appointment"
         Me.btnCreateAppointment.UseVisualStyleBackColor = True
@@ -419,21 +436,6 @@ Partial Class frmFindProperties
         Me.pbxPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.pbxPhoto.TabIndex = 23
         Me.pbxPhoto.TabStop = False
-        '
-        'CtrlProperty1
-        '
-        Me.CtrlProperty1.Location = New System.Drawing.Point(171, 89)
-        Me.CtrlProperty1.Name = "CtrlProperty1"
-        Me.CtrlProperty1.Size = New System.Drawing.Size(242, 125)
-        Me.CtrlProperty1.TabIndex = 53
-        '
-        'CtrlAdminButtons1
-        '
-        Me.CtrlAdminButtons1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CtrlAdminButtons1.Location = New System.Drawing.Point(241, 453)
-        Me.CtrlAdminButtons1.Name = "CtrlAdminButtons1"
-        Me.CtrlAdminButtons1.Size = New System.Drawing.Size(162, 28)
-        Me.CtrlAdminButtons1.TabIndex = 54
         '
         'frmFindProperties
         '
