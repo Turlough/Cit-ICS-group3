@@ -22,12 +22,17 @@ Partial Class frmAppointments
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.Times = New System.Windows.Forms.DataGridView()
+        Me.starttime = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Finish = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Notes = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.txtFinish = New System.Windows.Forms.TextBox()
         Me.txtStart = New System.Windows.Forms.TextBox()
         Me.btnAdd = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
@@ -37,11 +42,6 @@ Partial Class frmAppointments
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtName = New System.Windows.Forms.TextBox()
-        Me.txtFinish = New System.Windows.Forms.TextBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.starttime = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Finish = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Notes = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.Times, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -64,24 +64,49 @@ Partial Class frmAppointments
         Me.Times.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.Times.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Times.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.starttime, Me.Finish, Me.Notes})
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Times.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Times.DefaultCellStyle = DataGridViewCellStyle2
         Me.Times.Location = New System.Drawing.Point(6, 45)
         Me.Times.Name = "Times"
         Me.Times.ReadOnly = True
         Me.Times.RowHeadersVisible = False
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Times.RowsDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Times.RowsDefaultCellStyle = DataGridViewCellStyle3
         Me.Times.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.Times.Size = New System.Drawing.Size(449, 260)
         Me.Times.TabIndex = 1
+        '
+        'starttime
+        '
+        Me.starttime.Frozen = True
+        Me.starttime.HeaderText = "Start"
+        Me.starttime.Name = "starttime"
+        Me.starttime.ReadOnly = True
+        Me.starttime.Width = 40
+        '
+        'Finish
+        '
+        Me.Finish.Frozen = True
+        Me.Finish.HeaderText = "Finish"
+        Me.Finish.Name = "Finish"
+        Me.Finish.ReadOnly = True
+        Me.Finish.Width = 40
+        '
+        'Notes
+        '
+        Me.Notes.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Notes.DefaultCellStyle = DataGridViewCellStyle1
+        Me.Notes.HeaderText = "Details"
+        Me.Notes.Name = "Notes"
+        Me.Notes.ReadOnly = True
         '
         'GroupBox1
         '
@@ -100,6 +125,24 @@ Partial Class frmAppointments
         Me.GroupBox1.TabIndex = 2
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Calendar"
+        '
+        'Label5
+        '
+        Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(83, 318)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(16, 13)
+        Me.Label5.TabIndex = 7
+        Me.Label5.Text = "to"
+        '
+        'txtFinish
+        '
+        Me.txtFinish.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.txtFinish.Location = New System.Drawing.Point(114, 315)
+        Me.txtFinish.Name = "txtFinish"
+        Me.txtFinish.Size = New System.Drawing.Size(71, 20)
+        Me.txtFinish.TabIndex = 6
         '
         'txtStart
         '
@@ -153,6 +196,7 @@ Partial Class frmAppointments
         '
         'txtPlace
         '
+        Me.txtPlace.Enabled = False
         Me.txtPlace.Location = New System.Drawing.Point(58, 56)
         Me.txtPlace.Multiline = True
         Me.txtPlace.Name = "txtPlace"
@@ -179,53 +223,11 @@ Partial Class frmAppointments
         '
         'txtName
         '
+        Me.txtName.Enabled = False
         Me.txtName.Location = New System.Drawing.Point(58, 19)
         Me.txtName.Name = "txtName"
         Me.txtName.Size = New System.Drawing.Size(244, 20)
         Me.txtName.TabIndex = 0
-        '
-        'txtFinish
-        '
-        Me.txtFinish.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.txtFinish.Location = New System.Drawing.Point(114, 315)
-        Me.txtFinish.Name = "txtFinish"
-        Me.txtFinish.Size = New System.Drawing.Size(71, 20)
-        Me.txtFinish.TabIndex = 6
-        '
-        'Label5
-        '
-        Me.Label5.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(83, 318)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(16, 13)
-        Me.Label5.TabIndex = 7
-        Me.Label5.Text = "to"
-        '
-        'starttime
-        '
-        Me.starttime.Frozen = True
-        Me.starttime.HeaderText = "Start"
-        Me.starttime.Name = "starttime"
-        Me.starttime.ReadOnly = True
-        Me.starttime.Width = 40
-        '
-        'Finish
-        '
-        Me.Finish.Frozen = True
-        Me.Finish.HeaderText = "Finish"
-        Me.Finish.Name = "Finish"
-        Me.Finish.ReadOnly = True
-        Me.Finish.Width = 40
-        '
-        'Notes
-        '
-        Me.Notes.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Notes.DefaultCellStyle = DataGridViewCellStyle4
-        Me.Notes.HeaderText = "Details"
-        Me.Notes.Name = "Notes"
-        Me.Notes.ReadOnly = True
         '
         'frmAppointments
         '
