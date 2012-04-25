@@ -7,26 +7,13 @@
 
 
     Public Sub showDetails()
-        Dim S As String
         If Customer.custid > 0 Then
             cust.loadCustomer(Customer.custid)
-
-            S = cust.fname & cust.sname & vbCr
-            S &= cust.address & vbCr & vbCr
-            S &= cust.phone & vbCr
-            S &= cust.email & vbCr
-
-            lblCustomer.Text = S
+            lblCustomer.Text = cust.fullName
         End If
         If Properties.propid > 0 Then
             prop.loadProperty(Properties.propid)
-
-            S = prop.add1 & vbCr
-            S &= prop.add2 & vbCr
-            S &= prop.town & vbCr
-            S &= prop.county & vbCr
-
-            lblProperty.Text = S
+            lblProperty.Text = prop.fullAddress
         End If
 
         dgvSchedule.DataSource = schedule.showAppointments()

@@ -68,6 +68,8 @@ Public Class Validator
     End Function
 
     Public Function prepareForSql(ByVal s As String) As String
+        If IsNothing(s) Or s = "" Then Return ""
+
         s = Replace(s, Chr(39), "''") 'escape single quote
         s = s.Trim() 'remove surrounding spaces
         s = StrConv(s, VbStrConv.ProperCase) 'use proper case
