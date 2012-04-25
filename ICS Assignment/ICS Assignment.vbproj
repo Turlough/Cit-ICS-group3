@@ -81,6 +81,12 @@
     <Compile Include="customControls\crtlCounty.vb">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="customControls\ctrlAdminButtons.Designer.vb">
+      <DependentUpon>ctrlAdminButtons.vb</DependentUpon>
+    </Compile>
+    <Compile Include="customControls\ctrlAdminButtons.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="customControls\ctrlFname.Designer.vb">
       <DependentUpon>ctrlFname.vb</DependentUpon>
     </Compile>
@@ -172,6 +178,9 @@
   <ItemGroup>
     <EmbeddedResource Include="customControls\crtlCounty.resx">
       <DependentUpon>crtlCounty.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="customControls\ctrlAdminButtons.resx">
+      <DependentUpon>ctrlAdminButtons.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="customControls\ctrlFname.resx">
       <DependentUpon>ctrlFname.vb</DependentUpon>
