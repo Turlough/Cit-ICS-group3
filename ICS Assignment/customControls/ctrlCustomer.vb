@@ -8,7 +8,7 @@
         If Not v.isName(txtSname.Text) Then b = False
         If v.notEmpty(txtPhone.Text) And Not v.phone(txtPhone.Text) Then b = False
         If Not v.email(txtEmail.Text) Then b = False
-        If Not v.isName(txtAddress.Text) Then b = False
+        If Not v.notEmpty(txtAddress.Text) And v.isAddress(txtAddress.Text) Then b = False
 
         Return b
     End Function
@@ -20,6 +20,22 @@
             txtEmail.Text = .email
             txtAddress.Text = .address
         End With
+    End Sub
+    Sub enable()
+        txtFname.Enabled = True
+        txtSname.Enabled = True
+        txtEmail.Enabled = True
+        txtPhone.Enabled = True
+        txtAddress.Enabled = True
+
+    End Sub
+    Sub disable()
+        txtFname.Enabled = False
+        txtSname.Enabled = False
+        txtEmail.Enabled = False
+        txtPhone.Enabled = False
+        txtAddress.Enabled = False
+
     End Sub
 
     Private Sub txtFname_Validated(sender As Object, e As System.EventArgs) Handles txtFname.Validated

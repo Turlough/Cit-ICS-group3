@@ -39,14 +39,9 @@ Public Class frmFindCustomer
 
     Private Sub showCustomer()
         If Customer.custid > 0 Then
-            With cust
-                .loadCustomer(Customer.custid)
-                txtFname.Text = .fname
-                txtSname.Text = .sname
-                txtPhone.Text = .phone
-                txtEmail.Text = .email
-                txtAddress.Text = .address
-            End With
+
+            cust.loadCustomer(Customer.custid)
+            ctrlCust.loadCust(cust)
             ctrlAdmin.Visible = True
             btnProperties.Visible = True
         Else
@@ -57,19 +52,11 @@ Public Class frmFindCustomer
     End Sub
 
     Sub EnableEdit()
-        txtFname.Enabled = True
-        txtSname.Enabled = True
-        txtAddress.Enabled = True
-        txtEmail.Enabled = True
-        txtPhone.Enabled = True
+        ctrlCust.enable()
     End Sub
 
     Sub disableEdit()
-        txtFname.Enabled = False
-        txtSname.Enabled = False
-        txtAddress.Enabled = False
-        txtEmail.Enabled = False
-        txtPhone.Enabled = False
+        ctrlCust.disable()
     End Sub
 
     Private Sub btnProperties_Click(sender As System.Object, e As System.EventArgs) Handles btnProperties.Click
@@ -83,6 +70,8 @@ Public Class frmFindCustomer
     Private Sub ctrlAdmin_Delete(sender As Object, e As System.EventArgs) Handles ctrlAdmin.Delete
         cust.delete(Customer.custid)
         Customer.custid = 0 'reset custid
+        cust.loadCustomer(0)
+        ctrlCust.loadCust(cust)
         loadData()
     End Sub
 
@@ -93,11 +82,11 @@ Public Class frmFindCustomer
     Private Sub ctrlAdmin_Save(sender As Object, e As System.EventArgs) Handles ctrlAdmin.Save
         If Customer.custid > 0 Then
             With cust
-                .fname = txtFname.Text
-                .sname = txtSname.Text
-                .address = txtAddress.Text
-                .phone = txtPhone.Text
-                .email = txtEmail.Text
+                .fname = ctrlCust.txtFname.Text
+                .sname = ctrlCust.txtSname.Text
+                .address = ctrlCust.txtAddress.Text
+                .phone = ctrlCust.txtPhone.Text
+                .email = ctrlCust.txtEmail.Text
 
                 .update(Customer.custid)
             End With

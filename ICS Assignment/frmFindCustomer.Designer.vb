@@ -30,19 +30,10 @@ Partial Class frmFindCustomer
         Me.dgvCustomers = New System.Windows.Forms.DataGridView()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
-        Me.ctrlAdmin = New WindowsApplication1.ctrlAdminButtons()
         Me.btnSet = New System.Windows.Forms.Button()
         Me.btnProperties = New System.Windows.Forms.Button()
-        Me.txtEmail = New System.Windows.Forms.TextBox()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.txtPhone = New System.Windows.Forms.TextBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.txtAddress = New System.Windows.Forms.TextBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.txtSname = New System.Windows.Forms.TextBox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.txtFname = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.ctrlAdmin = New WindowsApplication1.ctrlAdminButtons()
+        Me.ctrlCust = New WindowsApplication1.ctrlCustomer()
         CType(Me.dgvCustomers, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -146,29 +137,13 @@ Partial Class frmFindCustomer
         '
         'SplitContainer1.Panel2
         '
+        Me.SplitContainer1.Panel2.Controls.Add(Me.ctrlCust)
         Me.SplitContainer1.Panel2.Controls.Add(Me.ctrlAdmin)
         Me.SplitContainer1.Panel2.Controls.Add(Me.btnSet)
         Me.SplitContainer1.Panel2.Controls.Add(Me.btnProperties)
-        Me.SplitContainer1.Panel2.Controls.Add(Me.txtEmail)
-        Me.SplitContainer1.Panel2.Controls.Add(Me.Label7)
-        Me.SplitContainer1.Panel2.Controls.Add(Me.txtPhone)
-        Me.SplitContainer1.Panel2.Controls.Add(Me.Label6)
-        Me.SplitContainer1.Panel2.Controls.Add(Me.txtAddress)
-        Me.SplitContainer1.Panel2.Controls.Add(Me.Label5)
-        Me.SplitContainer1.Panel2.Controls.Add(Me.txtSname)
-        Me.SplitContainer1.Panel2.Controls.Add(Me.Label2)
-        Me.SplitContainer1.Panel2.Controls.Add(Me.txtFname)
-        Me.SplitContainer1.Panel2.Controls.Add(Me.Label1)
         Me.SplitContainer1.Size = New System.Drawing.Size(695, 457)
         Me.SplitContainer1.SplitterDistance = 450
         Me.SplitContainer1.TabIndex = 14
-        '
-        'ctrlAdmin
-        '
-        Me.ctrlAdmin.Location = New System.Drawing.Point(63, 420)
-        Me.ctrlAdmin.Name = "ctrlAdmin"
-        Me.ctrlAdmin.Size = New System.Drawing.Size(163, 28)
-        Me.ctrlAdmin.TabIndex = 27
         '
         'btnSet
         '
@@ -189,86 +164,19 @@ Partial Class frmFindCustomer
         Me.btnProperties.Text = "Properties"
         Me.btnProperties.UseVisualStyleBackColor = True
         '
-        'txtEmail
+        'ctrlAdmin
         '
-        Me.txtEmail.Location = New System.Drawing.Point(78, 126)
-        Me.txtEmail.Name = "txtEmail"
-        Me.txtEmail.Size = New System.Drawing.Size(148, 20)
-        Me.txtEmail.TabIndex = 23
+        Me.ctrlAdmin.Location = New System.Drawing.Point(63, 420)
+        Me.ctrlAdmin.Name = "ctrlAdmin"
+        Me.ctrlAdmin.Size = New System.Drawing.Size(163, 28)
+        Me.ctrlAdmin.TabIndex = 27
         '
-        'Label7
+        'ctrlCust
         '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(30, 129)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(32, 13)
-        Me.Label7.TabIndex = 22
-        Me.Label7.Text = "Email"
-        '
-        'txtPhone
-        '
-        Me.txtPhone.Location = New System.Drawing.Point(78, 91)
-        Me.txtPhone.Name = "txtPhone"
-        Me.txtPhone.Size = New System.Drawing.Size(148, 20)
-        Me.txtPhone.TabIndex = 21
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(24, 94)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(38, 13)
-        Me.Label6.TabIndex = 20
-        Me.Label6.Text = "Phone"
-        '
-        'txtAddress
-        '
-        Me.txtAddress.Location = New System.Drawing.Point(78, 152)
-        Me.txtAddress.Multiline = True
-        Me.txtAddress.Name = "txtAddress"
-        Me.txtAddress.Size = New System.Drawing.Size(148, 101)
-        Me.txtAddress.TabIndex = 19
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(17, 155)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(45, 13)
-        Me.Label5.TabIndex = 18
-        Me.Label5.Text = "Address"
-        '
-        'txtSname
-        '
-        Me.txtSname.Location = New System.Drawing.Point(78, 60)
-        Me.txtSname.Name = "txtSname"
-        Me.txtSname.Size = New System.Drawing.Size(148, 20)
-        Me.txtSname.TabIndex = 17
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(18, 63)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(49, 13)
-        Me.Label2.TabIndex = 16
-        Me.Label2.Text = "Surname"
-        '
-        'txtFname
-        '
-        Me.txtFname.Location = New System.Drawing.Point(78, 27)
-        Me.txtFname.Name = "txtFname"
-        Me.txtFname.Size = New System.Drawing.Size(148, 20)
-        Me.txtFname.TabIndex = 15
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(8, 30)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(54, 13)
-        Me.Label1.TabIndex = 14
-        Me.Label1.Text = "Forename"
+        Me.ctrlCust.Location = New System.Drawing.Point(3, 37)
+        Me.ctrlCust.Name = "ctrlCust"
+        Me.ctrlCust.Size = New System.Drawing.Size(237, 192)
+        Me.ctrlCust.TabIndex = 28
         '
         'frmFindCustomer
         '
@@ -284,7 +192,6 @@ Partial Class frmFindCustomer
         Me.SplitContainer1.Panel1.ResumeLayout(False)
         Me.SplitContainer1.Panel1.PerformLayout()
         Me.SplitContainer1.Panel2.ResumeLayout(False)
-        Me.SplitContainer1.Panel2.PerformLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.ResumeLayout(False)
         Me.ResumeLayout(False)
@@ -299,16 +206,7 @@ Partial Class frmFindCustomer
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents SplitContainer1 As System.Windows.Forms.SplitContainer
     Friend WithEvents btnProperties As System.Windows.Forms.Button
-    Friend WithEvents txtEmail As System.Windows.Forms.TextBox
-    Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents txtPhone As System.Windows.Forms.TextBox
-    Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents txtAddress As System.Windows.Forms.TextBox
-    Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents txtSname As System.Windows.Forms.TextBox
-    Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents txtFname As System.Windows.Forms.TextBox
-    Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents btnSet As System.Windows.Forms.Button
     Friend WithEvents ctrlAdmin As WindowsApplication1.ctrlAdminButtons
+    Friend WithEvents ctrlCust As WindowsApplication1.ctrlCustomer
 End Class
