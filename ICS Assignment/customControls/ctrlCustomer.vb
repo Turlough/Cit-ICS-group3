@@ -7,7 +7,7 @@
         If Not v.isName(txtFname.Text) Then b = False
         If Not v.isName(txtSname.Text) Then b = False
         If v.notEmpty(txtPhone.Text) And Not v.phone(txtPhone.Text) Then b = False
-        If Not v.email(txtEmail.Text) Then b = False
+        If v.notEmpty(txtEmail.Text) And Not v.email(txtEmail.Text) Then b = False
         If Not v.notEmpty(txtAddress.Text) And v.isAddress(txtAddress.Text) Then b = False
 
         Return b
@@ -45,12 +45,18 @@
     End Sub
 
     Private Sub txtFname_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles txtFname.Validating
-        txtFname.Text = v.prepareForSql(txtFname.Text)
-        If Not v.isName(txtFname.Text) Then
+        If v.notEmpty(txtFname.Text) Then
+            txtFname.Text = v.prepareForSql(txtFname.Text)
+            If Not v.isName(txtFname.Text) Then
+                e.Cancel = True
+                txtFname.Select(0, txtFname.Text.Length)
+                ep.SetError(txtFname, v.message)
+            End If
+        Else
             e.Cancel = True
-            txtFname.Select(0, txtFname.Text.Length)
-            ep.SetError(txtFname, v.message)
+            ep.SetError(txtFname, "Cannot be empty")
         End If
+
     End Sub
 
     Private Sub txtSname_Validated(sender As Object, e As System.EventArgs) Handles txtSname.Validated
@@ -60,12 +66,18 @@
     End Sub
 
     Private Sub txtSname_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles txtSname.Validating
-        txtSname.Text = v.prepareForSql(txtSname.Text)
-        If Not v.isName(txtSname.Text) Then
+        If v.notEmpty(txtSname.Text) Then
+            txtSname.Text = v.prepareForSql(txtSname.Text)
+            If Not v.isName(txtSname.Text) Then
+                e.Cancel = True
+                txtSname.Select(0, txtSname.Text.Length)
+                ep.SetError(txtSname, v.message)
+            End If
+        Else
             e.Cancel = True
-            txtSname.Select(0, txtSname.Text.Length)
-            ep.SetError(txtSname, v.message)
+            ep.SetError(txtSname, "Cannot be empty")
         End If
+
     End Sub
 
     Private Sub txtEmail_Validated(sender As Object, e As System.EventArgs) Handles txtEmail.Validated
@@ -97,7 +109,7 @@
 
     Private Sub txtAddress_Validated(sender As Object, e As System.EventArgs) Handles txtAddress.Validated
         ep.SetError(txtAddress, "")
-        txtSname.Text = v.prepareForSql(txtAddress.Text)
+        txtAddress.Text = v.prepareForSql(txtAddress.Text)
         validateForm()
     End Sub
 
@@ -108,4 +120,6 @@
             ep.SetError(txtAddress, v.message)
         End If
     End Sub
+
+ 
 End Class

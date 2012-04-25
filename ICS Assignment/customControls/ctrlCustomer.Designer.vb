@@ -42,9 +42,9 @@ Partial Class ctrlCustomer
         Me.Label1.AutoSize = True
         Me.Label1.Location = New System.Drawing.Point(3, 9)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(54, 13)
+        Me.Label1.Size = New System.Drawing.Size(58, 13)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Forename"
+        Me.Label1.Text = "Forename*"
         '
         'txtFname
         '
@@ -69,9 +69,9 @@ Partial Class ctrlCustomer
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(8, 35)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(49, 13)
+        Me.Label2.Size = New System.Drawing.Size(53, 13)
         Me.Label2.TabIndex = 2
-        Me.Label2.Text = "Surname"
+        Me.Label2.Text = "Surname*"
         '
         'txtEmail
         '
@@ -133,7 +133,7 @@ Partial Class ctrlCustomer
         '
         Me.ep.ContainerControl = Me
         '
-        'ctrlFname
+        'ctrlCustomer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -147,7 +147,7 @@ Partial Class ctrlCustomer
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.txtFname)
         Me.Controls.Add(Me.Label1)
-        Me.Name = "ctrlFname"
+        Me.Name = "ctrlCustomer"
         Me.Size = New System.Drawing.Size(222, 176)
         CType(Me.ep, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

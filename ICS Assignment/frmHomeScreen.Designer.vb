@@ -30,18 +30,12 @@ Partial Class frmHomeScreen
         Me.CustomerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AddToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SearchToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.UpdateToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DeleteToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PropertyToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AddToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.SearchToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.UpdateToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DeleteToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.AppointmentToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AddToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.SearchToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.UpdateToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DeleteToolStripMenuItem2 = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.btnAcceptOffer = New System.Windows.Forms.Button()
@@ -87,7 +81,7 @@ Partial Class frmHomeScreen
         '
         'CustomerToolStripMenuItem
         '
-        Me.CustomerToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddToolStripMenuItem, Me.SearchToolStripMenuItem, Me.UpdateToolStripMenuItem, Me.DeleteToolStripMenuItem})
+        Me.CustomerToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddToolStripMenuItem, Me.SearchToolStripMenuItem})
         Me.CustomerToolStripMenuItem.Name = "CustomerToolStripMenuItem"
         Me.CustomerToolStripMenuItem.Size = New System.Drawing.Size(71, 20)
         Me.CustomerToolStripMenuItem.Text = "Customer"
@@ -95,30 +89,18 @@ Partial Class frmHomeScreen
         'AddToolStripMenuItem
         '
         Me.AddToolStripMenuItem.Name = "AddToolStripMenuItem"
-        Me.AddToolStripMenuItem.Size = New System.Drawing.Size(112, 22)
+        Me.AddToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.AddToolStripMenuItem.Text = "Add"
         '
         'SearchToolStripMenuItem
         '
         Me.SearchToolStripMenuItem.Name = "SearchToolStripMenuItem"
-        Me.SearchToolStripMenuItem.Size = New System.Drawing.Size(112, 22)
+        Me.SearchToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.SearchToolStripMenuItem.Text = "Search"
-        '
-        'UpdateToolStripMenuItem
-        '
-        Me.UpdateToolStripMenuItem.Name = "UpdateToolStripMenuItem"
-        Me.UpdateToolStripMenuItem.Size = New System.Drawing.Size(112, 22)
-        Me.UpdateToolStripMenuItem.Text = "Update"
-        '
-        'DeleteToolStripMenuItem
-        '
-        Me.DeleteToolStripMenuItem.Name = "DeleteToolStripMenuItem"
-        Me.DeleteToolStripMenuItem.Size = New System.Drawing.Size(112, 22)
-        Me.DeleteToolStripMenuItem.Text = "Delete"
         '
         'PropertyToolStripMenuItem
         '
-        Me.PropertyToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddToolStripMenuItem1, Me.SearchToolStripMenuItem1, Me.UpdateToolStripMenuItem1, Me.DeleteToolStripMenuItem1})
+        Me.PropertyToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddToolStripMenuItem1, Me.SearchToolStripMenuItem1})
         Me.PropertyToolStripMenuItem.Name = "PropertyToolStripMenuItem"
         Me.PropertyToolStripMenuItem.Size = New System.Drawing.Size(64, 20)
         Me.PropertyToolStripMenuItem.Text = "Property"
@@ -126,30 +108,18 @@ Partial Class frmHomeScreen
         'AddToolStripMenuItem1
         '
         Me.AddToolStripMenuItem1.Name = "AddToolStripMenuItem1"
-        Me.AddToolStripMenuItem1.Size = New System.Drawing.Size(112, 22)
+        Me.AddToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
         Me.AddToolStripMenuItem1.Text = "Add"
         '
         'SearchToolStripMenuItem1
         '
         Me.SearchToolStripMenuItem1.Name = "SearchToolStripMenuItem1"
-        Me.SearchToolStripMenuItem1.Size = New System.Drawing.Size(112, 22)
+        Me.SearchToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
         Me.SearchToolStripMenuItem1.Text = "Search"
-        '
-        'UpdateToolStripMenuItem1
-        '
-        Me.UpdateToolStripMenuItem1.Name = "UpdateToolStripMenuItem1"
-        Me.UpdateToolStripMenuItem1.Size = New System.Drawing.Size(112, 22)
-        Me.UpdateToolStripMenuItem1.Text = "Update"
-        '
-        'DeleteToolStripMenuItem1
-        '
-        Me.DeleteToolStripMenuItem1.Name = "DeleteToolStripMenuItem1"
-        Me.DeleteToolStripMenuItem1.Size = New System.Drawing.Size(112, 22)
-        Me.DeleteToolStripMenuItem1.Text = "Delete"
         '
         'AppointmentToolStripMenuItem
         '
-        Me.AppointmentToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddToolStripMenuItem2, Me.SearchToolStripMenuItem2, Me.UpdateToolStripMenuItem2, Me.DeleteToolStripMenuItem2})
+        Me.AppointmentToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AddToolStripMenuItem2, Me.SearchToolStripMenuItem2})
         Me.AppointmentToolStripMenuItem.Name = "AppointmentToolStripMenuItem"
         Me.AppointmentToolStripMenuItem.Size = New System.Drawing.Size(90, 20)
         Me.AppointmentToolStripMenuItem.Text = "Appointment"
@@ -157,26 +127,14 @@ Partial Class frmHomeScreen
         'AddToolStripMenuItem2
         '
         Me.AddToolStripMenuItem2.Name = "AddToolStripMenuItem2"
-        Me.AddToolStripMenuItem2.Size = New System.Drawing.Size(112, 22)
+        Me.AddToolStripMenuItem2.Size = New System.Drawing.Size(152, 22)
         Me.AddToolStripMenuItem2.Text = "Add"
         '
         'SearchToolStripMenuItem2
         '
         Me.SearchToolStripMenuItem2.Name = "SearchToolStripMenuItem2"
-        Me.SearchToolStripMenuItem2.Size = New System.Drawing.Size(112, 22)
+        Me.SearchToolStripMenuItem2.Size = New System.Drawing.Size(152, 22)
         Me.SearchToolStripMenuItem2.Text = "Search"
-        '
-        'UpdateToolStripMenuItem2
-        '
-        Me.UpdateToolStripMenuItem2.Name = "UpdateToolStripMenuItem2"
-        Me.UpdateToolStripMenuItem2.Size = New System.Drawing.Size(112, 22)
-        Me.UpdateToolStripMenuItem2.Text = "Update"
-        '
-        'DeleteToolStripMenuItem2
-        '
-        Me.DeleteToolStripMenuItem2.Name = "DeleteToolStripMenuItem2"
-        Me.DeleteToolStripMenuItem2.Size = New System.Drawing.Size(112, 22)
-        Me.DeleteToolStripMenuItem2.Text = "Delete"
         '
         'HelpToolStripMenuItem
         '
@@ -413,18 +371,12 @@ Partial Class frmHomeScreen
     Friend WithEvents CustomerToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AddToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SearchToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents UpdateToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents DeleteToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents PropertyToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AddToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SearchToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents UpdateToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents DeleteToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AppointmentToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AddToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SearchToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents UpdateToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents DeleteToolStripMenuItem2 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents HelpToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SplitContainer1 As System.Windows.Forms.SplitContainer
     Friend WithEvents btnAddProperty As System.Windows.Forms.Button
