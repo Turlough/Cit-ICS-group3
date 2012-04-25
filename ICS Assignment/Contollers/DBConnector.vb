@@ -49,11 +49,15 @@ Public Class DBConnector
     Protected Function getData(cmd As SqlCommand) As DataTable
         Dim TA As New SqlDataAdapter(cmd)
         Dim DT As New DataTable
-        sqCon.Open()
-        TA.Fill(DT)
-        sqCon.Close()
+        Try
+            sqCon.Open()
+            TA.Fill(DT)
+            sqCon.Close()
+        Catch ex As Exception
+            sqCon.Close()
+            MsgBox(ex.Message)
+        End Try
         Return DT
-
     End Function
 
     ''' <summary>
@@ -63,41 +67,63 @@ Public Class DBConnector
     ''' <returns>The ID of the inserted record</returns>
     ''' <remarks></remarks>
     Protected Function insert(SQL As String) As Integer
-        'auto append return value
-        Dim rtrn As String = ";SELECT SCOPE_IDENTITY()"
-        If Not InStr(SQL, rtrn) Then
-            SQL = SQL & rtrn
-        End If
-        'execute
-        Dim ID As Integer
-        sqCmd.Connection = sqCon            'create the DB connection
-        sqCmd.CommandText = SQL
-        sqCon.Open()                        'open the connection
-        ID = sqCmd.ExecuteScalar()        'execute the SQL command
-        sqCon.Close()                       'close the connection
-        Return ID
+        Try
+            'auto append return value
+            Dim rtrn As String = ";SELECT SCOPE_IDENTITY()"
+            If Not InStr(SQL, rtrn) Then
+                SQL = SQL & rtrn
+            End If
+            'execute
+            Dim ID As Integer
+            sqCmd.Connection = sqCon            'create the DB connection
+            sqCmd.CommandText = SQL
+            sqCon.Open()                        'open the connection
+            ID = sqCmd.ExecuteScalar()        'execute the SQL command
+            sqCon.Close()                       'close the connection
+            Return ID
+        Catch ex As Exception
+            sqCon.Close()
+            MsgBox(ex.Message)
+            Return 0
+        End Try
+
     End Function
 
     Protected Sub quickInsert(SQL As String)
-        Dim ID As Integer
-        sqCmd.Connection = sqCon            'create the DB connection
-        sqCmd.CommandText = SQL
-        sqCon.Open()                        'open the connection
-        ID = sqCmd.ExecuteNonQuery()        'execute the SQL command
-        sqCon.Close()                       'close the connection
+        execute(SQL)
     End Sub
     Protected Sub update(SQL As String)
-        sqCmd.Connection = sqCon            'create the DB connection
-        sqCmd.CommandText = sql
-        sqCon.Open()                        'open the connection
-        sqCmd.ExecuteNonQuery()        'execute the SQL command
-        sqCon.Close()                       'close the connection
+        execute(SQL)
     End Sub
     Protected Sub update(cmd As SqlClient.SqlCommand)
-        sqCmd.Connection = sqCon            'create the DB connection
-        sqCon.Open()                        'open the connection
-        sqCmd.ExecuteNonQuery()        'execute the SQL command
-        sqCon.Close()                       'close the connection
+        Try
+            sqCmd.Connection = sqCon            'create the DB connection
+            sqCon.Open()                        'open the connection
+            sqCmd.ExecuteNonQuery()        'execute the SQL command
+            sqCon.Close()                       'close the connection
+        Catch ex As Exception
+            sqCon.Close()
+            MsgBox(ex.Message)
+        End Try
+
+    End Sub
+    Public Sub execute(SQL As String)
+        Try
+            sqCmd.Connection = sqCon            'create the DB connection
+            sqCmd.CommandText = SQL
+            sqCon.Open()                        'open the connection
+            sqCmd.ExecuteNonQuery()        'execute the SQL command
+            sqCon.Close()                       'close the connection
+        Catch ex As Exception
+            sqCon.Close()
+            MsgBox(ex.Message)
+        End Try
+
     End Sub
 
+    Protected Overrides Sub Finalize()
+        sqCmd.Dispose()
+        sqCon = Nothing
+        MyBase.Finalize()
+    End Sub
 End Class

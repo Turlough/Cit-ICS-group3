@@ -2,38 +2,39 @@
 
 Public Class frmFindProperties
 
-
     Dim prop As New Properties
     Dim cust As New Customer
 
     Private Sub Form2_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
-
         'TODO: default to relationship type
         If cmbStatus.Items.Count > 0 Then
             cmbStatus.SelectedIndex = 0    ' The first item has index 0 '
         End If
-        btnDelete.Visible = False
-        btnEdit.Visible = False
-        btnSave.Visible = False
-        btnCancel.Visible = False
+        CtrlAdminButtons1.Visible = False
         btnCreateAppointment.Visible = False
         btnSetActive.Visible = True
         'Disable editing textboxes
         txtOwner.ReadOnly = True
         txtPrice.ReadOnly = True
         txtStatus.ReadOnly = True
-        txtAdd1.ReadOnly = True
-        txtAdd2.ReadOnly = True
-        txtTownEdit.ReadOnly = True
-        txtCountyEdit.ReadOnly = True
+        CtrlProperty1.disable()
         rtbDescription.ReadOnly = True
 
+    End Sub
+
+    Private Sub frmFindProperties_Shown(sender As Object, e As System.EventArgs) Handles Me.Shown
+        refreshPropertyList()
+    End Sub
+
+    Private Sub cmbStatus_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles cmbStatus.SelectedIndexChanged
+        refreshPropertyList()
     End Sub
 
     Private Sub btnLocateProperty_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnLocateProperty.Click
         refreshPropertyList()
     End Sub
+
     Sub refreshPropertyList()
         With dgvProperties
             .DataSource = prop.findProperty(txtAdd.Text, txtTown.Text, txtCounty.Text, minBeds.Value, maxBeds.Value, minPrice.Value, maxPrice.Value, cmbStatus.Text)
@@ -52,7 +53,6 @@ Public Class frmFindProperties
 
     End Sub
 
-
     Private Sub dgvProperties_CellClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvProperties.CellClick
         With dgvProperties
             Dim r As Integer = e.RowIndex
@@ -63,18 +63,14 @@ Public Class frmFindProperties
                 disableEdit()
             End If
         End With
-
-
+        CtrlAdminButtons1.Visible = True
     End Sub
     Sub fillDetails()
         prop.loadProperty(Properties.propid)
+        CtrlProperty1.loadProp(prop)
         cust = prop.getRelatedCustomer("Owner")
         With prop
             txtOwner.Text = cust.fullName
-            txtAdd1.Text = .add1
-            txtAdd2.Text = .add2
-            txtTownEdit.Text = .town
-            txtCountyEdit.Text = .county
             rtbDescription.Text = .description
             txtStatus.Text = .status
             txtPrice.Text = .price
@@ -110,71 +106,30 @@ Public Class frmFindProperties
         End If
     End Sub
 
-    Private Sub btnEdit_Click(sender As System.Object, e As System.EventArgs) Handles btnEdit.Click
-        enableEdit()
-
-    End Sub
+    
     Sub enableEdit()
-        btnEdit.Visible = False
-        btnDelete.Visible = False
-        btnSave.Visible = True
-        btnCancel.Visible = True
+        CtrlProperty1.enable()
         btnCreateAppointment.Visible = True
         'Enable textboxes
         txtOwner.ReadOnly = False
         txtPrice.ReadOnly = False
         txtStatus.ReadOnly = False
-        txtAdd1.ReadOnly = False
-        txtAdd2.ReadOnly = False
-        txtTownEdit.ReadOnly = False
-        txtCountyEdit.ReadOnly = False
         rtbDescription.ReadOnly = False
 
-
+        CtrlProperty1.enable()
     End Sub
     Sub disableEdit()
-        btnEdit.Visible = True
-        btnDelete.Visible = True
-        btnSave.Visible = False
-        btnCancel.Visible = False
+        CtrlProperty1.disable()
         btnCreateAppointment.Visible = True
         'disable textboxes
         txtOwner.ReadOnly = True
         txtPrice.ReadOnly = True
         txtStatus.ReadOnly = True
-        txtAdd1.ReadOnly = True
-        txtAdd2.ReadOnly = True
-        txtTownEdit.ReadOnly = True
-        txtCountyEdit.ReadOnly = True
         rtbDescription.ReadOnly = True
+
+        CtrlProperty1.disable()
     End Sub
 
-    Private Sub btnSave_Click(sender As System.Object, e As System.EventArgs) Handles btnSave.Click
-        With prop
-            .add1 = txtAdd1.Text
-            .add2 = txtAdd2.Text
-            .town = txtTownEdit.Text
-            .county = txtCountyEdit.Text
-            .description = rtbDescription.Text
-            .status = nextStatus()
-            .price = CLng(txtPrice.Text)
-            .photo = pbxPhoto.Image
-
-            'update DB
-            .updateProperty()
-
-        End With
-        'hide show buttons
-        disableEdit()
-
-
-
-        'refresh table and details
-        refreshPropertyList()
-        fillDetails()
-
-
-    End Sub
     Function nextStatus() As String
         Dim p As Integer = CLng(txtPrice.Text)
         Select Case cmbStatus.Text
@@ -212,16 +167,45 @@ Public Class frmFindProperties
         frmRelations.ShowDialog()
     End Sub
 
-    Private Sub btnDelete_Click(sender As System.Object, e As System.EventArgs) Handles btnDelete.Click
-        MsgBox("TODO")
-
-    End Sub
-
     Private Sub btnSetActivate_Click(sender As System.Object, e As System.EventArgs) Handles btnSetActive.Click
         Me.Close()
     End Sub
 
-    Private Sub btnCancel_Click(sender As System.Object, e As System.EventArgs) Handles btnCancel.Click
+    Private Sub CtrlAdminButtons1_Delete(sender As Object, e As System.EventArgs) Handles CtrlAdminButtons1.Delete
+        If Properties.propid > 0 Then
+            prop.delete(Properties.propid)
+            prop.loadProperty(0)
+            CtrlProperty1.loadProp(prop)
+            CtrlAdminButtons1.Visible = False
+        Else
+            MsgBox("Select a property before deleting it!")
+        End If
+    End Sub
+
+    Private Sub CtrlAdminButtons1_Edit(sender As Object, e As System.EventArgs) Handles CtrlAdminButtons1.Edit
+        enableEdit()
+    End Sub
+
+    Private Sub CtrlAdminButtons1_Save(sender As Object, e As System.EventArgs) Handles CtrlAdminButtons1.Save
+        With prop
+            .add1 = CtrlProperty1.txtAdd1.Text
+            .add2 = CtrlProperty1.txtAdd2.Text
+            .town = CtrlProperty1.txtTown.Text
+            .county = CtrlProperty1.cstmCounty.Text
+            .description = rtbDescription.Text
+            .status = nextStatus()
+            .price = CLng(txtPrice.Text)
+            .photo = pbxPhoto.Image
+
+            'update DB
+            .updateProperty()
+
+        End With
+        'hide show buttons
         disableEdit()
+
+        'refresh table and details
+        refreshPropertyList()
+        fillDetails()
     End Sub
 End Class

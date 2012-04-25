@@ -7,13 +7,17 @@
     Public finish As Integer = 0
     Public duration As Integer = 0
     Public notes As String = ""
+    Public id As Integer = 0
 
     Structure temp
+        Public id As Integer
         Public chosenDate As DateTime
         Public start As Integer
         Public finish As Integer
         Public duration As Integer
         Public notes As String
+        Public custid As Integer
+        Public propid As Integer
     End Structure
 
     Function showAppointments() As DataTable
@@ -37,6 +41,42 @@
         'MsgBox(SQL)
         insert(SQL)
     End Sub
+    Sub load(id As Integer)
+        SQL = "select * from appointment where id =" & id
+        Dim DT As DataTable = getData(SQL)
+        If DT.Rows.Count > 0 Then
+            With DT.Rows(0)
+                id = id
+                chosenDate = .Item("chosenDate")
+                start = .Item("start")
+                finish = .Item("finish")
+                custid = .Item("custid")
+                propid = .Item("propid")
+                duration = finish - start
+
+                If Not IsDBNull(.Item("notes")) Then
+                    notes = .Item("notes")
+                Else
+                    notes = ""
+                End If
+            End With
+        Else
+            id = 0
+            chosenDate = Now.Date
+            start = 0
+            finish = 0
+            custid = 0
+            propid = 0
+            duration = finish - start
+            notes = ""
+        End If
+        DT = Nothing
+
+    End Sub
+    Sub delete(id)
+        SQL = "DELETE FROM appointment WHERE id =" & id
+        execute(SQL)
+    End Sub
     Sub makeGrid(grid As DataGridView)
 
         grid.Rows.Clear()
@@ -47,6 +87,7 @@
         Dim dict As New Dictionary(Of Integer, temp)
         With DT
             For a As Integer = 0 To .Rows.Count - 1
+                app.id = .Rows(a).Item(0)
                 app.chosenDate = .Rows(a).Item(3)
                 app.start = .Rows(a).Item(4)
                 app.finish = .Rows(a).Item(5)
@@ -70,8 +111,9 @@
                 .Rows(a).Cells(0).Value = strt
 
                 If dict.ContainsKey(strt) Then
-                    .Rows(a).Cells(1).Value = dict(strt).finish
-                    .Rows(a).Cells(2).Value = dict(strt).notes
+                    .Rows(a).Cells("id").Value = dict(strt).id
+                    .Rows(a).Cells("finish").Value = dict(strt).finish
+                    .Rows(a).Cells("notes").Value = dict(strt).notes
                     val += dict(strt).duration - 1 'skip next hours for longer appointments
                 End If
             End With

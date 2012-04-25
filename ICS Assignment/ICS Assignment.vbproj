@@ -49,6 +49,9 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ICS Assignment, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <ExecutableExtension>.exe</ExecutableExtension>
+    </Reference>
     <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -75,16 +78,28 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contollers\CustProp.vb" />
+    <Compile Include="customControls\ctrlProperty.Designer.vb">
+      <DependentUpon>ctrlProperty.vb</DependentUpon>
+    </Compile>
+    <Compile Include="customControls\ctrlProperty.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="customControls\crtlCounty.Designer.vb">
       <DependentUpon>crtlCounty.vb</DependentUpon>
     </Compile>
     <Compile Include="customControls\crtlCounty.vb">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="customControls\ctrlFname.Designer.vb">
-      <DependentUpon>ctrlFname.vb</DependentUpon>
+    <Compile Include="customControls\ctrlAdminButtons.Designer.vb">
+      <DependentUpon>ctrlAdminButtons.vb</DependentUpon>
     </Compile>
-    <Compile Include="customControls\ctrlFname.vb">
+    <Compile Include="customControls\ctrlAdminButtons.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="customControls\ctrlCustomer.Designer.vb">
+      <DependentUpon>ctrlCustomer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="customControls\ctrlCustomer.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="frmAcceptOffer.Designer.vb">
@@ -170,11 +185,17 @@
     <Compile Include="Validator.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="customControls\ctrlProperty.resx">
+      <DependentUpon>ctrlProperty.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="customControls\crtlCounty.resx">
       <DependentUpon>crtlCounty.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="customControls\ctrlFname.resx">
-      <DependentUpon>ctrlFname.vb</DependentUpon>
+    <EmbeddedResource Include="customControls\ctrlAdminButtons.resx">
+      <DependentUpon>ctrlAdminButtons.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="customControls\ctrlCustomer.resx">
+      <DependentUpon>ctrlCustomer.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAcceptOffer.resx">
       <DependentUpon>frmAcceptOffer.vb</DependentUpon>

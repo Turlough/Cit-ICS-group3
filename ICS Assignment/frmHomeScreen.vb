@@ -7,26 +7,13 @@
 
 
     Public Sub showDetails()
-        Dim S As String
         If Customer.custid > 0 Then
             cust.loadCustomer(Customer.custid)
-
-            S = cust.fname & cust.sname & vbCr
-            S &= cust.address & vbCr & vbCr
-            S &= cust.phone & vbCr
-            S &= cust.email & vbCr
-
-            lblCustomer.Text = S
+            lblCustomer.Text = cust.fullName
         End If
         If Properties.propid > 0 Then
             prop.loadProperty(Properties.propid)
-
-            S = prop.add1 & vbCr
-            S &= prop.add2 & vbCr
-            S &= prop.town & vbCr
-            S &= prop.county & vbCr
-
-            lblProperty.Text = S
+            lblProperty.Text = prop.fullAddress
         End If
 
         dgvSchedule.DataSource = schedule.showAppointments()
@@ -54,20 +41,11 @@
         frmAddProperty.ShowDialog()
         showDetails()
     End Sub
-    Private Sub btnCreateAppointment_Click(sender As System.Object, e As System.EventArgs) Handles btnCreateAppointment.Click
+    Private Sub btnManageAppointment_Click(sender As System.Object, e As System.EventArgs) Handles btnManageAppointment.Click
         frmAppointments.ShowDialog()
         showDetails()
     End Sub
 
-    Private Sub AddToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles AddToolStripMenuItem.Click
-        frmAddCustomer.ShowDialog()
-        showDetails()
-    End Sub
-
-    Private Sub SearchToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles SearchToolStripMenuItem.Click
-        frmFindCustomer.ShowDialog()
-        showDetails()
-    End Sub
 
     Private Sub btnSearchProperty_Click(sender As System.Object, e As System.EventArgs) Handles btnSearchProperty.Click
         frmFindProperties.ShowDialog()
@@ -92,5 +70,41 @@
     Private Sub dtpAppointments_ValueChanged(sender As System.Object, e As System.EventArgs) Handles dtpAppointments.ValueChanged
         schedule.chosenDate = dtpAppointments.Value
         showDetails()
+    End Sub
+
+    '**************
+    'TOOLSTRIP
+    '*************
+    Private Sub AddToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles AddToolStripMenuItem.Click
+        frmAddCustomer.ShowDialog()
+        showDetails()
+    End Sub
+
+    Private Sub SearchToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles SearchToolStripMenuItem.Click
+        frmFindCustomer.ShowDialog()
+        showDetails()
+    End Sub
+    Private Sub AddToolStripMenuItem1_Click(sender As System.Object, e As System.EventArgs) Handles AddToolStripMenuItem1.Click
+        frmAddProperty.ShowDialog()
+        showDetails()
+    End Sub
+
+    Private Sub SearchToolStripMenuItem1_Click(sender As System.Object, e As System.EventArgs) Handles SearchToolStripMenuItem1.Click
+        frmFindProperties.ShowDialog()
+        showDetails()
+    End Sub
+
+    Private Sub AddToolStripMenuItem2_Click(sender As System.Object, e As System.EventArgs) Handles AddToolStripMenuItem2.Click
+        frmAppointments.ShowDialog()
+        showDetails()
+    End Sub
+
+    Private Sub SearchToolStripMenuItem2_Click(sender As System.Object, e As System.EventArgs) Handles SearchToolStripMenuItem2.Click
+        frmAppointments.ShowDialog()
+        showDetails()
+    End Sub
+
+    Private Sub HelpToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles HelpToolStripMenuItem.Click
+        Process.Start("https://docs.google.com/document/d/1rN8nrWDhxz1RFoI5kSZLK7gVFcXZiNvR1XlKoLl79xg/edit")
     End Sub
 End Class
