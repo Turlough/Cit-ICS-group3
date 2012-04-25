@@ -79,9 +79,7 @@ Public Class frmAppointments
         With Times.Rows(e.RowIndex)
             'evaluate edit or add mode (timeslot is active or inactive)
             If .Cells("finish").Value Is Nothing Then
-                'create commands
-                ctrlAdmin.eSql = eSql
-                ctrlAdmin.dSql = dSql
+
                 'show/hide buttons
                 ctrlAdmin.Visible = False
                 btnAdd.Visible = True
@@ -99,6 +97,10 @@ Public Class frmAppointments
                 txtStart.Text = app.start & ":00"
                 txtFinish.Text = app.finish & ":00"
             Else
+                'create commands
+                ctrlAdmin.eSql = eSql
+                ctrlAdmin.dSql = dSql
+                'display
                 ctrlAdmin.Visible = True
                 btnAdd.Visible = False
             End If
@@ -165,5 +167,9 @@ Public Class frmAppointments
     Private Sub btnSearchProp_Click(sender As System.Object, e As System.EventArgs) Handles btnSearchProp.Click
         frmFindProperties.ShowDialog()
         setDefaults()
+    End Sub
+
+    Private Sub ctrlAdmin_Load(sender As System.Object, e As System.EventArgs) Handles ctrlAdmin.Load
+
     End Sub
 End Class

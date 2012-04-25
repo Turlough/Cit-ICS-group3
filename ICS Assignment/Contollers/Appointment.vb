@@ -10,6 +10,7 @@
     Public id As Integer = 0
 
     Structure temp
+        Public id As Integer
         Public chosenDate As DateTime
         Public start As Integer
         Public finish As Integer
@@ -86,6 +87,7 @@
         Dim dict As New Dictionary(Of Integer, temp)
         With DT
             For a As Integer = 0 To .Rows.Count - 1
+                app.id = .Rows(a).Item(0)
                 app.chosenDate = .Rows(a).Item(3)
                 app.start = .Rows(a).Item(4)
                 app.finish = .Rows(a).Item(5)
@@ -109,8 +111,9 @@
                 .Rows(a).Cells(0).Value = strt
 
                 If dict.ContainsKey(strt) Then
-                    .Rows(a).Cells(1).Value = dict(strt).finish
-                    .Rows(a).Cells(2).Value = dict(strt).notes
+                    .Rows(a).Cells("id").Value = dict(strt).id
+                    .Rows(a).Cells("finish").Value = dict(strt).finish
+                    .Rows(a).Cells("notes").Value = dict(strt).notes
                     val += dict(strt).duration - 1 'skip next hours for longer appointments
                 End If
             End With

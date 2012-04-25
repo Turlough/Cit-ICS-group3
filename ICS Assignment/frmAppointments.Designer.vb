@@ -27,9 +27,6 @@ Partial Class frmAppointments
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.Times = New System.Windows.Forms.DataGridView()
-        Me.starttime = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Finish = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Notes = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtFinish = New System.Windows.Forms.TextBox()
@@ -44,8 +41,11 @@ Partial Class frmAppointments
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtName = New System.Windows.Forms.TextBox()
-        Me.ctrlAdmin = New WindowsApplication1.ctrlAdminButtons()
+        Me.start = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Finish = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Notes = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ctrlAdmin = New WindowsApplication1.ctrlAdminButtons()
         CType(Me.Times, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -67,7 +67,7 @@ Partial Class frmAppointments
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Times.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.Times.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.Times.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.starttime, Me.Finish, Me.Notes, Me.id})
+        Me.Times.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.start, Me.Finish, Me.Notes, Me.id})
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -86,31 +86,6 @@ Partial Class frmAppointments
         Me.Times.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.Times.Size = New System.Drawing.Size(449, 260)
         Me.Times.TabIndex = 1
-        '
-        'starttime
-        '
-        Me.starttime.Frozen = True
-        Me.starttime.HeaderText = "Start"
-        Me.starttime.Name = "starttime"
-        Me.starttime.ReadOnly = True
-        Me.starttime.Width = 40
-        '
-        'Finish
-        '
-        Me.Finish.Frozen = True
-        Me.Finish.HeaderText = "Finish"
-        Me.Finish.Name = "Finish"
-        Me.Finish.ReadOnly = True
-        Me.Finish.Width = 40
-        '
-        'Notes
-        '
-        Me.Notes.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Notes.DefaultCellStyle = DataGridViewCellStyle1
-        Me.Notes.HeaderText = "Details"
-        Me.Notes.Name = "Notes"
-        Me.Notes.ReadOnly = True
         '
         'GroupBox1
         '
@@ -254,13 +229,30 @@ Partial Class frmAppointments
         Me.txtName.Size = New System.Drawing.Size(159, 20)
         Me.txtName.TabIndex = 0
         '
-        'ctrlAdmin
+        'start
         '
-        Me.ctrlAdmin.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ctrlAdmin.Location = New System.Drawing.Point(169, 311)
-        Me.ctrlAdmin.Name = "ctrlAdmin"
-        Me.ctrlAdmin.Size = New System.Drawing.Size(163, 28)
-        Me.ctrlAdmin.TabIndex = 8
+        Me.start.Frozen = True
+        Me.start.HeaderText = "Start"
+        Me.start.Name = "start"
+        Me.start.ReadOnly = True
+        Me.start.Width = 40
+        '
+        'Finish
+        '
+        Me.Finish.Frozen = True
+        Me.Finish.HeaderText = "Finish"
+        Me.Finish.Name = "Finish"
+        Me.Finish.ReadOnly = True
+        Me.Finish.Width = 40
+        '
+        'Notes
+        '
+        Me.Notes.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Notes.DefaultCellStyle = DataGridViewCellStyle1
+        Me.Notes.HeaderText = "Details"
+        Me.Notes.Name = "Notes"
+        Me.Notes.ReadOnly = True
         '
         'id
         '
@@ -268,6 +260,14 @@ Partial Class frmAppointments
         Me.id.Name = "id"
         Me.id.ReadOnly = True
         Me.id.Visible = False
+        '
+        'ctrlAdmin
+        '
+        Me.ctrlAdmin.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ctrlAdmin.Location = New System.Drawing.Point(169, 311)
+        Me.ctrlAdmin.Name = "ctrlAdmin"
+        Me.ctrlAdmin.Size = New System.Drawing.Size(163, 28)
+        Me.ctrlAdmin.TabIndex = 8
         '
         'frmAppointments
         '
@@ -300,11 +300,11 @@ Partial Class frmAppointments
     Friend WithEvents txtStart As System.Windows.Forms.TextBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents txtFinish As System.Windows.Forms.TextBox
-    Friend WithEvents starttime As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Finish As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Notes As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents btnSearchProp As System.Windows.Forms.Button
     Friend WithEvents btnSearchCust As System.Windows.Forms.Button
     Friend WithEvents ctrlAdmin As WindowsApplication1.ctrlAdminButtons
+    Friend WithEvents start As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Finish As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Notes As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents id As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class
