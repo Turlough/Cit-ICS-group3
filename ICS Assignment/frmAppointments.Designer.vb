@@ -22,9 +22,9 @@ Partial Class frmAppointments
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.Times = New System.Windows.Forms.DataGridView()
         Me.starttime = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -42,6 +42,8 @@ Partial Class frmAppointments
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtName = New System.Windows.Forms.TextBox()
+        Me.btnSearchCust = New System.Windows.Forms.Button()
+        Me.btnSearchProp = New System.Windows.Forms.Button()
         CType(Me.Times, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -64,21 +66,21 @@ Partial Class frmAppointments
         Me.Times.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.Times.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.Times.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.starttime, Me.Finish, Me.Notes})
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Times.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Times.DefaultCellStyle = DataGridViewCellStyle5
         Me.Times.Location = New System.Drawing.Point(6, 45)
         Me.Times.Name = "Times"
         Me.Times.ReadOnly = True
         Me.Times.RowHeadersVisible = False
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Times.RowsDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Times.RowsDefaultCellStyle = DataGridViewCellStyle6
         Me.Times.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.Times.Size = New System.Drawing.Size(449, 260)
         Me.Times.TabIndex = 1
@@ -102,8 +104,8 @@ Partial Class frmAppointments
         'Notes
         '
         Me.Notes.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Notes.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Notes.DefaultCellStyle = DataGridViewCellStyle4
         Me.Notes.HeaderText = "Details"
         Me.Notes.Name = "Notes"
         Me.Notes.ReadOnly = True
@@ -164,6 +166,8 @@ Partial Class frmAppointments
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.btnSearchProp)
+        Me.GroupBox2.Controls.Add(Me.btnSearchCust)
         Me.GroupBox2.Controls.Add(Me.Label3)
         Me.GroupBox2.Controls.Add(Me.txtNotes)
         Me.GroupBox2.Controls.Add(Me.txtPlace)
@@ -200,7 +204,7 @@ Partial Class frmAppointments
         Me.txtPlace.Location = New System.Drawing.Point(58, 56)
         Me.txtPlace.Multiline = True
         Me.txtPlace.Name = "txtPlace"
-        Me.txtPlace.Size = New System.Drawing.Size(244, 91)
+        Me.txtPlace.Size = New System.Drawing.Size(159, 91)
         Me.txtPlace.TabIndex = 3
         '
         'Label2
@@ -226,8 +230,26 @@ Partial Class frmAppointments
         Me.txtName.Enabled = False
         Me.txtName.Location = New System.Drawing.Point(58, 19)
         Me.txtName.Name = "txtName"
-        Me.txtName.Size = New System.Drawing.Size(244, 20)
+        Me.txtName.Size = New System.Drawing.Size(159, 20)
         Me.txtName.TabIndex = 0
+        '
+        'btnSearchCust
+        '
+        Me.btnSearchCust.Location = New System.Drawing.Point(223, 17)
+        Me.btnSearchCust.Name = "btnSearchCust"
+        Me.btnSearchCust.Size = New System.Drawing.Size(75, 23)
+        Me.btnSearchCust.TabIndex = 6
+        Me.btnSearchCust.Text = "Search"
+        Me.btnSearchCust.UseVisualStyleBackColor = True
+        '
+        'btnSearchProp
+        '
+        Me.btnSearchProp.Location = New System.Drawing.Point(223, 56)
+        Me.btnSearchProp.Name = "btnSearchProp"
+        Me.btnSearchProp.Size = New System.Drawing.Size(75, 23)
+        Me.btnSearchProp.TabIndex = 7
+        Me.btnSearchProp.Text = "Search"
+        Me.btnSearchProp.UseVisualStyleBackColor = True
         '
         'frmAppointments
         '
@@ -263,4 +285,6 @@ Partial Class frmAppointments
     Friend WithEvents starttime As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Finish As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Notes As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents btnSearchProp As System.Windows.Forms.Button
+    Friend WithEvents btnSearchCust As System.Windows.Forms.Button
 End Class

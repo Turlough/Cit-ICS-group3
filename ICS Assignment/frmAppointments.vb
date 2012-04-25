@@ -10,19 +10,28 @@ Public Class frmAppointments
 
 
     Sub setDefaults()
-        Try
+        'display cust and prop details
+        If Customer.custid > 0 Then
             cust.loadCustomer(Customer.custid)
+            txtName.Text = cust.fullName
+        Else
+            txtName.Text = ""
+        End If
+
+        If Properties.propid > 0 Then
             prop.loadProperty(Properties.propid)
+            txtPlace.Text = prop.fullAddress
+        Else
+            txtPlace.Text = ""
+        End If
 
-            Dim n As String, p As String, rt As String, s As New System.Text.StringBuilder
+        If Customer.custid > 0 And Properties.propid > 0 Then
+            'enable add appointment
+            btnAdd.Enabled = True
+            Times.Enabled = True
 
-            n = cust.fname & " " & cust.sname
-            p = prop.add1 & ", "
-            If Not prop.add2 = "" Then
-                p &= prop.add2 & ", "
-            End If
-            p &= prop.town & vbCr
-
+            'Build default appointment notes
+            Dim rt As String, s As New System.Text.StringBuilder
             Select Case CustProp.relationType
                 Case "Owner"
                     rt = "Valuation"
@@ -35,17 +44,17 @@ Public Class frmAppointments
             End Select
 
             s.AppendLine(UCase(rt))
-            s.Append("Meet " & n)
-            s.Append(" at ")
-            s.AppendLine(p)
-            s.Append("for " & rt)
+            s.Append(String.Format("Meet {0} at", cust.fullName))
+            s.AppendLine(prop.fullAddress)
+            s.Append(String.Format("for {0}", rt))
 
-            txtName.Text = n
-            txtPlace.Text = p
+            txtName.Text = cust.fullName
+            txtPlace.Text = prop.fullAddress
             txtNotes.Text = s.ToString
-        Catch ex As Exception
-            MsgBox("Cust or Prop not set")
-        End Try
+        Else
+            btnAdd.Enabled = False
+            Times.Enabled = False
+        End If
 
     End Sub
     Private Sub frmCalendar_Shown(sender As Object, e As System.EventArgs) Handles Me.Shown
@@ -127,4 +136,13 @@ Public Class frmAppointments
 
     End Sub
 
+    Private Sub btnSearchCust_Click(sender As System.Object, e As System.EventArgs) Handles btnSearchCust.Click
+        frmFindCustomer.ShowDialog()
+        setDefaults()
+    End Sub
+
+    Private Sub btnSearchProp_Click(sender As System.Object, e As System.EventArgs) Handles btnSearchProp.Click
+        frmFindProperties.ShowDialog()
+        setDefaults()
+    End Sub
 End Class
