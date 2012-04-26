@@ -6,11 +6,11 @@
         SQL = "INSERT INTO CustProp"
         SQL &= " (agent,status,customerid,propertyid,relationshiptype)"
         SQL &= " VALUES ("
-        SQL &= "'" & agent & "'"
-        SQL &= ",'" & status & "'"
-        SQL &= "," & custid
+        SQL &= "'" & w(agent) & "'"
+        SQL &= ",'" & w(status) & "'"
+        SQL &= "," & w(custid)
         SQL &= "," & propid
-        SQL &= ",'" & relationType & "')"
+        SQL &= ",'" & w(relationType) & "')"
 
         quickInsert(SQL)
     End Sub
@@ -27,7 +27,7 @@
         Return getData(SQL)
     End Function
     Public Sub setRelation(c As Integer, p As Integer, type As String)
-        SQL = "UPDATE custprop SET relationshiptype ='" & type & "'"
+        SQL = "UPDATE custprop SET relationshiptype ='" & w(type) & "'"
         SQL &= " WHERE customerid= " & c
         SQL &= " AND propertyid = " & p
 

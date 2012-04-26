@@ -89,10 +89,5 @@ Public Class Validator
         Return s
     End Function
 
-    Public Function addApostrophe(ByVal s As String) As String
-        If IsNothing(s) Or s = "" Then Return ""
-        s = Replace(s, Chr(39), "''") 'escape single quote
-        s = s.Trim() 'remove surrounding spaces
-        Return s
-    End Function
+
 End Class

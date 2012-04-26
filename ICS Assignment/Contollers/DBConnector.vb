@@ -26,7 +26,12 @@ Public Class DBConnector
     Sub New()
         sqCmd.Connection = sqCon
     End Sub
-
+    Protected Function w(ByVal s As String) As String
+        If IsNothing(s) Or s = "" Then Return ""
+        s = Replace(s, Chr(39), "''") 'escape single quote
+        s = s.Trim() 'remove surrounding spaces
+        Return s
+    End Function
     ''' <summary>
     ''' Provide it with a 'select' SQL string, and it will return a datatable.
     ''' The datatable can be hooked to form controls
