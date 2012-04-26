@@ -61,11 +61,18 @@ Public Class frmFindProperties
 
     End Sub
     Sub fillDetails()
+
         prop.loadProperty(Properties.propid)
         CtrlProperty1.loadProp(prop)
-        cust = prop.getRelatedCustomer("Owner")
+        'get the owner's name quickly, but store original customer
+        Dim cid As Integer = Customer.custid
+        Dim name As String = prop.getRelatedCustomer("Owner").fullName
+        'reset original customer 
+        cust.loadCustomer(cid)
+
+        'display property details
         With prop
-            txtOwner.Text = cust.fullName
+            txtOwner.Text = name
             rtbDescription.Text = .description
             ctrlPropStat.cbxStatus.Text = .status
             txtPrice.Text = .price
@@ -221,9 +228,6 @@ Public Class frmFindProperties
         fillDetails()
     End Sub
 
-    Private Sub ctrlPropStat_Load(sender As System.Object, e As System.EventArgs) Handles ctrlPropStat.Load
-
-    End Sub
 
     Private Sub txtPrice_Validated(sender As Object, e As System.EventArgs) Handles txtPrice.Validated
         nextStatus()
