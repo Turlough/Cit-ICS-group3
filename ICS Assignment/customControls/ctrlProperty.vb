@@ -84,7 +84,7 @@
                 ep.SetError(txtTown, v.message)
             End If
         Else
-            
+            'do nothing
         End If
     End Sub
 End Class

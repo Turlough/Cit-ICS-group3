@@ -61,7 +61,7 @@
             price = CInt(txtPrice.Text)
             'update property
             prop.price = price
-            prop.status = "Offer Accepted"
+            prop.status = "Off Market"
             prop.updateProperty()
 
             'update buyer relationship
