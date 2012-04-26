@@ -86,7 +86,7 @@
     End Sub
 
     Private Sub txtEmail_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles txtEmail.Validating
-        If Not v.email(txtEmail.Text) Then
+        If v.notEmpty(txtEmail.Text) And Not v.email(txtEmail.Text) Then
             e.Cancel = True
             txtEmail.Select(0, txtEmail.Text.Length)
             ep.SetError(txtEmail, v.message)

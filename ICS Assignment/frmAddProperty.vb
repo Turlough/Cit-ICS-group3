@@ -26,7 +26,7 @@ Public Class frmAddProperty
         End If
         With CtrlCustomer1
             If Customer.custid = 0 Then
-                cust.createCustomer(.txtFname.Text, .txtSname.Text, .txtAddress.Text, .txtPhone.Text, .txtEmail.Text)
+                cust.createCustomer(.txtFname.Text = v.addApostrophe(.txtFname.Text), .txtSname.Text, .txtAddress.Text, .txtPhone.Text, .txtEmail.Text)
             End If
         End With
         With CtrlProperty1
@@ -72,4 +72,7 @@ Public Class frmAddProperty
     End Sub
 
 
+    Private Sub CtrlCustomer1_Load(sender As System.Object, e As System.EventArgs) Handles CtrlCustomer1.Load
+
+    End Sub
 End Class
