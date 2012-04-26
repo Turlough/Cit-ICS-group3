@@ -133,8 +133,10 @@ Public Class frmAppointments
         'Default time text boxes to first empty timeslot
         For Each r As DataGridViewRow In Times.Rows
             If r.Cells("finish").Value = 0 Then
-                txtStart.Text = r.Cells("start").Value
-                txtFinish.Text = CInt(r.Cells("finish").Value + 1)
+                app.start = r.Cells("start").Value
+                app.finish = r.Cells("start").Value + 1
+                txtStart.Text = app.start & ":00"
+                txtFinish.Text = app.finish & ":00"
                 r.Selected = True
                 Exit For
             Else
