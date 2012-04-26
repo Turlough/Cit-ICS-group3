@@ -17,4 +17,8 @@ Public Class frmAddCustomer
         End With
     End Sub
 
+    Private Sub btnSearch_Click(sender As System.Object, e As System.EventArgs) Handles btnSearch.Click
+        frmFindCustomer.ShowDialog()
+        Me.Close()
+    End Sub
 End Class

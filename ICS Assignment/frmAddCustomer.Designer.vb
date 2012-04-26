@@ -26,6 +26,7 @@ Partial Class frmAddCustomer
         Me.Label6 = New System.Windows.Forms.Label()
         Me.cbType = New System.Windows.Forms.ComboBox()
         Me.CtrlCustomer1 = New WindowsApplication1.ctrlCustomer()
+        Me.btnSearch = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'btnSave
@@ -68,11 +69,23 @@ Partial Class frmAddCustomer
         Me.CtrlCustomer1.Size = New System.Drawing.Size(327, 214)
         Me.CtrlCustomer1.TabIndex = 12
         '
+        'btnSearch
+        '
+        Me.btnSearch.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnSearch.Location = New System.Drawing.Point(157, 254)
+        Me.btnSearch.Margin = New System.Windows.Forms.Padding(2)
+        Me.btnSearch.Name = "btnSearch"
+        Me.btnSearch.Size = New System.Drawing.Size(94, 37)
+        Me.btnSearch.TabIndex = 13
+        Me.btnSearch.Text = "Search"
+        Me.btnSearch.UseVisualStyleBackColor = True
+        '
         'frmAddCustomer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(374, 302)
+        Me.Controls.Add(Me.btnSearch)
         Me.Controls.Add(Me.CtrlCustomer1)
         Me.Controls.Add(Me.cbType)
         Me.Controls.Add(Me.Label6)
@@ -88,4 +101,5 @@ Partial Class frmAddCustomer
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents cbType As System.Windows.Forms.ComboBox
     Friend WithEvents CtrlCustomer1 As WindowsApplication1.ctrlCustomer
+    Friend WithEvents btnSearch As System.Windows.Forms.Button
 End Class

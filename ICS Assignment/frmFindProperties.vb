@@ -74,6 +74,7 @@ Public Class frmFindProperties
             rtbDescription.Text = .description
             txtStatus.Text = .status
             txtPrice.Text = .price
+            'locate photograph
             With My.Computer.FileSystem
 
                 If .FileExists(prop.imageSource) Then
@@ -116,7 +117,6 @@ Public Class frmFindProperties
         txtStatus.ReadOnly = False
         rtbDescription.ReadOnly = False
 
-        CtrlProperty1.enable()
     End Sub
     Sub disableEdit()
         CtrlProperty1.disable()
@@ -127,7 +127,6 @@ Public Class frmFindProperties
         txtStatus.ReadOnly = True
         rtbDescription.ReadOnly = True
 
-        CtrlProperty1.disable()
     End Sub
 
     Function nextStatus() As String
@@ -151,18 +150,23 @@ Public Class frmFindProperties
                 'owner details already loaded, so show appointment form
                 frmAppointments.Show()
             Case "For Sale"
-                'add customer first - a prospective buyer or tenant
-                frmAddCustomer.ShowDialog()
-                cust.loadCustomer(Customer.custid)
-                CustProp.relationType = "Prospective Buyer"
-                Dim cp As New CustProp
-                cp.link("Active")
+                selectAndLink("Prospective Buyer")
+                frmAppointments.Show()
+            Case "For Rent"
+                selectAndLink("Prospective Tenant")
                 frmAppointments.Show()
             Case Else
                 frmAppointments.Show()
         End Select
     End Sub
-
+    Sub selectAndLink(relationType As String)
+        'add customer first - a prospective buyer or tenant
+        frmAddCustomer.ShowDialog()
+        cust.loadCustomer(Customer.custid)
+        CustProp.relationType = relationType
+        Dim cp As New CustProp
+        cp.link("Active") 'creates database record of link
+    End Sub
     Private Sub btnOthers_Click(sender As System.Object, e As System.EventArgs) Handles btnOthers.Click
         frmRelations.ShowDialog()
     End Sub
