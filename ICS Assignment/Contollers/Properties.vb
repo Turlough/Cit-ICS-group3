@@ -22,10 +22,10 @@
         SQL = "INSERT INTO property"
         SQL &= " (add1,add2,town,county,status)"
         SQL &= " VALUES ("
-        SQL &= "'" & w(a1) & "'"
-        SQL &= ",'" & w(a2) & "'"
-        SQL &= ",'" & w(town) & "'"
-        SQL &= ",'" & w(county) & "'"
+        SQL &= "'" & wrap(a1) & "'"
+        SQL &= ",'" & wrap(a2) & "'"
+        SQL &= ",'" & wrap(town) & "'"
+        SQL &= ",'" & wrap(county) & "'"
         SQL &= ",'" & "Valuation Pending" & "')"
 
         propid = insert(SQL)
@@ -41,7 +41,7 @@
         SQL &= " (customer inner join custprop on customer.id = custprop.customerid)"
         SQL &= " inner join property on custprop.propertyid=property.id"
         SQL &= " where custprop.propertyid = " & propid
-        SQL &= " and custprop.relationshiptype='" & w(relType) & "'"
+        SQL &= " and custprop.relationshiptype='" & wrap(relType) & "'"
 
         Dim DT As DataTable = getData(SQL)
         With DT
@@ -112,7 +112,7 @@
         Dim s As String = " WHERE"
         SQL = "Select * FROM property"
         If add.Length > 0 Then
-            SQL &= s & " (add1 LIKE '%" & w(add) & "%' OR add2 LIKE '%" & w(add) & "%')"
+            SQL &= s & " (add1 LIKE '%" & wrap(add) & "%' OR add2 LIKE '%" & wrap(add) & "%')"
             s = " AND"
         End If
         If minbeds > 0 Or maxbeds > 0 Then
@@ -124,15 +124,15 @@
             s = " AND"
         End If
         If town.Length > 0 Then
-            SQL &= s & " UPPER(town) = '" & w(UCase(town)) & "'"
+            SQL &= s & " UPPER(town) = '" & wrap(UCase(town)) & "'"
             s = " AND"
         End If
         If county.Length > 0 Then
-            SQL &= s & " UPPER(county) = '" & w(UCase(county)) & "'"
+            SQL &= s & " UPPER(county) = '" & wrap(UCase(county)) & "'"
             s = " AND"
         End If
         If Status.Length > 0 Then
-            SQL &= s & " status = '" & w(Status) & "'"
+            SQL &= s & " status = '" & wrap(Status) & "'"
             s = " AND"
         End If
 
@@ -142,13 +142,13 @@
     End Function
     Sub updateProperty()
         SQL = "UPDATE property SET"
-        SQL &= " add1 = '" & w(add1) & "'"
-        SQL &= ", add2 = '" & w(add2) & "'"
-        SQL &= ", town = '" & w(town) & "'"
-        SQL &= ", county = '" & w(county) & "'"
-        SQL &= ", description = '" & w(description) & "'"
+        SQL &= " add1 = '" & wrap(add1) & "'"
+        SQL &= ", add2 = '" & wrap(add2) & "'"
+        SQL &= ", town = '" & wrap(town) & "'"
+        SQL &= ", county = '" & wrap(county) & "'"
+        SQL &= ", description = '" & wrap(description) & "'"
         SQL &= ", numbeds = " & numBeds
-        SQL &= ", status = '" & w(status) & "'"
+        SQL &= ", status = '" & wrap(status) & "'"
         SQL &= ", price = " & price
         'SQL &= ", photo = " & photo
 
@@ -177,7 +177,7 @@
         SQL &= "'Offer Made',"
         SQL &= "'Active',"
         SQL &= price
-        SQL &= ",'" & w(agent) & "')"
+        SQL &= ",'" & wrap(agent) & "')"
 
         quickInsert(SQL)
     End Sub

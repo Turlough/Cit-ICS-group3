@@ -26,7 +26,14 @@ Public Class DBConnector
     Sub New()
         sqCmd.Connection = sqCon
     End Sub
-    Protected Function w(ByVal s As String) As String
+    ''' <summary>
+    ''' The function replaces apostropes with double apostrophes, for SQL string params
+    ''' This escapes them
+    ''' </summary>
+    ''' <param name="s"></param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Protected Function wrap(ByVal s As String) As String
         If IsNothing(s) Or s = "" Then Return ""
         s = Replace(s, Chr(39), "''") 'escape single quote
         s = s.Trim() 'remove surrounding spaces

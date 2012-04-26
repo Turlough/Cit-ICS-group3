@@ -11,7 +11,7 @@
 
     Function findCustomer(value As String, col As String) As DataTable
         If col = "" Then col = "fname"
-        SQL = "SELECT * FROM ActiveCustomers WHERE " & col & " LIKE '%" & w(value) & "%' "
+        SQL = "SELECT * FROM ActiveCustomers WHERE " & col & " LIKE '%" & wrap(value) & "%' "
         Return getData(SQL)
     End Function
     ReadOnly Property fullName() As String
@@ -31,11 +31,11 @@
         SQL = "INSERT INTO customer"
         SQL &= " (fname,lname,address,phone,email)"
         SQL &= " VALUES ("
-        SQL &= "'" & w(fname) & "'"
-        SQL &= ",'" & w(sname) & "'"
-        SQL &= ",'" & w(address) & "'"
-        SQL &= ",'" & w(phone) & "'"
-        SQL &= ",'" & w(email) & "')"
+        SQL &= "'" & wrap(fname) & "'"
+        SQL &= ",'" & wrap(sname) & "'"
+        SQL &= ",'" & wrap(address) & "'"
+        SQL &= ",'" & wrap(phone) & "'"
+        SQL &= ",'" & wrap(email) & "')"
 
         custid = insert(SQL)
     End Sub
@@ -66,12 +66,12 @@
     End Sub
     Overloads Sub update(id As Integer)
         SQL = "UPDATE customer SET "
-        SQL &= String.Format(" fname = '{0}'", w(fname))
-        SQL &= String.Format(", lname = '{0}'", w(sname))
-        SQL &= String.Format(", email = '{0}'", w(email))
-        SQL &= String.Format(", phone = '{0}'", w(phone))
-        SQL &= String.Format(", address = '{0}'", w(address))
-        SQL &= String.Format(", status = '{0}'", w(status))
+        SQL &= String.Format(" fname = '{0}'", wrap(fname))
+        SQL &= String.Format(", lname = '{0}'", wrap(sname))
+        SQL &= String.Format(", email = '{0}'", wrap(email))
+        SQL &= String.Format(", phone = '{0}'", wrap(phone))
+        SQL &= String.Format(", address = '{0}'", wrap(address))
+        SQL &= String.Format(", status = '{0}'", wrap(status))
         SQL &= " WHERE id=" & id
 
         execute(SQL)

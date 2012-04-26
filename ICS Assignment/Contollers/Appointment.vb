@@ -34,8 +34,8 @@
         SQL &= "," & propid
         SQL &= ",'" & Format(chosenDate, "yyyy-MM-dd") & "'"
         SQL &= "," & start
-        SQL &= "," & w(finish)
-        SQL &= ",'" & w(notes) & "'"
+        SQL &= "," & wrap(finish)
+        SQL &= ",'" & wrap(notes) & "'"
         SQL &= ")"
 
         'MsgBox(SQL)
