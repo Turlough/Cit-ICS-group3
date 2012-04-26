@@ -61,11 +61,13 @@
             price = CInt(txtPrice.Text)
             'update property
             prop.price = price
-            prop.status = "Offer Accepted"
+            prop.status = "Off Market"
             prop.updateProperty()
 
             'update buyer relationship
-            cp.setRelation(buyerId, Properties.propid, "Buyer")
+            cp.setRelation(buyerId, Properties.propid, "Owner")
+            'delete owner relationship
+            cp.deleteRelation(Properties.propid, vendorId)
 
             Me.Close()
         Else
@@ -73,7 +75,4 @@
         End If
     End Sub
 
-    Private Sub GroupBox4_Enter(sender As System.Object, e As System.EventArgs) Handles GroupBox4.Enter
-
-    End Sub
 End Class

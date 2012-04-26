@@ -33,5 +33,8 @@
 
         quickInsert(SQL)
     End Sub
-
+    Public Sub deleteRelation(propid As Integer, custid As Integer)
+        SQL = String.Format("DELETE FROM custprop WHERE customerid = {0} AND propertyid = {1}", custid, propid)
+        execute(SQL)
+    End Sub
 End Class

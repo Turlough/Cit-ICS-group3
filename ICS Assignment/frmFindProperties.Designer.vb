@@ -44,8 +44,6 @@ Partial Class frmFindProperties
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.dgvProperties = New System.Windows.Forms.DataGridView()
-        Me.CtrlAdminButtons1 = New WindowsApplication1.ctrlAdminButtons()
-        Me.CtrlProperty1 = New WindowsApplication1.ctrlProperty()
         Me.btnSetActive = New System.Windows.Forms.Button()
         Me.btnOthers = New System.Windows.Forms.Button()
         Me.btnCreateAppointment = New System.Windows.Forms.Button()
@@ -57,6 +55,8 @@ Partial Class frmFindProperties
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.pbxPhoto = New System.Windows.Forms.PictureBox()
+        Me.CtrlAdminButtons1 = New WindowsApplication1.ctrlAdminButtons()
+        Me.CtrlProperty1 = New WindowsApplication1.ctrlProperty()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -131,7 +131,7 @@ Partial Class frmFindProperties
         'cmbStatus
         '
         Me.cmbStatus.FormattingEnabled = True
-        Me.cmbStatus.Items.AddRange(New Object() {"Valuation Pending", "Documentation Pending", "Offer Accepted", "For Sale", "For Rent", "Off Market"})
+        Me.cmbStatus.Items.AddRange(New Object() {"Valuation Pending", "For Sale", "For Rent", "Off Market"})
         Me.cmbStatus.Location = New System.Drawing.Point(129, 1)
         Me.cmbStatus.Margin = New System.Windows.Forms.Padding(2)
         Me.cmbStatus.Name = "cmbStatus"
@@ -324,21 +324,6 @@ Partial Class frmFindProperties
         Me.dgvProperties.Size = New System.Drawing.Size(350, 288)
         Me.dgvProperties.TabIndex = 11
         '
-        'CtrlAdminButtons1
-        '
-        Me.CtrlAdminButtons1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CtrlAdminButtons1.Location = New System.Drawing.Point(241, 453)
-        Me.CtrlAdminButtons1.Name = "CtrlAdminButtons1"
-        Me.CtrlAdminButtons1.Size = New System.Drawing.Size(162, 28)
-        Me.CtrlAdminButtons1.TabIndex = 54
-        '
-        'CtrlProperty1
-        '
-        Me.CtrlProperty1.Location = New System.Drawing.Point(171, 89)
-        Me.CtrlProperty1.Name = "CtrlProperty1"
-        Me.CtrlProperty1.Size = New System.Drawing.Size(242, 125)
-        Me.CtrlProperty1.TabIndex = 53
-        '
         'btnSetActive
         '
         Me.btnSetActive.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -436,6 +421,21 @@ Partial Class frmFindProperties
         Me.pbxPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.pbxPhoto.TabIndex = 23
         Me.pbxPhoto.TabStop = False
+        '
+        'CtrlAdminButtons1
+        '
+        Me.CtrlAdminButtons1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.CtrlAdminButtons1.Location = New System.Drawing.Point(241, 453)
+        Me.CtrlAdminButtons1.Name = "CtrlAdminButtons1"
+        Me.CtrlAdminButtons1.Size = New System.Drawing.Size(162, 28)
+        Me.CtrlAdminButtons1.TabIndex = 54
+        '
+        'CtrlProperty1
+        '
+        Me.CtrlProperty1.Location = New System.Drawing.Point(171, 89)
+        Me.CtrlProperty1.Name = "CtrlProperty1"
+        Me.CtrlProperty1.Size = New System.Drawing.Size(242, 125)
+        Me.CtrlProperty1.TabIndex = 53
         '
         'frmFindProperties
         '

@@ -149,6 +149,9 @@ Public Class frmFindProperties
             Case "Valuation Pending"
                 'owner details already loaded, so show appointment form
                 frmAppointments.Show()
+            Case "Documentation Pending"
+            Case "Off Market"
+
             Case "For Sale"
                 selectAndLink("Prospective Buyer")
                 frmAppointments.Show()
