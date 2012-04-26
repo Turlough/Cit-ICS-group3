@@ -167,7 +167,7 @@
     End Function
     ReadOnly Property imageSource As String
         Get
-            Return "c:\img\" & propid & ".jpg"
+            Return "c:\Auctioneer\img\" & propid & ".jpg"
         End Get
     End Property
     Public Sub makeOffer(price As Integer)

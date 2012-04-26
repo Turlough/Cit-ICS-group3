@@ -11,16 +11,10 @@ Public Class frmFindProperties
         If cmbStatus.Items.Count > 0 Then
             cmbStatus.SelectedIndex = 0    ' The first item has index 0 '
         End If
+        disableEdit()
+        btnSetActive.Enabled = False
         CtrlAdminButtons1.Visible = False
-        btnCreateAppointment.Visible = False
-        btnSetActive.Visible = True
-        'Disable editing textboxes
-        txtOwner.ReadOnly = True
-        txtPrice.ReadOnly = True
-        txtStatus.ReadOnly = True
-        CtrlProperty1.disable()
-        rtbDescription.ReadOnly = True
-
+        btnCreateAppointment.Enabled = False
     End Sub
 
     Private Sub frmFindProperties_Shown(sender As Object, e As System.EventArgs) Handles Me.Shown
@@ -64,6 +58,7 @@ Public Class frmFindProperties
             End If
         End With
         CtrlAdminButtons1.Visible = True
+
     End Sub
     Sub fillDetails()
         prop.loadProperty(Properties.propid)
@@ -74,23 +69,27 @@ Public Class frmFindProperties
             rtbDescription.Text = .description
             txtStatus.Text = .status
             txtPrice.Text = .price
-            'locate photograph
+            'locate photograph, if any
             With My.Computer.FileSystem
 
                 If .FileExists(prop.imageSource) Then
                     pbxPhoto.Load(prop.imageSource)
-                ElseIf .FileExists("c:/img/0.jpg") Then
-                    pbxPhoto.Load("c:/img/0.jpg")
+                ElseIf .FileExists("c:/Auctioneer/img/0.jpg") Then
+                    pbxPhoto.Load("c:/Auctioneer/img/0.jpg")
                 Else
                     pbxPhoto.Image = Nothing
                 End If
             End With
 
         End With
-        btnSetActive.Visible = True
+        btnSetActive.Enabled = True
+        btnCreateAppointment.Enabled = True
     End Sub
 
     Private Sub pbxPhoto_Click(sender As System.Object, e As System.EventArgs) Handles pbxPhoto.Click
+        'only if there is an active property
+        If Properties.propid = 0 Then Exit Sub
+
         Dim d As New OpenFileDialog()
         Dim s As String
         d.InitialDirectory = My.Settings.sourceFolder
@@ -110,22 +109,26 @@ Public Class frmFindProperties
     
     Sub enableEdit()
         CtrlProperty1.enable()
-        btnCreateAppointment.Visible = True
         'Enable textboxes
         txtOwner.ReadOnly = False
         txtPrice.ReadOnly = False
         txtStatus.ReadOnly = False
         rtbDescription.ReadOnly = False
+        pbxPhoto.Enabled = True
+        rtbDescription.Enabled = True
 
     End Sub
     Sub disableEdit()
         CtrlProperty1.disable()
-        btnCreateAppointment.Visible = True
+
+
         'disable textboxes
         txtOwner.ReadOnly = True
         txtPrice.ReadOnly = True
         txtStatus.ReadOnly = True
         rtbDescription.ReadOnly = True
+        pbxPhoto.Enabled = False
+        rtbDescription.Enabled = False
 
     End Sub
 
