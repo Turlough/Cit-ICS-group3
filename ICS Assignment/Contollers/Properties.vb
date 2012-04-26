@@ -65,7 +65,7 @@
                     s &= add2 & vbCrLf
                 End If
                 s &= town & vbCrLf
-                s &= county
+                s &= "Co. " & county
                 Return s
             Else
                 Return ""

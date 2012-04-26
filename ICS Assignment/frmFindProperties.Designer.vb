@@ -48,13 +48,12 @@ Partial Class frmFindProperties
         Me.btnOthers = New System.Windows.Forms.Button()
         Me.btnCreateAppointment = New System.Windows.Forms.Button()
         Me.txtPrice = New System.Windows.Forms.TextBox()
-        Me.txtStatus = New System.Windows.Forms.TextBox()
         Me.txtOwner = New System.Windows.Forms.TextBox()
         Me.rtbDescription = New System.Windows.Forms.RichTextBox()
-        Me.Label13 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.pbxPhoto = New System.Windows.Forms.PictureBox()
+        Me.ctrlPropStat = New WindowsApplication1.crtlPropStatus()
         Me.CtrlAdminButtons1 = New WindowsApplication1.ctrlAdminButtons()
         Me.CtrlProperty1 = New WindowsApplication1.ctrlProperty()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -101,16 +100,15 @@ Partial Class frmFindProperties
         '
         'SplitContainer1.Panel2
         '
+        Me.SplitContainer1.Panel2.Controls.Add(Me.ctrlPropStat)
         Me.SplitContainer1.Panel2.Controls.Add(Me.CtrlAdminButtons1)
         Me.SplitContainer1.Panel2.Controls.Add(Me.CtrlProperty1)
         Me.SplitContainer1.Panel2.Controls.Add(Me.btnSetActive)
         Me.SplitContainer1.Panel2.Controls.Add(Me.btnOthers)
         Me.SplitContainer1.Panel2.Controls.Add(Me.btnCreateAppointment)
         Me.SplitContainer1.Panel2.Controls.Add(Me.txtPrice)
-        Me.SplitContainer1.Panel2.Controls.Add(Me.txtStatus)
         Me.SplitContainer1.Panel2.Controls.Add(Me.txtOwner)
         Me.SplitContainer1.Panel2.Controls.Add(Me.rtbDescription)
-        Me.SplitContainer1.Panel2.Controls.Add(Me.Label13)
         Me.SplitContainer1.Panel2.Controls.Add(Me.Label12)
         Me.SplitContainer1.Panel2.Controls.Add(Me.Label4)
         Me.SplitContainer1.Panel2.Controls.Add(Me.pbxPhoto)
@@ -360,15 +358,9 @@ Partial Class frmFindProperties
         Me.txtPrice.Size = New System.Drawing.Size(176, 20)
         Me.txtPrice.TabIndex = 10
         '
-        'txtStatus
-        '
-        Me.txtStatus.Location = New System.Drawing.Point(227, 63)
-        Me.txtStatus.Name = "txtStatus"
-        Me.txtStatus.Size = New System.Drawing.Size(176, 20)
-        Me.txtStatus.TabIndex = 11
-        '
         'txtOwner
         '
+        Me.txtOwner.Enabled = False
         Me.txtOwner.Location = New System.Drawing.Point(227, 16)
         Me.txtOwner.Name = "txtOwner"
         Me.txtOwner.Size = New System.Drawing.Size(113, 20)
@@ -384,15 +376,6 @@ Partial Class frmFindProperties
         Me.rtbDescription.Size = New System.Drawing.Size(390, 189)
         Me.rtbDescription.TabIndex = 31
         Me.rtbDescription.Text = "Enter description here...."
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(185, 70)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(37, 13)
-        Me.Label13.TabIndex = 26
-        Me.Label13.Text = "Status"
         '
         'Label12
         '
@@ -421,6 +404,13 @@ Partial Class frmFindProperties
         Me.pbxPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.pbxPhoto.TabIndex = 23
         Me.pbxPhoto.TabStop = False
+        '
+        'ctrlPropStat
+        '
+        Me.ctrlPropStat.Location = New System.Drawing.Point(178, 63)
+        Me.ctrlPropStat.Name = "ctrlPropStat"
+        Me.ctrlPropStat.Size = New System.Drawing.Size(225, 24)
+        Me.ctrlPropStat.TabIndex = 55
         '
         'CtrlAdminButtons1
         '
@@ -485,16 +475,15 @@ Partial Class frmFindProperties
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents dgvProperties As System.Windows.Forms.DataGridView
     Friend WithEvents rtbDescription As System.Windows.Forms.RichTextBox
-    Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents pbxPhoto As System.Windows.Forms.PictureBox
     Friend WithEvents txtPrice As System.Windows.Forms.TextBox
-    Friend WithEvents txtStatus As System.Windows.Forms.TextBox
     Friend WithEvents txtOwner As System.Windows.Forms.TextBox
     Friend WithEvents btnCreateAppointment As System.Windows.Forms.Button
     Friend WithEvents btnOthers As System.Windows.Forms.Button
     Friend WithEvents btnSetActive As System.Windows.Forms.Button
     Friend WithEvents CtrlProperty1 As WindowsApplication1.ctrlProperty
     Friend WithEvents CtrlAdminButtons1 As WindowsApplication1.ctrlAdminButtons
+    Friend WithEvents ctrlPropStat As WindowsApplication1.crtlPropStatus
 End Class

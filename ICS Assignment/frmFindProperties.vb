@@ -67,8 +67,9 @@ Public Class frmFindProperties
         With prop
             txtOwner.Text = cust.fullName
             rtbDescription.Text = .description
-            txtStatus.Text = .status
+            ctrlPropStat.cbxStatus.Text = .status
             txtPrice.Text = .price
+            CtrlProperty1.cstmCounty.cbxCounty.Text = .county
             'locate photograph, if any
             With My.Computer.FileSystem
 
@@ -110,9 +111,8 @@ Public Class frmFindProperties
     Sub enableEdit()
         CtrlProperty1.enable()
         'Enable textboxes
-        txtOwner.ReadOnly = False
         txtPrice.ReadOnly = False
-        txtStatus.ReadOnly = False
+        ctrlPropStat.Enabled = True
         rtbDescription.ReadOnly = False
         pbxPhoto.Enabled = True
         rtbDescription.Enabled = True
@@ -123,28 +123,27 @@ Public Class frmFindProperties
 
 
         'disable textboxes
-        txtOwner.ReadOnly = True
         txtPrice.ReadOnly = True
-        txtStatus.ReadOnly = True
+        ctrlPropStat.Enabled = False
         rtbDescription.ReadOnly = True
         pbxPhoto.Enabled = False
         rtbDescription.Enabled = False
 
     End Sub
 
-    Function nextStatus() As String
-        Dim p As Integer = CLng(txtPrice.Text)
+    Sub nextStatus()
+        Dim p As Long = CLng(txtPrice.Text)
         Select Case cmbStatus.Text
             Case "Valuation Pending"
                 If p > 0 Then
-                    Return "For Sale"
+                    ctrlPropStat.cbxStatus.Text = "For Sale"
                 Else
-                    Return "Valuation Pending"
+                    ctrlPropStat.cbxStatus.Text = "Valuation Pending"
                 End If
             Case Else
-                Return cmbStatus.Text
+
         End Select
-    End Function
+    End Sub
 
     Private Sub btnCreateAppointment_Click(sender As System.Object, e As System.EventArgs) Handles btnCreateAppointment.Click
 
@@ -203,7 +202,10 @@ Public Class frmFindProperties
             .town = CtrlProperty1.txtTown.Text
             .county = CtrlProperty1.cstmCounty.Text
             .description = rtbDescription.Text
-            .status = nextStatus()
+
+            nextStatus() 'this function automates valuation pending to for sale
+            .status = ctrlPropStat.cbxStatus.Text
+
             .price = CLng(txtPrice.Text)
             .photo = pbxPhoto.Image
 
@@ -217,5 +219,13 @@ Public Class frmFindProperties
         'refresh table and details
         refreshPropertyList()
         fillDetails()
+    End Sub
+
+    Private Sub ctrlPropStat_Load(sender As System.Object, e As System.EventArgs) Handles ctrlPropStat.Load
+
+    End Sub
+
+    Private Sub txtPrice_Validated(sender As Object, e As System.EventArgs) Handles txtPrice.Validated
+        nextStatus()
     End Sub
 End Class
