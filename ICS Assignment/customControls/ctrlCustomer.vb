@@ -40,13 +40,13 @@
 
     Private Sub txtFname_Validated(sender As Object, e As System.EventArgs) Handles txtFname.Validated
         ep.SetError(txtFname, "")
-        txtFname.Text = v.prepareForSql(txtFname.Text)
+        txtFname.Text = v.properCase(txtFname.Text)
         validateForm()
     End Sub
 
     Private Sub txtFname_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles txtFname.Validating
         If v.notEmpty(txtFname.Text) Then
-            txtFname.Text = v.prepareForSql(txtFname.Text)
+            txtFname.Text = v.properCase(txtFname.Text)
             If Not v.isName(txtFname.Text) Then
                 e.Cancel = True
                 txtFname.Select(0, txtFname.Text.Length)
@@ -61,13 +61,13 @@
 
     Private Sub txtSname_Validated(sender As Object, e As System.EventArgs) Handles txtSname.Validated
         ep.SetError(txtSname, "")
-        txtSname.Text = v.prepareForSql(txtSname.Text)
+        txtSname.Text = v.properCase(txtSname.Text)
         validateForm()
     End Sub
 
     Private Sub txtSname_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles txtSname.Validating
         If v.notEmpty(txtSname.Text) Then
-            txtSname.Text = v.prepareForSql(txtSname.Text)
+            txtSname.Text = v.properCase(txtSname.Text)
             If Not v.isName(txtSname.Text) Then
                 e.Cancel = True
                 txtSname.Select(0, txtSname.Text.Length)
@@ -109,7 +109,7 @@
 
     Private Sub txtAddress_Validated(sender As Object, e As System.EventArgs) Handles txtAddress.Validated
         ep.SetError(txtAddress, "")
-        txtAddress.Text = v.prepareForSql(txtAddress.Text)
+        txtAddress.Text = v.properCase(txtAddress.Text)
         validateForm()
     End Sub
 

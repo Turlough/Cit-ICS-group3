@@ -34,7 +34,7 @@
     End Sub
     Private Sub txtAdd1_Validated(sender As Object, e As System.EventArgs) Handles txtAdd1.Validated
         ep.SetError(txtAdd1, "")
-        txtAdd1.Text = v.prepareForSql(txtAdd1.Text)
+        txtAdd1.Text = v.properCase(txtAdd1.Text)
         validateForm()
     End Sub
 
@@ -47,7 +47,7 @@
     End Sub
     Private Sub txtAdd2_Validated(sender As Object, e As System.EventArgs) Handles txtAdd2.Validated
         ep.SetError(txtAdd2, "")
-        txtAdd2.Text = v.prepareForSql(txtAdd2.Text)
+        txtAdd2.Text = v.properCase(txtAdd2.Text)
         validateForm()
     End Sub
 
@@ -60,7 +60,7 @@
     End Sub
     Private Sub txtTown_Validated(sender As Object, e As System.EventArgs) Handles txtTown.Validated
         ep.SetError(txtTown, "")
-        txtTown.Text = v.prepareForSql(txtTown.Text)
+        txtTown.Text = v.properCase(txtTown.Text)
         validateForm()
     End Sub
 
