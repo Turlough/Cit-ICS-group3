@@ -39,10 +39,16 @@
     End Sub
 
     Private Sub txtAdd1_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles txtAdd1.Validating
-        If Not v.isAddress(txtAdd1.Text) Then
+        If v.notEmpty(txtAdd1.Text) Then
+            txtAdd1.Text = v.prepareForSql(txtAdd1.Text)
+            If Not v.isAddress(txtAdd1.Text) Then
+                e.Cancel = True
+                txtAdd1.Select(0, txtAdd1.Text.Length)
+                ep.SetError(txtAdd1, v.message)
+            End If
+        Else
             e.Cancel = True
-            txtAdd1.Select(0, txtAdd1.Text.Length)
-            ep.SetError(txtAdd1, v.message)
+            ep.SetError(txtAdd1, "Cannot be empty")
         End If
     End Sub
     Private Sub txtAdd2_Validated(sender As Object, e As System.EventArgs) Handles txtAdd2.Validated
@@ -52,10 +58,15 @@
     End Sub
 
     Private Sub txtAdd2_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles txtAdd2.Validating
-        If v.notEmpty(txtAdd2.Text) And Not v.isName(txtAdd2.Text) Then
-            e.Cancel = True
-            txtAdd2.Select(0, txtAdd2.Text.Length)
-            ep.SetError(txtAdd2, v.message)
+        If v.notEmpty(txtAdd2.Text) Then
+            txtAdd2.Text = v.prepareForSql(txtAdd2.Text)
+            If v.notEmpty(txtAdd2.Text) And Not v.isName(txtAdd2.Text) Then
+                e.Cancel = True
+                txtAdd2.Select(0, txtAdd2.Text.Length)
+                ep.SetError(txtAdd2, v.message)
+            End If
+        Else
+            'do nothing
         End If
     End Sub
     Private Sub txtTown_Validated(sender As Object, e As System.EventArgs) Handles txtTown.Validated
@@ -65,10 +76,15 @@
     End Sub
 
     Private Sub txtTown_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles txtTown.Validating
-        If Not v.isName(txtTown.Text) Then
-            e.Cancel = True
-            txtTown.Select(0, txtTown.Text.Length)
-            ep.SetError(txtTown, v.message)
+        If v.notEmpty(txtTown.Text) Then
+            txtTown.Text = v.prepareForSql(txtTown.Text)
+            If Not v.isName(txtTown.Text) Then
+                e.Cancel = True
+                txtTown.Select(0, txtTown.Text.Length)
+                ep.SetError(txtTown, v.message)
+            End If
+        Else
+            'do nothing
         End If
     End Sub
 End Class
