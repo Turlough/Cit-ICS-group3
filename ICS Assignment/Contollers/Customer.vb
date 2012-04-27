@@ -49,9 +49,9 @@
                 custid = id
                 fname = .Item(1)
                 sname = .Item(2)
-                email = .Item(3)
-                phone = .Item(4)
-                address = .Item(5)
+                email = .Item(3).ToString
+                phone = .Item(4).ToString
+                address = .Item(5).ToString
                 status = .Item(6).ToString
             End With
         Else

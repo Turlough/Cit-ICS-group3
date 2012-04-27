@@ -53,6 +53,9 @@
         lblProperty.Text = prop.fullAddress
         txtPrice.Text = price
 
+        lblOfferedPrice.Text = price
+        lblPropertyPrice.Text = prop.price
+
     End Sub
 
     Private Sub btnAccept_Click(sender As System.Object, e As System.EventArgs) Handles btnAccept.Click

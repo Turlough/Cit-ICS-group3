@@ -10,8 +10,8 @@
 Public Class DBConnector
 
     'Dim sqCon As New SqlClient.SqlConnection(My.Settings.dbConnectorString)
-    Dim sqCon As New SqlClient.SqlConnection(My.Settings.turloughConnector)
-    'Dim sqCon As New SqlClient.SqlConnection(My.Settings.SQLAzureConnection)
+    'Dim sqCon As New SqlClient.SqlConnection(My.Settings.turloughConnector)
+    Dim sqCon As New SqlClient.SqlConnection(My.Settings.SQLAzureConnection)
 
     Dim sqCmd As New SqlClient.SqlCommand
 

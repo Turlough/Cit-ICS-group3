@@ -9,7 +9,7 @@ Public Class frmFindProperties
 
         'TODO: default to relationship type
         If cmbStatus.Items.Count > 0 Then
-            cmbStatus.SelectedIndex = 0    ' The first item has index 0 '
+            cmbStatus.SelectedIndex = 0    ' The first item has index 0 
         End If
         disableEdit()
         btnSetActive.Enabled = False
@@ -163,13 +163,14 @@ Public Class frmFindProperties
 
             Case "For Sale"
                 selectAndLink("Prospective Buyer")
-                frmAppointments.Show()
+                frmAppointments.ShowDialog()
             Case "For Rent"
                 selectAndLink("Prospective Tenant")
-                frmAppointments.Show()
+                frmAppointments.ShowDialog()
             Case Else
-                frmAppointments.Show()
+                frmAppointments.ShowDialog()
         End Select
+
     End Sub
     Sub selectAndLink(relationType As String)
         'add customer first - a prospective buyer or tenant

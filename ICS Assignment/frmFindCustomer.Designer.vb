@@ -30,10 +30,10 @@ Partial Class frmFindCustomer
         Me.dgvCustomers = New System.Windows.Forms.DataGridView()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
+        Me.ctrlCust = New WindowsApplication1.ctrlCustomer()
+        Me.ctrlAdmin = New WindowsApplication1.ctrlAdminButtons()
         Me.btnSet = New System.Windows.Forms.Button()
         Me.btnProperties = New System.Windows.Forms.Button()
-        Me.ctrlAdmin = New WindowsApplication1.ctrlAdminButtons()
-        Me.ctrlCust = New WindowsApplication1.ctrlCustomer()
         CType(Me.dgvCustomers, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -99,10 +99,12 @@ Partial Class frmFindCustomer
         Me.dgvCustomers.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvCustomers.Location = New System.Drawing.Point(0, 0)
         Me.dgvCustomers.Margin = New System.Windows.Forms.Padding(2)
+        Me.dgvCustomers.MultiSelect = False
         Me.dgvCustomers.Name = "dgvCustomers"
         Me.dgvCustomers.ReadOnly = True
         Me.dgvCustomers.RowHeadersVisible = False
         Me.dgvCustomers.RowTemplate.Height = 24
+        Me.dgvCustomers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvCustomers.Size = New System.Drawing.Size(448, 418)
         Me.dgvCustomers.TabIndex = 11
         '
@@ -145,9 +147,25 @@ Partial Class frmFindCustomer
         Me.SplitContainer1.SplitterDistance = 450
         Me.SplitContainer1.TabIndex = 14
         '
+        'ctrlCust
+        '
+        Me.ctrlCust.Location = New System.Drawing.Point(3, 37)
+        Me.ctrlCust.Name = "ctrlCust"
+        Me.ctrlCust.Size = New System.Drawing.Size(237, 192)
+        Me.ctrlCust.TabIndex = 28
+        '
+        'ctrlAdmin
+        '
+        Me.ctrlAdmin.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ctrlAdmin.Location = New System.Drawing.Point(76, 420)
+        Me.ctrlAdmin.Name = "ctrlAdmin"
+        Me.ctrlAdmin.Size = New System.Drawing.Size(162, 28)
+        Me.ctrlAdmin.TabIndex = 27
+        '
         'btnSet
         '
-        Me.btnSet.Location = New System.Drawing.Point(48, 268)
+        Me.btnSet.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnSet.Location = New System.Drawing.Point(60, 352)
         Me.btnSet.Name = "btnSet"
         Me.btnSet.Size = New System.Drawing.Size(178, 23)
         Me.btnSet.TabIndex = 25
@@ -157,26 +175,12 @@ Partial Class frmFindCustomer
         'btnProperties
         '
         Me.btnProperties.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnProperties.Location = New System.Drawing.Point(48, 297)
+        Me.btnProperties.Location = New System.Drawing.Point(60, 381)
         Me.btnProperties.Name = "btnProperties"
         Me.btnProperties.Size = New System.Drawing.Size(178, 25)
         Me.btnProperties.TabIndex = 24
         Me.btnProperties.Text = "Properties"
         Me.btnProperties.UseVisualStyleBackColor = True
-        '
-        'ctrlAdmin
-        '
-        Me.ctrlAdmin.Location = New System.Drawing.Point(63, 420)
-        Me.ctrlAdmin.Name = "ctrlAdmin"
-        Me.ctrlAdmin.Size = New System.Drawing.Size(163, 28)
-        Me.ctrlAdmin.TabIndex = 27
-        '
-        'ctrlCust
-        '
-        Me.ctrlCust.Location = New System.Drawing.Point(3, 37)
-        Me.ctrlCust.Name = "ctrlCust"
-        Me.ctrlCust.Size = New System.Drawing.Size(237, 192)
-        Me.ctrlCust.TabIndex = 28
         '
         'frmFindCustomer
         '
