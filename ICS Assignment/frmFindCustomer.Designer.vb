@@ -22,6 +22,7 @@ Partial Class frmFindCustomer
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.txtSearch = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btnFind = New System.Windows.Forms.Button()
@@ -30,10 +31,10 @@ Partial Class frmFindCustomer
         Me.dgvCustomers = New System.Windows.Forms.DataGridView()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
-        Me.ctrlCust = New WindowsApplication1.ctrlCustomer()
-        Me.ctrlAdmin = New WindowsApplication1.ctrlAdminButtons()
         Me.btnSet = New System.Windows.Forms.Button()
         Me.btnProperties = New System.Windows.Forms.Button()
+        Me.ctrlCust = New WindowsApplication1.ctrlCustomer()
+        Me.ctrlAdmin = New WindowsApplication1.ctrlAdminButtons()
         CType(Me.dgvCustomers, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -95,6 +96,7 @@ Partial Class frmFindCustomer
         '
         Me.dgvCustomers.AllowUserToAddRows = False
         Me.dgvCustomers.AllowUserToDeleteRows = False
+        Me.dgvCustomers.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.dgvCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvCustomers.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvCustomers.Location = New System.Drawing.Point(0, 0)
@@ -103,6 +105,9 @@ Partial Class frmFindCustomer
         Me.dgvCustomers.Name = "dgvCustomers"
         Me.dgvCustomers.ReadOnly = True
         Me.dgvCustomers.RowHeadersVisible = False
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvCustomers.RowsDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvCustomers.RowTemplate.Height = 24
         Me.dgvCustomers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvCustomers.Size = New System.Drawing.Size(448, 418)
@@ -147,21 +152,6 @@ Partial Class frmFindCustomer
         Me.SplitContainer1.SplitterDistance = 450
         Me.SplitContainer1.TabIndex = 14
         '
-        'ctrlCust
-        '
-        Me.ctrlCust.Location = New System.Drawing.Point(3, 37)
-        Me.ctrlCust.Name = "ctrlCust"
-        Me.ctrlCust.Size = New System.Drawing.Size(237, 192)
-        Me.ctrlCust.TabIndex = 28
-        '
-        'ctrlAdmin
-        '
-        Me.ctrlAdmin.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ctrlAdmin.Location = New System.Drawing.Point(76, 420)
-        Me.ctrlAdmin.Name = "ctrlAdmin"
-        Me.ctrlAdmin.Size = New System.Drawing.Size(162, 28)
-        Me.ctrlAdmin.TabIndex = 27
-        '
         'btnSet
         '
         Me.btnSet.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -181,6 +171,21 @@ Partial Class frmFindCustomer
         Me.btnProperties.TabIndex = 24
         Me.btnProperties.Text = "Properties"
         Me.btnProperties.UseVisualStyleBackColor = True
+        '
+        'ctrlCust
+        '
+        Me.ctrlCust.Location = New System.Drawing.Point(3, 37)
+        Me.ctrlCust.Name = "ctrlCust"
+        Me.ctrlCust.Size = New System.Drawing.Size(237, 192)
+        Me.ctrlCust.TabIndex = 28
+        '
+        'ctrlAdmin
+        '
+        Me.ctrlAdmin.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ctrlAdmin.Location = New System.Drawing.Point(76, 420)
+        Me.ctrlAdmin.Name = "ctrlAdmin"
+        Me.ctrlAdmin.Size = New System.Drawing.Size(162, 28)
+        Me.ctrlAdmin.TabIndex = 27
         '
         'frmFindCustomer
         '

@@ -44,6 +44,9 @@ Partial Class frmFindProperties
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.dgvProperties = New System.Windows.Forms.DataGridView()
+        Me.ctrlPropStat = New WindowsApplication1.crtlPropStatus()
+        Me.CtrlAdminButtons1 = New WindowsApplication1.ctrlAdminButtons()
+        Me.CtrlProperty1 = New WindowsApplication1.ctrlProperty()
         Me.btnSetActive = New System.Windows.Forms.Button()
         Me.btnOthers = New System.Windows.Forms.Button()
         Me.btnCreateAppointment = New System.Windows.Forms.Button()
@@ -53,9 +56,6 @@ Partial Class frmFindProperties
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.pbxPhoto = New System.Windows.Forms.PictureBox()
-        Me.ctrlPropStat = New WindowsApplication1.crtlPropStatus()
-        Me.CtrlAdminButtons1 = New WindowsApplication1.ctrlAdminButtons()
-        Me.CtrlProperty1 = New WindowsApplication1.ctrlProperty()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -314,6 +314,7 @@ Partial Class frmFindProperties
         Me.dgvProperties.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvProperties.Location = New System.Drawing.Point(0, 0)
         Me.dgvProperties.Margin = New System.Windows.Forms.Padding(2)
+        Me.dgvProperties.MultiSelect = False
         Me.dgvProperties.Name = "dgvProperties"
         Me.dgvProperties.ReadOnly = True
         Me.dgvProperties.RowHeadersVisible = False
@@ -321,6 +322,28 @@ Partial Class frmFindProperties
         Me.dgvProperties.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvProperties.Size = New System.Drawing.Size(350, 288)
         Me.dgvProperties.TabIndex = 11
+        '
+        'ctrlPropStat
+        '
+        Me.ctrlPropStat.Location = New System.Drawing.Point(178, 63)
+        Me.ctrlPropStat.Name = "ctrlPropStat"
+        Me.ctrlPropStat.Size = New System.Drawing.Size(225, 24)
+        Me.ctrlPropStat.TabIndex = 55
+        '
+        'CtrlAdminButtons1
+        '
+        Me.CtrlAdminButtons1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.CtrlAdminButtons1.Location = New System.Drawing.Point(241, 453)
+        Me.CtrlAdminButtons1.Name = "CtrlAdminButtons1"
+        Me.CtrlAdminButtons1.Size = New System.Drawing.Size(162, 28)
+        Me.CtrlAdminButtons1.TabIndex = 54
+        '
+        'CtrlProperty1
+        '
+        Me.CtrlProperty1.Location = New System.Drawing.Point(171, 89)
+        Me.CtrlProperty1.Name = "CtrlProperty1"
+        Me.CtrlProperty1.Size = New System.Drawing.Size(242, 125)
+        Me.CtrlProperty1.TabIndex = 53
         '
         'btnSetActive
         '
@@ -404,28 +427,6 @@ Partial Class frmFindProperties
         Me.pbxPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.pbxPhoto.TabIndex = 23
         Me.pbxPhoto.TabStop = False
-        '
-        'ctrlPropStat
-        '
-        Me.ctrlPropStat.Location = New System.Drawing.Point(178, 63)
-        Me.ctrlPropStat.Name = "ctrlPropStat"
-        Me.ctrlPropStat.Size = New System.Drawing.Size(225, 24)
-        Me.ctrlPropStat.TabIndex = 55
-        '
-        'CtrlAdminButtons1
-        '
-        Me.CtrlAdminButtons1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.CtrlAdminButtons1.Location = New System.Drawing.Point(241, 453)
-        Me.CtrlAdminButtons1.Name = "CtrlAdminButtons1"
-        Me.CtrlAdminButtons1.Size = New System.Drawing.Size(162, 28)
-        Me.CtrlAdminButtons1.TabIndex = 54
-        '
-        'CtrlProperty1
-        '
-        Me.CtrlProperty1.Location = New System.Drawing.Point(171, 89)
-        Me.CtrlProperty1.Name = "CtrlProperty1"
-        Me.CtrlProperty1.Size = New System.Drawing.Size(242, 125)
-        Me.CtrlProperty1.TabIndex = 53
         '
         'frmFindProperties
         '

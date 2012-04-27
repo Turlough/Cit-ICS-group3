@@ -23,8 +23,9 @@ Public Class frmFindCustomer
         With dgvCustomers
             .DataSource = cust.findCustomer(txtSearch.Text, cbxField.Text)
             .Columns(0).Visible = False
+            .AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells
             .Columns("address").AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
-            .Columns("address").d()
+
         End With
     End Sub
 
