@@ -26,7 +26,7 @@
             'get buyer
             buyerId = .Rows(e.RowIndex).Cells(0).Value
             'get property
-            prop.loadProperty(.Rows(e.RowIndex).Cells(1).Value())
+            prop.load(.Rows(e.RowIndex).Cells(1).Value())
             'get price
             Dim s As String = .Rows(e.RowIndex).Cells(2).Value.ToString
             If val.numeric(s) Then
@@ -38,16 +38,16 @@
             'get owner
             cust = prop.getRelatedCustomer("Owner")
             vendorId = Customer.custid
-            cust.loadCustomer(vendorId)
+            cust.load(vendorId)
 
             showDetails()
 
         End With
     End Sub
     Sub showDetails()
-        cust.loadCustomer(buyerId) 'load buyer
+        cust.load(buyerId) 'load buyer
         lblBuyer.Text = cust.fullName
-        cust.loadCustomer(vendorId) 'load vendor
+        cust.load(vendorId) 'load vendor
         lblOwner.Text = cust.fullName
 
         lblProperty.Text = prop.fullAddress
@@ -65,12 +65,12 @@
             'update property
             prop.price = price
             prop.status = "Off Market"
-            prop.updateProperty()
+            prop.update()
 
             'update buyer relationship
             cp.setRelation(buyerId, Properties.propid, "Owner")
             'delete owner relationship
-            cp.deleteRelation(Properties.propid, vendorId)
+            cp.delete(Properties.propid, vendorId)
 
             Me.Close()
         Else

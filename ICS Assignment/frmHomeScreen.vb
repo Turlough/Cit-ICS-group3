@@ -8,11 +8,11 @@
 
     Public Sub showDetails()
         If Customer.custid > 0 Then
-            cust.loadCustomer(Customer.custid)
+            cust.load(Customer.custid)
             lblCustomer.Text = cust.fullName
         End If
         If Properties.propid > 0 Then
-            prop.loadProperty(Properties.propid)
+            prop.load(Properties.propid)
             lblProperty.Text = prop.fullAddress
         End If
 

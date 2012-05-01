@@ -9,7 +9,7 @@ Public Class frmAddCustomer
 
         With CtrlCustomer1
             If .validateForm() Then
-                cust.createCustomer(.txtFname.Text, .txtSname.Text, .txtAddress.Text, .txtPhone.Text, .txtEmail.Text)
+                cust.insert(.txtFname.Text, .txtSname.Text, .txtAddress.Text, .txtPhone.Text, .txtEmail.Text)
                 Me.Close()
             Else
                 MsgBox("Invalid entry. Please review")

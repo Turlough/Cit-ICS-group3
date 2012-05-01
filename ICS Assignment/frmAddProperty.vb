@@ -13,7 +13,7 @@ Public Class frmAddProperty
     Dim v As New Validator
 
     Private Sub frmAddProperty_Shown(sender As Object, e As System.EventArgs) Handles Me.Shown
-        cust.loadCustomer(0)
+        cust.load(0)
         clearForm()
         CtrlProperty1.cstmCounty.County = "Cork"
     End Sub
@@ -26,11 +26,11 @@ Public Class frmAddProperty
         End If
         With CtrlCustomer1
             If Customer.custid = 0 Then
-                cust.createCustomer(.txtFname.Text, .txtSname.Text, .txtAddress.Text, .txtPhone.Text, .txtEmail.Text)
+                cust.insert(.txtFname.Text, .txtSname.Text, .txtAddress.Text, .txtPhone.Text, .txtEmail.Text)
             End If
         End With
         With CtrlProperty1
-            props.CreateProperty(.txtAdd1.Text, .txtAdd2.Text, .txtTown.Text, .cstmCounty.County)
+            props.insert(.txtAdd1.Text, .txtAdd2.Text, .txtTown.Text, .cstmCounty.County)
         End With
 
         'relation
@@ -53,7 +53,7 @@ Public Class frmAddProperty
     End Sub
 
     Private Sub displayCustomer()
-        cust.loadCustomer(Customer.custid)
+        cust.load(Customer.custid)
         CtrlCustomer1.loadCust(cust)
 
         If Customer.custid > 0 Then
@@ -67,7 +67,7 @@ Public Class frmAddProperty
         clearForm()
     End Sub
     Sub clearForm()
-        cust.loadCustomer(0)
+        cust.load(0)
         displayCustomer()
     End Sub
 

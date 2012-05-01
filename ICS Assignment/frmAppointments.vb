@@ -19,14 +19,14 @@ Public Class frmAppointments
     Sub setDefaults()
         'display cust and prop details
         If Customer.custid > 0 Then
-            cust.loadCustomer(Customer.custid)
+            cust.load(Customer.custid)
             txtName.Text = cust.fullName
         Else
             txtName.Text = ""
         End If
 
         If Properties.propid > 0 Then
-            prop.loadProperty(Properties.propid)
+            prop.load(Properties.propid)
             txtPlace.Text = prop.fullAddress
         Else
             txtPlace.Text = ""
@@ -172,8 +172,8 @@ Public Class frmAppointments
         app.id = Times.SelectedRows(0).Cells("id").Value
         app.load(app.id)
         If app.id > 0 Then
-            cust.loadCustomer(Appointment.custid)
-            prop.loadProperty(Appointment.propid)
+            cust.load(Appointment.custid)
+            prop.load(Appointment.propid)
 
             setDefaults()
             app.delete(app.id) 'delete so all fields can be edited

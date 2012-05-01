@@ -12,18 +12,20 @@
 
     Public photo As Image
 
-    Sub CreateProperty(a1 As String, a2 As String, town As String, county As String)
-
+    Overloads Sub insert(a1 As String, a2 As String, town As String, county As String)
         add1 = a1
         add2 = a2
         Me.town = town
         Me.county = county
 
+        insert()
+    End Sub
+    Overloads Sub insert()
         SQL = "INSERT INTO property"
         SQL &= " (add1,add2,town,county,status)"
         SQL &= " VALUES ("
-        SQL &= "'" & wrap(a1) & "'"
-        SQL &= ",'" & wrap(a2) & "'"
+        SQL &= "'" & wrap(add1) & "'"
+        SQL &= ",'" & wrap(add2) & "'"
         SQL &= ",'" & wrap(town) & "'"
         SQL &= ",'" & wrap(county) & "'"
         SQL &= ",'" & "Valuation Pending" & "')"
@@ -48,7 +50,7 @@
             If .Rows.Count > 0 Then
                 custid = .Rows(0).Item(0)
                 Dim cust As New Customer
-                cust.loadCustomer(custid)
+                cust.load(custid)
                 Return cust
             Else
                 custid = 0
@@ -74,7 +76,7 @@
         End Get
     End Property
 
-    Sub loadProperty(id As Integer)
+    Sub load(id As Integer)
         propid = id
         SQL = "SELECT * FROM property WHERE id =" & id
         Dim DT As DataTable = getData(SQL)
@@ -107,6 +109,7 @@
 
         DT = Nothing
     End Sub
+
     Function findProperty(ByVal add As String, ByVal town As String, ByVal county As String, ByVal minbeds As Integer, ByVal maxbeds As Integer, ByVal minprice As Integer, ByVal maxprice As Integer, Status As String) As DataTable
 
         Dim s As String = " WHERE"
@@ -140,7 +143,7 @@
         Return getData(SQL)
 
     End Function
-    Sub updateProperty()
+    Overloads Sub update()
         SQL = "UPDATE property SET"
         SQL &= " add1 = '" & wrap(add1) & "'"
         SQL &= ", add2 = '" & wrap(add2) & "'"

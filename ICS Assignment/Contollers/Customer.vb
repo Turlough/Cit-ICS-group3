@@ -20,7 +20,7 @@
         End Get
     End Property
 
-    Sub createCustomer(fname As String, sname As String, address As String, phone As String, email As String)
+    Overloads Sub insert(fname As String, sname As String, address As String, phone As String, email As String)
         'initialise
         Me.fname = fname
         Me.sname = sname
@@ -28,6 +28,10 @@
         Me.phone = phone
         Me.email = email
         'insert
+        insert()
+
+    End Sub
+    Overloads Sub insert()
         SQL = "INSERT INTO customer"
         SQL &= " (fname,lname,address,phone,email)"
         SQL &= " VALUES ("
@@ -40,7 +44,7 @@
         custid = insert(SQL)
     End Sub
 
-    Sub loadCustomer(id As Integer)
+    Sub load(id As Integer)
         If id = 0 Then clear()
         SQL = "SELECT * FROM Customer WHERE id =" & id
         Dim DT As DataTable = getData(SQL)
@@ -62,9 +66,10 @@
     End Sub
     Sub delete(id As Integer)
         SQL = "EXEC sp_ArchiveCustomer " & id
-        update(SQL) 'TODO- dont use super.update. Tidy the command structure
+        execute(SQL)
+        clear()
     End Sub
-    Overloads Sub update(id As Integer)
+    Overloads Sub update()
         SQL = "UPDATE customer SET "
         SQL &= String.Format(" fname = '{0}'", wrap(fname))
         SQL &= String.Format(", lname = '{0}'", wrap(sname))
@@ -72,7 +77,7 @@
         SQL &= String.Format(", phone = '{0}'", wrap(phone))
         SQL &= String.Format(", address = '{0}'", wrap(address))
         SQL &= String.Format(", status = '{0}'", wrap(status))
-        SQL &= " WHERE id=" & id
+        SQL &= " WHERE id=" & custid
 
         execute(SQL)
 

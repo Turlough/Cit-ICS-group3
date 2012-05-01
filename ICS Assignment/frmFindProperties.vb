@@ -62,13 +62,13 @@ Public Class frmFindProperties
     End Sub
     Sub fillDetails()
 
-        prop.loadProperty(Properties.propid)
+        prop.load(Properties.propid)
         CtrlProperty1.loadProp(prop)
         'get the owner's name quickly, but store original customer
         Dim cid As Integer = Customer.custid
         Dim name As String = prop.getRelatedCustomer("Owner").fullName
         'reset original customer 
-        cust.loadCustomer(cid)
+        cust.load(cid)
 
         'display property details
         With prop
@@ -114,7 +114,7 @@ Public Class frmFindProperties
         End If
     End Sub
 
-    
+
     Sub enableEdit()
         CtrlProperty1.enable()
         'Enable textboxes
@@ -175,7 +175,7 @@ Public Class frmFindProperties
     Sub selectAndLink(relationType As String)
         'add customer first - a prospective buyer or tenant
         frmAddCustomer.ShowDialog()
-        cust.loadCustomer(Customer.custid)
+        cust.load(Customer.custid)
         CustProp.relationType = relationType
         Dim cp As New CustProp
         cp.link("Active") 'creates database record of link
@@ -191,7 +191,7 @@ Public Class frmFindProperties
     Private Sub CtrlAdminButtons1_Delete(sender As Object, e As System.EventArgs) Handles CtrlAdminButtons1.Delete
         If Properties.propid > 0 Then
             prop.delete(Properties.propid)
-            prop.loadProperty(0)
+            prop.load(0)
             CtrlProperty1.loadProp(prop)
             CtrlAdminButtons1.Visible = False
         Else
@@ -218,7 +218,7 @@ Public Class frmFindProperties
             .photo = pbxPhoto.Image
 
             'update DB
-            .updateProperty()
+            .update()
 
         End With
         'hide show buttons

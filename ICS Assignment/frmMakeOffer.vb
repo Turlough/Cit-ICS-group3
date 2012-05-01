@@ -12,11 +12,11 @@ Public Class frmMakeOffer
     End Sub
     Sub showDetails()
         If Customer.custid > 0 Then
-            cust.loadCustomer(Customer.custid)
+            cust.load(Customer.custid)
             Me.lblCustomer.Text = cust.fullName
         End If
         If Properties.propid > 0 Then
-            prop.loadProperty(Properties.propid)
+            prop.load(Properties.propid)
             lblProperty.Text = prop.fullAddress
             txtAmount.Text = prop.price
             lblAskingPrice.Text = prop.price
@@ -45,7 +45,7 @@ Public Class frmMakeOffer
     Private Sub btnSearchProperty_Click(sender As System.Object, e As System.EventArgs) Handles btnSearchProperty.Click
         frmFindProperties.ShowDialog()
         vendor = Customer.custid 'set when showing dialog
-        cust.loadCustomer(buyer) 'reset buyer
+        cust.load(buyer) 'reset buyer
         showDetails()
     End Sub
 
@@ -59,7 +59,7 @@ Public Class frmMakeOffer
         End If
     End Sub
     Sub makeOffer()
-        cust.loadCustomer(buyer)
+        cust.load(buyer)
         Dim p As Integer = CLng(txtAmount.Text)
         prop.makeOffer(p)
         notifyOwner()

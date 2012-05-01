@@ -43,7 +43,7 @@ Public Class frmFindCustomer
     Private Sub showCustomer()
         If Customer.custid > 0 Then
 
-            cust.loadCustomer(Customer.custid)
+            cust.load(Customer.custid)
             ctrlCust.loadCust(cust)
             ctrlAdmin.Visible = True
             btnProperties.Visible = True
@@ -73,7 +73,7 @@ Public Class frmFindCustomer
     Private Sub ctrlAdmin_Delete(sender As Object, e As System.EventArgs) Handles ctrlAdmin.Delete
         cust.delete(Customer.custid)
         Customer.custid = 0 'reset custid
-        cust.loadCustomer(0)
+        cust.load(0)
         ctrlCust.loadCust(cust)
         loadData()
     End Sub
@@ -90,10 +90,10 @@ Public Class frmFindCustomer
                 .address = ctrlCust.txtAddress.Text
                 .phone = ctrlCust.txtPhone.Text
                 .email = ctrlCust.txtEmail.Text
-
-                .update(Customer.custid)
+                'save
+                .update()
             End With
-            cust.loadCustomer(Customer.custid)
+            cust.load(Customer.custid)
             loadData()
             showCustomer()
             disableEdit()
