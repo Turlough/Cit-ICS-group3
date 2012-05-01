@@ -30,8 +30,8 @@ Public Class DBConnector
     ''' The function replaces apostropes with double apostrophes, for SQL string params
     ''' This escapes them
     ''' </summary>
-    ''' <param name="s"></param>
-    ''' <returns></returns>
+    ''' <param name="s">The string to correct</param>
+    ''' <returns>The corrected string</returns>
     ''' <remarks></remarks>
     Protected Function wrap(ByVal s As String) As String
         If IsNothing(s) Or s = "" Then Return ""
