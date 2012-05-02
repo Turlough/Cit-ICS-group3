@@ -104,7 +104,16 @@
         showDetails()
     End Sub
 
-    Private Sub HelpToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles HelpToolStripMenuItem.Click
+
+    Private Sub UserManualToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles UserManualToolStripMenuItem.Click
         Process.Start("https://docs.google.com/document/d/1rN8nrWDhxz1RFoI5kSZLK7gVFcXZiNvR1XlKoLl79xg/edit")
+    End Sub
+
+    Private Sub OnlinePropertiesToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles OnlinePropertiesToolStripMenuItem.Click
+        Process.Start("http://turloughcowman.cloudapp.net/")
+    End Sub
+
+    Private Sub AboutToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles AboutToolStripMenuItem.Click
+        Process.Start("https://sites.google.com/site/citicsgroup3/")
     End Sub
 End Class
