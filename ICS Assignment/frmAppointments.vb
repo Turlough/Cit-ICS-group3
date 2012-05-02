@@ -150,7 +150,7 @@ Public Class frmAppointments
 
     Private Sub btnAdd_Click(sender As System.Object, e As System.EventArgs) Handles btnAdd.Click
         app.notes = txtNotes.Text
-        app.create()
+        app.insert()
 
         fillTimes() 'refresh this datagrid
         frmHomeScreen.showDetails() 'refresh calendar on home screen
@@ -201,7 +201,7 @@ Public Class frmAppointments
 
     Private Sub ctrlAdmin_Save(sender As Object, e As System.EventArgs) Handles ctrlAdmin.Save
         app.notes = txtNotes.Text
-        app.create()
+        app.insert()
 
         fillTimes() 'refresh this datagrid
         frmHomeScreen.showDetails() 'refresh calendar on home screen

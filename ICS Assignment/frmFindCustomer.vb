@@ -14,7 +14,9 @@ Public Class frmFindCustomer
         ctrlAdmin.Visible = False
         btnProperties.Visible = False
     End Sub
+    Private Sub frmFindCustomer_Shown(sender As Object, e As System.EventArgs) Handles Me.Shown
 
+    End Sub
     Private Sub btnFind_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFind.Click
         loadData()
     End Sub
@@ -101,4 +103,6 @@ Public Class frmFindCustomer
             MsgBox("No customer selected")
         End If
     End Sub
+
+
 End Class

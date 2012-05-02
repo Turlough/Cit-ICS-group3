@@ -34,9 +34,19 @@ Public Class DBConnector
     ''' <returns>The corrected string</returns>
     ''' <remarks></remarks>
     Protected Function wrap(ByVal s As String) As String
+        'exit on null
         If IsNothing(s) Or s = "" Then Return ""
-        s = Replace(s, Chr(39), "''") 'escape single quote
-        s = s.Trim() 'remove surrounding spaces
+        'else
+        Dim apos As Char = Chr(39)
+        Dim doubleApos As String = apos & apos
+        'check for multiple consecutive apostrophes
+        While s.Contains(doubleApos)
+            s = Replace(s, doubleApos, apos)
+        End While
+        'escape single apostrophe
+        s = Replace(s, apos, doubleApos)
+        'remove surrounding spaces
+        s = s.Trim()
         Return s
     End Function
     ''' <summary>

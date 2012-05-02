@@ -26,7 +26,7 @@
         'MsgBox(SQL)
         Return getData(SQL)
     End Function
-    Sub create()
+    Overloads Sub insert()
         SQL = "INSERT INTO appointment"
         SQL &= " (custid,propid,chosendate,start,finish,notes)"
         SQL &= " VALUES ("
@@ -73,7 +73,7 @@
         DT = Nothing
 
     End Sub
-    Sub delete(id)
+    Sub delete(id As Integer)
         SQL = "DELETE FROM appointment WHERE id =" & id
         execute(SQL)
     End Sub
