@@ -78,6 +78,7 @@ Public Class frmFindCustomer
         cust.load(0)
         ctrlCust.loadCust(cust)
         loadData()
+        showCustomer()
     End Sub
 
     Private Sub ctrlAdmin_Edit(sender As Object, e As System.EventArgs) Handles ctrlAdmin.Edit
