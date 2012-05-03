@@ -25,6 +25,11 @@ Partial Class frmAcceptOffer
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.dgvOffers = New System.Windows.Forms.DataGridView()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.lblOfferedPrice = New System.Windows.Forms.Label()
+        Me.lblPropertyPrice = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.btnAccept = New System.Windows.Forms.Button()
         Me.txtPrice = New System.Windows.Forms.TextBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
@@ -33,11 +38,6 @@ Partial Class frmAcceptOffer
         Me.lblOwner = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.lblProperty = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.lblPropertyPrice = New System.Windows.Forms.Label()
-        Me.lblOfferedPrice = New System.Windows.Forms.Label()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -101,6 +101,51 @@ Partial Class frmAcceptOffer
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Accept"
         '
+        'lblOfferedPrice
+        '
+        Me.lblOfferedPrice.AutoSize = True
+        Me.lblOfferedPrice.Location = New System.Drawing.Point(100, 62)
+        Me.lblOfferedPrice.Name = "lblOfferedPrice"
+        Me.lblOfferedPrice.Size = New System.Drawing.Size(13, 13)
+        Me.lblOfferedPrice.TabIndex = 6
+        Me.lblOfferedPrice.Text = "0"
+        '
+        'lblPropertyPrice
+        '
+        Me.lblPropertyPrice.AutoSize = True
+        Me.lblPropertyPrice.Location = New System.Drawing.Point(100, 25)
+        Me.lblPropertyPrice.Name = "lblPropertyPrice"
+        Me.lblPropertyPrice.Size = New System.Drawing.Size(13, 13)
+        Me.lblPropertyPrice.TabIndex = 5
+        Me.lblPropertyPrice.Text = "0"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(6, 99)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(68, 13)
+        Me.Label3.TabIndex = 4
+        Me.Label3.Text = "Agreed Price"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(6, 62)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(68, 13)
+        Me.Label2.TabIndex = 3
+        Me.Label2.Text = "Offered price"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(6, 25)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(72, 13)
+        Me.Label1.TabIndex = 2
+        Me.Label1.Text = "Property price"
+        '
         'btnAccept
         '
         Me.btnAccept.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -115,6 +160,7 @@ Partial Class frmAcceptOffer
         '
         Me.txtPrice.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtPrice.Enabled = False
         Me.txtPrice.Location = New System.Drawing.Point(103, 99)
         Me.txtPrice.Name = "txtPrice"
         Me.txtPrice.Size = New System.Drawing.Size(118, 20)
@@ -182,51 +228,6 @@ Partial Class frmAcceptOffer
         Me.lblProperty.Size = New System.Drawing.Size(76, 13)
         Me.lblProperty.TabIndex = 0
         Me.lblProperty.Text = "None selected"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(6, 25)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(72, 13)
-        Me.Label1.TabIndex = 2
-        Me.Label1.Text = "Property price"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(6, 62)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(68, 13)
-        Me.Label2.TabIndex = 3
-        Me.Label2.Text = "Offered price"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(6, 99)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(68, 13)
-        Me.Label3.TabIndex = 4
-        Me.Label3.Text = "Counter offer"
-        '
-        'lblPropertyPrice
-        '
-        Me.lblPropertyPrice.AutoSize = True
-        Me.lblPropertyPrice.Location = New System.Drawing.Point(100, 25)
-        Me.lblPropertyPrice.Name = "lblPropertyPrice"
-        Me.lblPropertyPrice.Size = New System.Drawing.Size(13, 13)
-        Me.lblPropertyPrice.TabIndex = 5
-        Me.lblPropertyPrice.Text = "0"
-        '
-        'lblOfferedPrice
-        '
-        Me.lblOfferedPrice.AutoSize = True
-        Me.lblOfferedPrice.Location = New System.Drawing.Point(100, 62)
-        Me.lblOfferedPrice.Name = "lblOfferedPrice"
-        Me.lblOfferedPrice.Size = New System.Drawing.Size(13, 13)
-        Me.lblOfferedPrice.TabIndex = 6
-        Me.lblOfferedPrice.Text = "0"
         '
         'frmAcceptOffer
         '

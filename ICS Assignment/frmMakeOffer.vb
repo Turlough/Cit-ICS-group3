@@ -9,17 +9,24 @@ Public Class frmMakeOffer
 
     Private Sub frmMakeOffer_Shown(sender As Object, e As System.EventArgs) Handles Me.Shown
         showDetails()
+
+
     End Sub
     Sub showDetails()
-        If Customer.custid > 0 Then
-            cust.load(Customer.custid)
-            Me.lblCustomer.Text = cust.fullName
-        End If
+
         If Properties.propid > 0 Then
             prop.load(Properties.propid)
+            cust = prop.getRelatedCustomer("Owner")
+            vendor = Customer.custid 'set when showing dialog)
             lblProperty.Text = prop.fullAddress
             txtAmount.Text = prop.price
             lblAskingPrice.Text = prop.price
+            cust.load(buyer) 'reset buyer
+        End If
+        If Customer.custid > 0 Then
+            buyer = Customer.custid
+            cust.load(Customer.custid)
+            Me.lblCustomer.Text = cust.fullName
         End If
         If Customer.custid > 0 And Properties.propid > 0 Then
             gbxOffer.Visible = True
@@ -44,8 +51,8 @@ Public Class frmMakeOffer
 
     Private Sub btnSearchProperty_Click(sender As System.Object, e As System.EventArgs) Handles btnSearchProperty.Click
         frmFindProperties.ShowDialog()
-        vendor = Customer.custid 'set when showing dialog
-        cust.load(buyer) 'reset buyer
+        prop.load(Properties.propid)
+
         showDetails()
     End Sub
 
@@ -62,7 +69,7 @@ Public Class frmMakeOffer
         cust.load(buyer)
         Dim p As Integer = CLng(txtAmount.Text)
         prop.makeOffer(p)
-        notifyOwner()
+        'notifyOwner()
 
         frmRelations.ShowDialog() 'shows customers related to the property, including new propspect
         Me.Close()
