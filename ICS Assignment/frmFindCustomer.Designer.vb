@@ -31,10 +31,9 @@ Partial Class frmFindCustomer
         Me.dgvCustomers = New System.Windows.Forms.DataGridView()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
-        Me.btnSet = New System.Windows.Forms.Button()
-        Me.btnProperties = New System.Windows.Forms.Button()
         Me.ctrlCust = New WindowsApplication1.ctrlCustomer()
         Me.ctrlAdmin = New WindowsApplication1.ctrlAdminButtons()
+        Me.btnSet = New System.Windows.Forms.Button()
         CType(Me.dgvCustomers, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -147,30 +146,9 @@ Partial Class frmFindCustomer
         Me.SplitContainer1.Panel2.Controls.Add(Me.ctrlCust)
         Me.SplitContainer1.Panel2.Controls.Add(Me.ctrlAdmin)
         Me.SplitContainer1.Panel2.Controls.Add(Me.btnSet)
-        Me.SplitContainer1.Panel2.Controls.Add(Me.btnProperties)
         Me.SplitContainer1.Size = New System.Drawing.Size(695, 457)
         Me.SplitContainer1.SplitterDistance = 450
         Me.SplitContainer1.TabIndex = 14
-        '
-        'btnSet
-        '
-        Me.btnSet.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnSet.Location = New System.Drawing.Point(60, 352)
-        Me.btnSet.Name = "btnSet"
-        Me.btnSet.Size = New System.Drawing.Size(178, 23)
-        Me.btnSet.TabIndex = 25
-        Me.btnSet.Text = "Set as Active Customer"
-        Me.btnSet.UseVisualStyleBackColor = True
-        '
-        'btnProperties
-        '
-        Me.btnProperties.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnProperties.Location = New System.Drawing.Point(60, 381)
-        Me.btnProperties.Name = "btnProperties"
-        Me.btnProperties.Size = New System.Drawing.Size(178, 25)
-        Me.btnProperties.TabIndex = 24
-        Me.btnProperties.Text = "Properties"
-        Me.btnProperties.UseVisualStyleBackColor = True
         '
         'ctrlCust
         '
@@ -186,6 +164,16 @@ Partial Class frmFindCustomer
         Me.ctrlAdmin.Name = "ctrlAdmin"
         Me.ctrlAdmin.Size = New System.Drawing.Size(162, 28)
         Me.ctrlAdmin.TabIndex = 27
+        '
+        'btnSet
+        '
+        Me.btnSet.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnSet.Location = New System.Drawing.Point(76, 391)
+        Me.btnSet.Name = "btnSet"
+        Me.btnSet.Size = New System.Drawing.Size(152, 23)
+        Me.btnSet.TabIndex = 25
+        Me.btnSet.Text = "Set as Active Customer"
+        Me.btnSet.UseVisualStyleBackColor = True
         '
         'frmFindCustomer
         '
@@ -214,7 +202,6 @@ Partial Class frmFindCustomer
     Friend WithEvents dgvCustomers As System.Windows.Forms.DataGridView
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents SplitContainer1 As System.Windows.Forms.SplitContainer
-    Friend WithEvents btnProperties As System.Windows.Forms.Button
     Friend WithEvents btnSet As System.Windows.Forms.Button
     Friend WithEvents ctrlAdmin As WindowsApplication1.ctrlAdminButtons
     Friend WithEvents ctrlCust As WindowsApplication1.ctrlCustomer

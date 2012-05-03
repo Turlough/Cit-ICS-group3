@@ -18,7 +18,7 @@
       <Value Profile="(Default)">Server=SQLNCLI10.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=MyTestDB;Data Source=(local);</Value>
     </Setting>
     <Setting Name="sourceFolder" Type="System.String" Scope="User">
-      <Value Profile="(Default)">E:\</Value>
+      <Value Profile="(Default)">c:\Auctioneer\img</Value>
     </Setting>
     <Setting Name="SQLAzureConnection" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;

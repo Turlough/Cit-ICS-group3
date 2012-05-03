@@ -64,15 +64,22 @@ Public Class frmFindProperties
 
         prop.load(Properties.propid)
         CtrlProperty1.loadProp(prop)
-        'get the owner's name quickly, but store original customer
-        Dim cid As Integer = Customer.custid
-        Dim name As String = prop.getRelatedCustomer("Owner").fullName
-        'reset original customer 
-        cust.load(cid)
+        'get the owner's name quickly, then reset original customer
+        If Properties.propid > 0 Then
+            Dim cid As Integer = Customer.custid
+            Dim name As String = prop.getRelatedCustomer("Owner").fullName
+            'reset original customer 
+            cust.load(cid)
+            txtOwner.Text = name
+        Else
+            txtOwner.Text = ""
+            disableEdit()
+        End If
+
 
         'display property details
         With prop
-            txtOwner.Text = name
+
             rtbDescription.Text = .description
             ctrlPropStat.cbxStatus.Text = .status
             txtPrice.Text = .price
@@ -194,6 +201,9 @@ Public Class frmFindProperties
             prop.load(0)
             CtrlProperty1.loadProp(prop)
             CtrlAdminButtons1.Visible = False
+            refreshPropertyList()
+            prop.load(0)
+            fillDetails()
         Else
             MsgBox("Select a property before deleting it!")
         End If
@@ -202,6 +212,7 @@ Public Class frmFindProperties
     Private Sub CtrlAdminButtons1_Edit(sender As Object, e As System.EventArgs) Handles CtrlAdminButtons1.Edit
         enableEdit()
     End Sub
+
 
     Private Sub CtrlAdminButtons1_Save(sender As Object, e As System.EventArgs) Handles CtrlAdminButtons1.Save
         With prop
@@ -233,4 +244,6 @@ Public Class frmFindProperties
     Private Sub txtPrice_Validated(sender As Object, e As System.EventArgs) Handles txtPrice.Validated
         nextStatus()
     End Sub
+
+
 End Class

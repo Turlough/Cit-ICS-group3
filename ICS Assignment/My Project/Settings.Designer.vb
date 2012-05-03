@@ -79,7 +79,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("E:\")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("c:\Auctioneer\img")>  _
         Public Property sourceFolder() As String
             Get
                 Return CType(Me("sourceFolder"),String)

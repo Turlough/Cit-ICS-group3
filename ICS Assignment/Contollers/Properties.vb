@@ -174,6 +174,15 @@
         End Get
     End Property
     Public Sub makeOffer(price As Integer)
+        SQL = "UPDATE custprop SET"
+  
+        SQL &= " relationshiptype = 'Offer Made'"
+        SQL &= String.Format(", price = {0}", price)
+        SQL &= String.Format(" WHERE customerid={0} AND propertyid={1}", custid, propid)
+
+        execute(SQL)
+    End Sub
+    Public Sub insertOffer(price As Integer)
         SQL = "Insert into custprop (customerid,propertyid,relationshiptype,status,price,agent) values ("
         SQL &= custid & ","
         SQL &= propid & ","

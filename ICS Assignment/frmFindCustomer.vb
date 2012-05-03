@@ -12,7 +12,7 @@ Public Class frmFindCustomer
         'hide controls
         disableEdit()
         ctrlAdmin.Visible = False
-        btnProperties.Visible = False
+
     End Sub
     Private Sub frmFindCustomer_Shown(sender As Object, e As System.EventArgs) Handles Me.Shown
 
@@ -44,14 +44,11 @@ Public Class frmFindCustomer
 
     Private Sub showCustomer()
         If Customer.custid > 0 Then
-
             cust.load(Customer.custid)
             ctrlCust.loadCust(cust)
             ctrlAdmin.Visible = True
-            btnProperties.Visible = True
         Else
             ctrlAdmin.Visible = False
-            btnProperties.Visible = False
         End If
         disableEdit()
     End Sub
@@ -64,9 +61,6 @@ Public Class frmFindCustomer
         ctrlCust.disable()
     End Sub
 
-    Private Sub btnProperties_Click(sender As System.Object, e As System.EventArgs) Handles btnProperties.Click
-
-    End Sub
 
     Private Sub btnSet_Click(sender As System.Object, e As System.EventArgs) Handles btnSet.Click
         Me.Close()
