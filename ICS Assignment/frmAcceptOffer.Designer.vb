@@ -65,8 +65,8 @@ Partial Class frmAcceptOffer
         Me.SplitContainer1.Panel2.Controls.Add(Me.GroupBox3)
         Me.SplitContainer1.Panel2.Controls.Add(Me.GroupBox2)
         Me.SplitContainer1.Panel2.Controls.Add(Me.GroupBox1)
-        Me.SplitContainer1.Size = New System.Drawing.Size(636, 455)
-        Me.SplitContainer1.SplitterDistance = 334
+        Me.SplitContainer1.Size = New System.Drawing.Size(882, 458)
+        Me.SplitContainer1.SplitterDistance = 575
         Me.SplitContainer1.TabIndex = 0
         '
         'dgvOffers
@@ -75,12 +75,13 @@ Partial Class frmAcceptOffer
         Me.dgvOffers.AllowUserToDeleteRows = False
         Me.dgvOffers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvOffers.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dgvOffers.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
         Me.dgvOffers.Location = New System.Drawing.Point(0, 0)
         Me.dgvOffers.MultiSelect = False
         Me.dgvOffers.Name = "dgvOffers"
         Me.dgvOffers.RowHeadersVisible = False
         Me.dgvOffers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvOffers.Size = New System.Drawing.Size(334, 455)
+        Me.dgvOffers.Size = New System.Drawing.Size(575, 458)
         Me.dgvOffers.TabIndex = 0
         '
         'GroupBox4
@@ -94,9 +95,9 @@ Partial Class frmAcceptOffer
         Me.GroupBox4.Controls.Add(Me.Label1)
         Me.GroupBox4.Controls.Add(Me.btnAccept)
         Me.GroupBox4.Controls.Add(Me.txtPrice)
-        Me.GroupBox4.Location = New System.Drawing.Point(6, 318)
+        Me.GroupBox4.Location = New System.Drawing.Point(6, 321)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(292, 134)
+        Me.GroupBox4.Size = New System.Drawing.Size(297, 134)
         Me.GroupBox4.TabIndex = 3
         Me.GroupBox4.TabStop = False
         Me.GroupBox4.Text = "Accept"
@@ -149,7 +150,7 @@ Partial Class frmAcceptOffer
         'btnAccept
         '
         Me.btnAccept.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnAccept.Location = New System.Drawing.Point(227, 96)
+        Me.btnAccept.Location = New System.Drawing.Point(232, 96)
         Me.btnAccept.Name = "btnAccept"
         Me.btnAccept.Size = New System.Drawing.Size(53, 23)
         Me.btnAccept.TabIndex = 1
@@ -163,7 +164,7 @@ Partial Class frmAcceptOffer
         Me.txtPrice.Enabled = False
         Me.txtPrice.Location = New System.Drawing.Point(103, 99)
         Me.txtPrice.Name = "txtPrice"
-        Me.txtPrice.Size = New System.Drawing.Size(118, 20)
+        Me.txtPrice.Size = New System.Drawing.Size(123, 20)
         Me.txtPrice.TabIndex = 0
         '
         'GroupBox3
@@ -173,7 +174,7 @@ Partial Class frmAcceptOffer
         Me.GroupBox3.Controls.Add(Me.lblBuyer)
         Me.GroupBox3.Location = New System.Drawing.Point(3, 167)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(292, 48)
+        Me.GroupBox3.Size = New System.Drawing.Size(297, 48)
         Me.GroupBox3.TabIndex = 2
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Buyer"
@@ -194,7 +195,7 @@ Partial Class frmAcceptOffer
         Me.GroupBox2.Controls.Add(Me.lblOwner)
         Me.GroupBox2.Location = New System.Drawing.Point(3, 115)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(292, 46)
+        Me.GroupBox2.Size = New System.Drawing.Size(297, 46)
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Owner"
@@ -215,7 +216,7 @@ Partial Class frmAcceptOffer
         Me.GroupBox1.Controls.Add(Me.lblProperty)
         Me.GroupBox1.Location = New System.Drawing.Point(3, 13)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(292, 96)
+        Me.GroupBox1.Size = New System.Drawing.Size(297, 96)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Property"
@@ -233,7 +234,7 @@ Partial Class frmAcceptOffer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(636, 455)
+        Me.ClientSize = New System.Drawing.Size(882, 458)
         Me.Controls.Add(Me.SplitContainer1)
         Me.Name = "frmAcceptOffer"
         Me.Text = "Accept an offer"

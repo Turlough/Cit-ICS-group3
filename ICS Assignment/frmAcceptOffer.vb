@@ -10,6 +10,8 @@
 
     Private Sub frmAcceptOffer_Shown(sender As Object, e As System.EventArgs) Handles Me.Shown
         showBuyers()
+        'show nothing until row clicked
+        hideDetails()
     End Sub
     Sub showBuyers()
         With dgvOffers
@@ -22,6 +24,9 @@
     End Sub
 
     Private Sub dgvOffers_CellClick(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvOffers.CellClick
+
+        If e.RowIndex < 0 Then Exit Sub 'column clicked for sorting, ignore
+
         With dgvOffers
             'get buyer
             buyerId = .Rows(e.RowIndex).Cells(0).Value
@@ -41,6 +46,7 @@
             cust.load(vendorId)
 
             showDetails()
+            btnAccept.Enabled = True
 
         End With
     End Sub
@@ -57,11 +63,27 @@
         lblPropertyPrice.Text = prop.price
 
     End Sub
+    Sub hideDetails()
+        lblBuyer.Text = "None Selected"
+        lblOwner.Text = "None Selected"
+        lblProperty.Text = "None Selected"
+        txtPrice.Text = ""
+        lblOfferedPrice.Text = ""
+        lblPropertyPrice.Text = ""
+
+        btnAccept.Enabled = False
+
+    End Sub
 
     Private Sub btnAccept_Click(sender As System.Object, e As System.EventArgs) Handles btnAccept.Click
-
+        price = 0
         If val.numeric(txtPrice.Text) Then
             price = CInt(txtPrice.Text)
+        Else
+            MsgBox("The price must be a number!")
+            Exit Sub
+        End If
+        If price > 0 Then
             'update property
             prop.price = price
             prop.status = "Off Market"
@@ -69,8 +91,10 @@
 
             'update buyer relationship
             cp.setRelation(buyerId, Properties.propid, "Owner")
-            'delete owner relationship
+            'delete previous owner relationship
             cp.delete(Properties.propid, vendorId)
+            'delete history (offers, prospective buyers, etc. All but current owner)
+            cp.clearHistory(Properties.propid)
 
             Me.Close()
         Else

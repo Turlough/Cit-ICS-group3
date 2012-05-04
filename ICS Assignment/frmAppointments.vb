@@ -5,12 +5,15 @@ Public Class frmAppointments
     Dim app As New Appointment
     Dim cust As New Customer
     Dim prop As New Properties
+    Dim ownerId As Integer
+    Dim curId As Integer
     Dim cp As New CustProp
     Dim DT As New DataTable
     Private Sub frmCalendar_Shown(sender As Object, e As System.EventArgs) Handles Me.Shown
         'setup form & controls
         setDefaults()
         app.chosenDate = Now()
+
         fillTimes()
         ctrlAdmin.Visible = False
 
@@ -18,6 +21,7 @@ Public Class frmAppointments
 
     Sub setDefaults()
         'display cust and prop details
+        curId = Customer.custid
         If Customer.custid > 0 Then
             cust.load(Customer.custid)
             txtName.Text = cust.fullName
@@ -27,8 +31,14 @@ Public Class frmAppointments
 
         If Properties.propid > 0 Then
             prop.load(Properties.propid)
+            cust = prop.getRelatedCustomer("Owner")
+            ownerId = Customer.custid
+            'reset original customer
+
             txtPlace.Text = prop.fullAddress
+            cust.load(curId)
         Else
+            ownerId = 0
             txtPlace.Text = ""
         End If
 
@@ -38,6 +48,13 @@ Public Class frmAppointments
             Times.Enabled = True
 
             'Build default appointment notes
+            If curId = ownerId And Not curId = 0 Then
+                CustProp.relationType = "Owner"
+            Else
+                'set a default
+                If CustProp.relationType = "" Then CustProp.relationType = "Prospective Buyer"
+            End If
+
             Dim rt As String, s As New System.Text.StringBuilder
             Select Case CustProp.relationType
                 Case "Owner"
@@ -97,34 +114,13 @@ Public Class frmAppointments
                 txtStart.Text = app.start & ":00"
                 txtFinish.Text = app.finish & ":00"
             Else
-                'create commands
-                ctrlAdmin.eSql = eSql
-                ctrlAdmin.dSql = dSql
+
                 'display
                 ctrlAdmin.Visible = True
                 btnAdd.Visible = False
             End If
         End With
     End Sub
-    Private ReadOnly Property dSql As String
-        Get
-            Dim id As Integer = Times.SelectedRows(0).Cells("id").Value
-            Return String.Format("Delete from appointment where id = {0}", id)
-        End Get
-    End Property
-    Private ReadOnly Property eSql As String
-        Get
-            Dim id As Integer = Times.SelectedRows(0).Cells("id").Value
-            'app.load(id)
-            Dim s As String
-            s = "update appointment set"
-            s &= " custid = " & Customer.custid
-            s &= ", propid =" & Properties.propid
-            s &= String.Format(", notes ='{0}'", txtNotes.Text)
-            s &= " WHERE id = " & id
-            Return s
-        End Get
-    End Property
 
     Private Sub fillTimes()
         'Times.DataSource = app.showAppointments()
@@ -149,6 +145,7 @@ Public Class frmAppointments
 
 
     Private Sub btnAdd_Click(sender As System.Object, e As System.EventArgs) Handles btnAdd.Click
+        cp.setRelation(Customer.custid, Properties.propid, CustProp.relationType)
         app.notes = txtNotes.Text
         app.insert()
 

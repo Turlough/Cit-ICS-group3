@@ -29,11 +29,13 @@ Partial Class frmRelations
         '
         'txtAddress
         '
+        Me.txtAddress.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtAddress.Enabled = False
         Me.txtAddress.Location = New System.Drawing.Point(2, 9)
         Me.txtAddress.Multiline = True
         Me.txtAddress.Name = "txtAddress"
-        Me.txtAddress.Size = New System.Drawing.Size(282, 70)
+        Me.txtAddress.Size = New System.Drawing.Size(464, 70)
         Me.txtAddress.TabIndex = 0
         '
         'dgvCustomers
@@ -44,17 +46,18 @@ Partial Class frmRelations
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgvCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvCustomers.Enabled = False
         Me.dgvCustomers.Location = New System.Drawing.Point(2, 86)
         Me.dgvCustomers.Name = "dgvCustomers"
         Me.dgvCustomers.RowHeadersVisible = False
-        Me.dgvCustomers.Size = New System.Drawing.Size(282, 177)
+        Me.dgvCustomers.Size = New System.Drawing.Size(466, 220)
         Me.dgvCustomers.TabIndex = 1
         '
         'frmRelations
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(284, 262)
+        Me.ClientSize = New System.Drawing.Size(468, 305)
         Me.Controls.Add(Me.dgvCustomers)
         Me.Controls.Add(Me.txtAddress)
         Me.Name = "frmRelations"

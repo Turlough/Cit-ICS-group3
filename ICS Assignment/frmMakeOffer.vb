@@ -6,6 +6,7 @@ Public Class frmMakeOffer
     Private cp As New CustProp
     Dim buyer As Integer
     Dim vendor As Integer
+    Dim vendorName As String
 
     Private Sub frmMakeOffer_Shown(sender As Object, e As System.EventArgs) Handles Me.Shown
         showDetails()
@@ -13,20 +14,36 @@ Public Class frmMakeOffer
 
     End Sub
     Sub showDetails()
+        buyer = Customer.custid
+        If Customer.custid > 0 Then
+            cust.load(Customer.custid)
+            Me.lblCustomer.Text = cust.fullName
+        Else
+            Me.lblCustomer.Text = ""
+        End If
 
         If Properties.propid > 0 Then
             prop.load(Properties.propid)
+            'get owner details
             cust = prop.getRelatedCustomer("Owner")
-            vendor = Customer.custid 'set when showing dialog)
-            lblProperty.Text = prop.fullAddress
+            vendor = Customer.custid
+            vendorName = cust.fullName
+            'show property details
+            lblProperty.Text = prop.fullAddress & vbCr & vbCr & "Owner: " & vendorName
             txtAmount.Text = prop.price
             lblAskingPrice.Text = prop.price
+            'reload the buyer
             cust.load(buyer) 'reset buyer
         End If
-        If Customer.custid > 0 Then
-            buyer = Customer.custid
+
+        'The owner cannot buy his own property!
+        If buyer = vendor And Not buyer = 0 Then
+            MsgBox(String.Format("The owner ({0}) is the active customer, and cannot buy this property!", vendorName))
+            'select another customer
+            frmFindCustomer.ShowDialog()
             cust.load(Customer.custid)
-            Me.lblCustomer.Text = cust.fullName
+            'recursively call this function
+            showDetails()
         End If
         If Customer.custid > 0 And Properties.propid > 0 Then
             gbxOffer.Visible = True

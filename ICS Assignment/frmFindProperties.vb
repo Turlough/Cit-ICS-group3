@@ -184,8 +184,8 @@ Public Class frmFindProperties
         frmAddCustomer.ShowDialog()
         cust.load(Customer.custid)
         CustProp.relationType = relationType
-        Dim cp As New CustProp
-        cp.link("Active") 'creates database record of link
+        'Dim cp As New CustProp
+        'cp.link("Active") 'creates database record of link
     End Sub
     Private Sub btnOthers_Click(sender As System.Object, e As System.EventArgs) Handles btnOthers.Click
         frmRelations.ShowDialog()

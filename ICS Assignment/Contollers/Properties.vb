@@ -160,10 +160,10 @@
         update(SQL)
     End Sub
     Function getCustomers() As DataTable
-        SQL = "Select customer.id,relationshiptype,fname,lname from "
-        SQL &= " (customer inner join custprop on customer.id = custprop.customerid)"
-        SQL &= " inner join property on custprop.propertyid=property.id"
-        SQL &= " where custprop.propertyid = " & propid
+        SQL = "Select c.id,relationshiptype,fname,lname,cp.price from "
+        SQL &= " (customer c inner join custprop cp on c.id = cp.customerid)"
+        SQL &= " inner join property p on cp.propertyid=p.id"
+        SQL &= " where cp.propertyid = " & propid
 
         Return getData(SQL)
 
@@ -174,11 +174,18 @@
         End Get
     End Property
     Public Sub makeOffer(price As Integer)
-        SQL = "UPDATE custprop SET"
-  
+        'TODO- stored procedure instead
+        SQL = String.Format("IF EXISTS (SELECT 1 FROM custprop WHERE customerid= {0} AND propertyid= {1})", custid, propid)
+        'if exists, update it
+        SQL &= " UPDATE custprop SET"
         SQL &= " relationshiptype = 'Offer Made'"
         SQL &= String.Format(", price = {0}", price)
         SQL &= String.Format(" WHERE customerid={0} AND propertyid={1}", custid, propid)
+        'Otherwise, insert it
+        SQL &= " ELSE"
+        SQL &= " INSERT INTO custprop (customerid,propertyid,relationshiptype,status,price,agent)"
+        SQL &= String.Format(" VALUES ({0},{1},'Offer Made', 'Active', {2},'{3}')", custid, propid, price, wrap(agent))
+
 
         execute(SQL)
     End Sub
