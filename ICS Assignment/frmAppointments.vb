@@ -48,13 +48,6 @@ Public Class frmAppointments
             Times.Enabled = True
 
             'Build default appointment notes
-            If curId = ownerId And Not curId = 0 Then
-                CustProp.relationType = "Owner"
-            Else
-                'set a default
-                If CustProp.relationType = "" Then CustProp.relationType = "Prospective Buyer"
-            End If
-
             Dim rt As String, s As New System.Text.StringBuilder
             Select Case CustProp.relationType
                 Case "Owner"
@@ -157,6 +150,14 @@ Public Class frmAppointments
 
     Private Sub btnSearchCust_Click(sender As System.Object, e As System.EventArgs) Handles btnSearchCust.Click
         frmFindCustomer.ShowDialog()
+        curId = Customer.custid
+        'establish relation
+        If curId = ownerId And Not curId = 0 Then
+            CustProp.relationType = "Owner"
+        Else
+            'set a default
+            CustProp.relationType = "Prospective Buyer"
+        End If
         setDefaults()
     End Sub
 

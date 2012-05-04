@@ -52,7 +52,7 @@
     End Sub
 
     Private Sub txtAdd2_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles txtAdd2.Validating
-        If v.notEmpty(txtAdd2.Text) And Not v.isName(txtAdd2.Text) Then
+        If v.notEmpty(txtAdd2.Text) And Not v.isAddress(txtAdd2.Text) Then
             e.Cancel = True
             txtAdd2.Select(0, txtAdd2.Text.Length)
             ep.SetError(txtAdd2, v.message)
