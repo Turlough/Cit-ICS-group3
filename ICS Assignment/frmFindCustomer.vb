@@ -15,7 +15,7 @@ Public Class frmFindCustomer
 
     End Sub
     Private Sub frmFindCustomer_Shown(sender As Object, e As System.EventArgs) Handles Me.Shown
-
+        ctrlAdmin.reset() ' show edit not save
     End Sub
     Private Sub btnFind_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFind.Click
         loadData()
@@ -40,6 +40,7 @@ Public Class frmFindCustomer
                 showCustomer()
             End If
         End With
+
     End Sub
 
     Private Sub showCustomer()
@@ -59,6 +60,7 @@ Public Class frmFindCustomer
 
     Sub disableEdit()
         ctrlCust.disable()
+        ctrlAdmin.reset() ' show edit not save
     End Sub
 
 

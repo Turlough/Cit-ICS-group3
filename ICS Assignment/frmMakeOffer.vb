@@ -96,4 +96,31 @@ Public Class frmMakeOffer
         Dim m As New Mailer
         'TODO complete notifyOwner
     End Sub
+
+    Private Sub txtAmount_Validated(sender As Object, e As System.EventArgs) Handles txtAmount.Validated
+        ep.SetError(txtAmount, "")
+    End Sub
+
+    Private Sub txtAmount_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles txtAmount.Validating
+        Dim v As New Validator, p As String = txtAmount.Text
+
+        If Not v.numeric(p) Then 'must be numeric
+            e.Cancel = True
+            txtAmount.Select(0, txtAmount.Text.Length)
+            ep.SetError(txtAmount, v.message)
+            Exit Sub
+        End If
+        If p.Length > 10 Then 'overflows on ten digits
+            e.Cancel = True
+            txtAmount.Select(0, txtAmount.Text.Length)
+            ep.SetError(txtAmount, "Ten digits maximum")
+            Exit Sub
+        End If
+        If CLng(p) < 1 Then 'minimum price
+            e.Cancel = True
+            txtAmount.Select(0, txtAmount.Text.Length)
+            ep.SetError(txtAmount, "Minimum offer of one euro")
+        End If
+
+    End Sub
 End Class

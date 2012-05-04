@@ -22,6 +22,7 @@ Partial Class frmFindProperties
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.btnLocateProperty = New System.Windows.Forms.Button()
         Me.cmbStatus = New System.Windows.Forms.ComboBox()
@@ -56,6 +57,7 @@ Partial Class frmFindProperties
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.pbxPhoto = New System.Windows.Forms.PictureBox()
+        Me.ep = New System.Windows.Forms.ErrorProvider(Me.components)
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -67,6 +69,7 @@ Partial Class frmFindProperties
         Me.Panel1.SuspendLayout()
         CType(Me.dgvProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbxPhoto, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ep, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'SplitContainer1
@@ -428,6 +431,10 @@ Partial Class frmFindProperties
         Me.pbxPhoto.TabIndex = 23
         Me.pbxPhoto.TabStop = False
         '
+        'ep
+        '
+        Me.ep.ContainerControl = Me
+        '
         'frmFindProperties
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -450,6 +457,7 @@ Partial Class frmFindProperties
         Me.Panel1.ResumeLayout(False)
         CType(Me.dgvProperties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pbxPhoto, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ep, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -487,4 +495,5 @@ Partial Class frmFindProperties
     Friend WithEvents CtrlProperty1 As WindowsApplication1.ctrlProperty
     Friend WithEvents CtrlAdminButtons1 As WindowsApplication1.ctrlAdminButtons
     Friend WithEvents ctrlPropStat As WindowsApplication1.crtlPropStatus
+    Friend WithEvents ep As System.Windows.Forms.ErrorProvider
 End Class

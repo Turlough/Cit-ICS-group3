@@ -19,6 +19,7 @@ Public Class frmFindProperties
 
     Private Sub frmFindProperties_Shown(sender As Object, e As System.EventArgs) Handles Me.Shown
         refreshPropertyList()
+        CtrlAdminButtons1.reset() ' show edit not save
     End Sub
 
     Private Sub cmbStatus_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles cmbStatus.SelectedIndexChanged
@@ -135,13 +136,14 @@ Public Class frmFindProperties
     Sub disableEdit()
         CtrlProperty1.disable()
 
-
         'disable textboxes
         txtPrice.ReadOnly = True
         ctrlPropStat.Enabled = False
         rtbDescription.ReadOnly = True
         pbxPhoto.Enabled = False
         rtbDescription.Enabled = False
+
+        CtrlAdminButtons1.reset() ' show edit not save
 
     End Sub
 
@@ -242,8 +244,32 @@ Public Class frmFindProperties
 
 
     Private Sub txtPrice_Validated(sender As Object, e As System.EventArgs) Handles txtPrice.Validated
+        ep.SetError(txtPrice, "")
         nextStatus()
     End Sub
 
 
+    Private Sub txtPrice_Validating(sender As Object, e As System.ComponentModel.CancelEventArgs) Handles txtPrice.Validating
+
+        Dim v As New Validator, p As String = txtPrice.Text
+        If v.notEmpty(p) And Not p = "0" Then 'zero or empty is ok
+            If Not v.numeric(p) Then 'must be numeric
+                e.Cancel = True
+                txtPrice.Select(0, txtPrice.Text.Length)
+                ep.SetError(txtPrice, v.message)
+                Exit Sub
+            End If
+            If p.Length > 10 Then 'overflows on ten digits
+                e.Cancel = True
+                txtPrice.Select(0, txtPrice.Text.Length)
+                ep.SetError(txtPrice, "Ten digits maximum")
+            End If
+            If CLng(p) < 1 Then 'minimum price
+                e.Cancel = True
+                txtPrice.Select(0, txtPrice.Text.Length)
+                ep.SetError(txtPrice, "Minimum price of one euro")
+            End If
+        End If
+        nextStatus() 'for sale or valuation pending
+    End Sub
 End Class

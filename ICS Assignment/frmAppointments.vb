@@ -16,10 +16,12 @@ Public Class frmAppointments
 
         fillTimes()
         ctrlAdmin.Visible = False
+        ctrlAdmin.reset() 'always disable edit, even though hidden
 
     End Sub
 
     Sub setDefaults()
+
         'display cust and prop details
         curId = Customer.custid
         If Customer.custid > 0 Then
@@ -46,6 +48,7 @@ Public Class frmAppointments
             'enable add appointment
             btnAdd.Enabled = True
             Times.Enabled = True
+
 
             'Build default appointment notes
             Dim rt As String, s As New System.Text.StringBuilder
@@ -89,7 +92,6 @@ Public Class frmAppointments
         With Times.Rows(e.RowIndex)
             'evaluate edit or add mode (timeslot is active or inactive)
             If .Cells("finish").Value Is Nothing Then
-
                 'show/hide buttons
                 ctrlAdmin.Visible = False
                 btnAdd.Visible = True
@@ -107,11 +109,13 @@ Public Class frmAppointments
                 txtStart.Text = app.start & ":00"
                 txtFinish.Text = app.finish & ":00"
             Else
-
                 'display
                 ctrlAdmin.Visible = True
                 btnAdd.Visible = False
             End If
+
+            ctrlAdmin.reset() 'show edit not save, whether visible or not
+
         End With
     End Sub
 
@@ -192,6 +196,7 @@ Public Class frmAppointments
             MsgBox("You must select a non empty timeslot")
         End If
         ctrlAdmin.Visible = False
+        ctrlAdmin.reset() 'show edit not save, whether visible or not
         btnAdd.Enabled = True
 
     End Sub

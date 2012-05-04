@@ -18,9 +18,15 @@
         If btnEdit.Text = "Edit" Then
             RaiseEvent Edit(Me, New EventArgs)
             btnEdit.Text = "Save"
+            btnDelete.Visible = False
         Else
             RaiseEvent Save(Me, New EventArgs)
-            btnEdit.Text = "Edit"
+            reset()
         End If
+    End Sub
+    'Handy little function to cover unsaved changes
+    Public Sub reset()
+        btnEdit.Text = "Edit"
+        btnDelete.Visible = True
     End Sub
 End Class

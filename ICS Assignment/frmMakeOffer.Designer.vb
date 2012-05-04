@@ -22,6 +22,7 @@ Partial Class frmMakeOffer
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.btnAddCustomer = New System.Windows.Forms.Button()
         Me.btnSearchCustomer = New System.Windows.Forms.Button()
@@ -35,9 +36,11 @@ Partial Class frmMakeOffer
         Me.gbxOffer = New System.Windows.Forms.GroupBox()
         Me.lblAskingPrice = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.ep = New System.Windows.Forms.ErrorProvider(Me.components)
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.gbxOffer.SuspendLayout()
+        CType(Me.ep, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -178,6 +181,10 @@ Partial Class frmMakeOffer
         Me.Label2.TabIndex = 6
         Me.Label2.Text = "Asking price:"
         '
+        'ep
+        '
+        Me.ep.ContainerControl = Me
+        '
         'frmMakeOffer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -199,6 +206,7 @@ Partial Class frmMakeOffer
         Me.GroupBox2.PerformLayout()
         Me.gbxOffer.ResumeLayout(False)
         Me.gbxOffer.PerformLayout()
+        CType(Me.ep, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -215,5 +223,6 @@ Partial Class frmMakeOffer
     Friend WithEvents gbxOffer As System.Windows.Forms.GroupBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents lblAskingPrice As System.Windows.Forms.Label
+    Friend WithEvents ep As System.Windows.Forms.ErrorProvider
 
 End Class
