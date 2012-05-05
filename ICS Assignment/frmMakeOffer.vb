@@ -69,7 +69,18 @@ Public Class frmMakeOffer
     Private Sub btnSearchProperty_Click(sender As System.Object, e As System.EventArgs) Handles btnSearchProperty.Click
         frmFindProperties.ShowDialog()
         prop.load(Properties.propid)
-
+        'Ensure its for sale
+        While Not prop.status = "For Sale"
+            Dim msg As String = String.Format("This property is not for sale. Its status is '{0}'", prop.status)
+            'permit exit on cancel (eg there are no properties for sale)
+            If MsgBox(msg, MsgBoxStyle.RetryCancel) = vbCancel Then
+                Exit Sub
+            Else
+                'repeat search until valid property selected
+                frmFindProperties.ShowDialog()
+                prop.load(Properties.propid)
+            End If
+        End While
         showDetails()
     End Sub
 
