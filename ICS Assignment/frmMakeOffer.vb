@@ -34,6 +34,11 @@ Public Class frmMakeOffer
             lblAskingPrice.Text = prop.price
             'reload the buyer
             cust.load(buyer) 'reset buyer
+        Else
+            'clear property details
+            lblProperty.Text = ""
+            txtAmount.Text = ""
+            lblAskingPrice.Text = ""
         End If
 
         'The owner cannot buy his own property!
@@ -69,11 +74,13 @@ Public Class frmMakeOffer
     Private Sub btnSearchProperty_Click(sender As System.Object, e As System.EventArgs) Handles btnSearchProperty.Click
         frmFindProperties.ShowDialog()
         prop.load(Properties.propid)
-        'Ensure its for sale
+        'Ensure its for sale (you don't make offers on rentals)
         While Not prop.status = "For Sale"
             Dim msg As String = String.Format("This property is not for sale. Its status is '{0}'", prop.status)
             'permit exit on cancel (eg there are no properties for sale)
             If MsgBox(msg, MsgBoxStyle.RetryCancel) = vbCancel Then
+                prop.load(0)
+                showDetails()
                 Exit Sub
             Else
                 'repeat search until valid property selected
