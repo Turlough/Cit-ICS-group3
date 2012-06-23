@@ -1,0 +1,6 @@
+This is the code for a college team-based project, 'Auctioneer'.
+It is a Visual Studio desktop application that connects to
+a SQL server database on Azure.
+
+The application provides CRUD functions for Customers, Properties, and Appointments
+and provides a simple workflow for acquiring and selling properties.
